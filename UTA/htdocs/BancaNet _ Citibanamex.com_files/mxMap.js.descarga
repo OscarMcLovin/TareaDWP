@@ -1,0 +1,371 @@
+latamMexMap = (function(window, $) {  
+    var Service = "Sucursal";
+    mapHolder = "";
+    callBackFunction = "",
+    imageList = {
+        "300" : {           /* ATM Image */
+            url: '/apps/commonUI/lib/images/sprites_Geo.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(20, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(50, 250),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+        },
+        "100" : {  /* Branch Image */
+            url: '/apps/commonUI/lib/images/sprites_Geo.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(20, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(145, 250),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+        },
+        "1" : {  /* Branch Image */
+            url: '/apps/commonUI/lib/images/sprites_Geo.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(20, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(172, 250),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+        },
+        
+     } ,
+     servicesList = {
+            "ATM":300,
+            "Sucursal":100
+    },
+    serviceLocation = "",
+    map = "";
+    bounds = "";
+    
+     /* Get Service Location List */
+    function getServiceLocation(map){
+        var bounds = map.getBounds();
+        var ne = bounds.getNorthEast();
+        var sw = bounds.getSouthWest();
+        var LatESI = ne.lat(); 
+        var LngESI = sw.lng();
+        var LatEID = sw.lat();
+        var LngEID = ne.lng();
+        
+        var dataInv = {
+            "site": "5",
+            "entity": "bnmx_sucursales_summary",
+            "options": "tipo.numero=300,estatus=1",
+            "quadrant": LatESI + " " + LngESI + " " + LatEID + " " + LngEID,
+            "single": "true"
+        }
+
+        $.ajax({
+            type: "POST", 
+            dataType:"json",
+            contentType:"text/plain",
+            data: JSON.stringify(dataInv),
+            url: "https://proyectos.citibanamex.com/framework/geo",
+            success : function(data){
+	            serviceLocation = data;
+	            data = serviceLocation;
+	            displayList = [];
+	            
+	            $.each(data.data, function(indx,val){
+	                displayList.push(data.data[indx]);
+	            });
+	
+	            $.each(displayList, function(index, value) {
+	                    //build the marker
+	                    myCenter = new google.maps.LatLng(value.latitud, value.longitud);
+	                    marker = new google.maps.Marker({
+	                        position: myCenter,
+	                        map: map,
+	                        setMap: map,
+	                        icon: imageList[value[1]]
+	                    });
+	                    google.maps.event.addListener(marker, 'click', (function(marker, index) {
+	                        return function() {
+	                            /* Removing Error from Map */
+	                            $("#"+mapHolder).parent(".cbolui-form-fieldset").removeClass("validation-vertical-line-danger")
+	                            $("#"+mapHolder+"-error-text").remove();
+	                            getMarkerDetails(displayList[index]);                           
+	                          //infowindow.setContent(ATMList[index]);
+	                          //infowindow.open(map, marker);
+	                        }
+	                    })(marker, index));
+	                });
+            }
+         });
+    }
+
+    function getMarkerDetails(listElement){
+        markerDetails = {};
+        var dataInv = {
+            "site": "5",
+            "entity": "bnmx_sucursales_summary",
+            "operation": "getEntitiesByOptions",
+            "options": "numero EQUALS " +listElement.numero,
+            "part": "servicios.tipo.numero,servicios.idGerencia,nombre,direccion,dirComplemento"
+        }
+
+        $.ajax({type: "POST", dataType:"json",contentType:"text/plain",
+            data: JSON.stringify(dataInv),
+            url: "https://proyectos.citibanamex.com/framework/query",
+            success : function(data){
+               markerDetails = data;
+               data = markerDetails;
+               callBackFunction(data.data[0], listElement.numero); 
+            }
+        });                                            
+    }
+
+    function errorGeolocation() {
+        var pos = {
+            "coords": {
+                "latitude": "19.41867799583191",
+                "longitude": "-99.12483215332031",
+                "marker": 0
+                
+            }
+        };
+       successGeoLocation(pos);
+    };  
+    function successGeoLocation(pos){
+        var myCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        var mapOptions = {
+            zoomControl: true,
+            streetViewControl: false,
+            myLocation: true,
+            zoomControl: false,
+            mapTypeControl: false,
+            center: myCenter,
+            zoom: 16
+        };
+        map = new google.maps.Map(document.getElementById(mapHolder), mapOptions)
+        google.maps.event.addListener(map, 'idle', function() {    
+            getServiceLocation(map);
+        });                                                                  
+        var infowindow = new google.maps.InfoWindow();
+        var marker;
+        var isCallSuccess = false;
+        marker = new google.maps.Marker({
+                    position: myCenter,
+                    map: map,
+                    setMap: map,
+                    icon: imageList['1']
+                });
+        setActionButtons(map);
+    }
+    function setActionButtons(map){
+        //configuring button ZoomOut
+        var controlDiv = document.createElement('div');
+        var zoomoutchildreone = document.createElement('button');
+        zoomoutchildreone.style.backgroundColor = '#fff';
+        zoomoutchildreone.style.border = 'none';
+        zoomoutchildreone.style.outline = 'none';
+        zoomoutchildreone.style.width = '28px';
+        zoomoutchildreone.style.height = '28px';
+        zoomoutchildreone.style.borderRadius = '2px';
+        zoomoutchildreone.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+        zoomoutchildreone.style.cursor = 'pointer';
+        zoomoutchildreone.style.marginRight = '10px';
+        zoomoutchildreone.style.padding = '0';
+        zoomoutchildreone.type = 'button';
+        zoomoutchildreone.style.userselect = 'none';
+        zoomoutchildreone.onmouseout = function(){zoomoutchildreone.style.backgroundColor = '#fff'};
+        controlDiv.appendChild(zoomoutchildreone);
+        var zoomoutchildretwo = document.createElement('div');
+        zoomoutchildretwo.style.margin = '5px';
+        zoomoutchildretwo.style.width = '18px';
+        zoomoutchildretwo.style.height = '18px';
+        zoomoutchildretwo.style.backgroundImage = 'url(/apps/commonUI/lib/images/sprites_Geo.png)';
+        zoomoutchildretwo.style.backgroundPosition = '-22px -211px';
+        zoomoutchildretwo.style.backgroundRepeat = 'no-repeat';
+        zoomoutchildreone.appendChild(zoomoutchildretwo);
+        zoomoutchildreone.addEventListener('click', function() {
+            var zoom = map.getZoom();
+            zoom = zoom - 1;
+            map.setZoom(zoom);
+
+        });
+        $(zoomoutchildreone).mouseover(function() {
+
+            zoomoutchildretwo.style['background-position'] = '-22px -91px';
+        });
+        $(zoomoutchildreone).mouseout(function() {
+            zoomoutchildretwo.style['background-position'] = '-22px -211px';
+        });
+        $(zoomoutchildreone).mousedown(function() {
+            zoomoutchildretwo.style['background-position'] = '-72px -190px';
+            zoomoutchildreone.style.backgroundColor = 'blue';
+        });
+        $(zoomoutchildreone).mouseup(function() {
+            zoomoutchildreone.style.backgroundColor = '#fff';
+            zoomoutchildretwo.style['background-position'] = '-22px -211px';
+        });
+        controlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+
+        //configuring button ZoomIn
+        var controlDivitionDiviton = document.createElement('div');
+        var zoominchildreone = document.createElement('button');
+        zoominchildreone.style.backgroundColor = '#fff';
+        zoominchildreone.style.border = 'none';
+        zoominchildreone.style.outline = 'none';
+        zoominchildreone.style.width = '28px';
+        zoominchildreone.style.height = '28px';
+        zoominchildreone.style.borderRadius = '2px';
+        zoominchildreone.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+        zoominchildreone.style.cursor = 'pointer';
+        zoominchildreone.style.marginRight = '10px';
+        zoominchildreone.style.marginBottom = '1px';
+        zoominchildreone.style.padding = '0';
+        zoominchildreone.type = 'button';
+        zoominchildreone.onmouseout = function(){zoominchildreone.style.backgroundColor = '#fff'};
+        controlDivitionDiviton.appendChild(zoominchildreone);
+        var zoominchildretwo = document.createElement('div');
+        zoominchildretwo.style.margin = '5px';
+        zoominchildretwo.style.width = '18px';
+        zoominchildretwo.style.height = '18px';
+        zoominchildretwo.style.backgroundImage = 'url(/apps/commonUI/lib/images/sprites_Geo.png)';
+        zoominchildretwo.style.backgroundPosition = '-2px -211px';
+        zoominchildretwo.style.backgroundRepeat = 'no-repeat';
+        zoominchildreone.appendChild(zoominchildretwo);
+        zoominchildreone.addEventListener('click', function() {
+            var zoom = map.getZoom();
+            zoom = zoom + 1;
+            map.setZoom(zoom);
+        });
+        $(zoominchildreone).mouseover(function() {
+            zoominchildretwo.style['background-position'] = '-2px -91px';
+        });
+        $(zoominchildreone).mouseout(function() {
+            zoominchildretwo.style['background-position'] = '-2px -211px';
+        });
+        $(zoominchildreone).mousedown(function() {
+            zoominchildretwo.style['background-position'] = '-52px -190px';
+            zoominchildreone.style.backgroundColor = 'blue';
+        });
+        $(zoominchildreone).mouseup(function() {
+            zoominchildreone.style.backgroundColor = '#fff';
+            zoominchildretwo.style['background-position'] = '-2px -211px';
+        });
+        controlDivitionDiviton.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDivitionDiviton);
+        //configuring button MyLocation
+        var controlDivition = document.createElement('div');
+        var mylocationchildrenone = document.createElement('button');
+        mylocationchildrenone.style.backgroundColor = '#fff';
+        mylocationchildrenone.style.border = 'none';
+        mylocationchildrenone.style.outline = 'none';
+        mylocationchildrenone.style.width = '28px';
+        mylocationchildrenone.style.height = '28px';
+        mylocationchildrenone.style.borderRadius = '2px';
+        mylocationchildrenone.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+        mylocationchildrenone.style.cursor = 'pointer';
+        mylocationchildrenone.style.marginRight = '10px';
+        mylocationchildrenone.style.padding = '0';
+        mylocationchildrenone.style.marginBottom = '5px';
+        mylocationchildrenone.type = 'button';
+       
+        controlDivition.appendChild(mylocationchildrenone);
+        mylocationchildrenone.onmouseout = function(){mylocationchildrenone.style.backgroundColor = '#fff'};
+        
+        var mylocationchildrentwo = document.createElement('div');
+        mylocationchildrentwo.style.margin = '5px';
+        mylocationchildrentwo.style.width = '18px';
+        mylocationchildrentwo.style.height = '18px';
+        mylocationchildrentwo.style.backgroundImage = 'url(/apps/commonUI/lib/images/sprites_Geo.png)';
+        mylocationchildrentwo.style.backgroundPosition = '-77px -211px';
+        mylocationchildrentwo.style.backgroundRepeat = 'no-repeat';
+        mylocationchildrenone.appendChild(mylocationchildrentwo);
+        $(mylocationchildrenone).mouseover(function() {
+            mylocationchildrentwo.style['background-position'] = '-77px -91px';
+        });
+        $(mylocationchildrenone).mouseout(function() {
+            mylocationchildrentwo.style['background-position'] = '-77px -211px';
+        });
+        $(mylocationchildrenone).mousedown(function() {
+            mylocationchildrentwo.style['background-position'] = '-127px -190px';
+            mylocationchildrenone.style.backgroundColor = 'blue';
+        });
+        $(mylocationchildrenone).mouseup(function() {
+            mylocationchildrenone.style.backgroundColor = '#fff';
+            mylocationchildrentwo.style['background-position'] = '-77px -211px';
+        });
+
+        mylocationchildrenone.addEventListener('click', function() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+               var latlngasdfasdf = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+               map.setCenter(latlngasdfasdf);
+               map.setZoom(16);
+               mylocationchildrentwo.style['background-position'] = '-77px -211px';
+            });
+        });
+        controlDivition.index = 1;
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDivition);
+    }
+
+    function actualLatLon(position) {
+        var latitude = position.coords.latitude;
+        //console.log(latitude);
+        var longitude = position.coords.longitude;
+        //console.log(longitude);
+        
+		var queryParam = {
+				"latitude" : latitude,
+				"longitude" : longitude
+			};
+	        $.ajax({ 
+				url : "/MXGCB/REST/changegeolocuser/sendGeoUser.jws" ,
+				type: "POST",
+				dataType: "json", 
+				data : queryParam,
+				async: false,
+				success : function(data) {
+				},
+				error: function(error) {
+					if(error.status==500){
+                        document.location.href = "/MXGCB/apps/changegeolocuser/flow.action"
+                    }
+				}	
+			});     
+    }
+
+    return {
+        /* @geolocate
+           **To get the latitude and longitude
+        */
+        geolocate: function() {
+            navigator.geolocation.getCurrentPosition(actualLatLon);
+        },
+        /* @initialize
+           ** options @object - options are sent from application to update the imageList
+           ** ServiceList @array - can have ATM or BRANCH or BOTH
+        */
+        initialize: function(domId,ServiceList,callBackMethod,locationRetrieveFails,options){
+            //if it is greater than 1 - we have access to both ATM and BrBRANCHanches
+            if(ServiceList.length > 1) {
+                Service = ServiceList
+            }else{
+            //we have access to ATM or BRANCH
+                Service = servicesList[ServiceList];
+            }
+            if(typeof(options) != "undefined"){
+                $.each(options.image, function(i,atmBranchList){
+                    if(atmBranchList.origin !== 'undefined' ||  atmBranchList.origin !== null){
+                        //updating the orgin in the imagelist
+                        imageList[servicesList[i]].origin = atmBranchList.origin;
+                    }
+                });
+            }
+            mapHolder = domId;
+            callBackFunction = callBackMethod;
+            navigator.geolocation.getCurrentPosition(successGeoLocation,errorGeolocation,actualLatLon);
+            setTimeout(function(){
+                if((serviceLocation == "" || serviceLocation == "undefined" || serviceLocation == null) && locationRetrieveFails){
+                    locationRetrieveFails("Unable to Retrieve the Service Location Data");
+                }   
+            },3500)     
+        }
+    }
+ }(window, window.jQuery));

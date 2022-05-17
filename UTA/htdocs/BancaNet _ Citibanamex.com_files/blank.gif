@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+<script>digitalData = {
+    "page": {
+        "category": [],
+        "pageInfo": {
+            "language": "en-US",
+            "country": "US",
+            "publisher": "IBM Corporation",
+            "version": "v19",
+            "ibm": {
+                "contentDelivery": "Drupal 9",
+                "contentProducer": "402226 - Page Builder",
+                "owner": "pamjones@us.ibm.com",
+                "siteID": "DRUPAL",
+                "contactModuleConfiguration": {
+                    "contactInformationBundleKey": {
+                        "focusArea": "Security - Trusteer",
+                        "languageCode": "en",
+                        "regionCode": "US"
+                    },
+                    "contactModuleTranslationKey": {
+                        "languageCode": "en",
+                        "regionCode": "US"
+                    }
+                },
+                "config": {
+                    "masthead": {
+                        "type": "alternate"
+                    },
+                    "footer": {
+                        "type": "alternate"
+                    }
+                }
+            },
+            "publishDate": "2021-08-26",
+            "effectiveDate": "2017-12-14",
+            "expiryDate": "2025-08-26"
+        }
+    }
+}</script>
+<meta name="geo.country" content="ZZ" />
+<link rel="canonical" href="https://www.ibm.com/security/fraud-protection/trusteer" />
+<meta name="robots" content="index, follow" />
+<meta name="referrer" content="no-referrer-when-downgrade" />
+<meta name="rights" content="© Copyright IBM Corporation 2022" />
+<meta name="description" content="Authenticate customers, detect fraud and protect against malicious users across all channels" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.ibm.com/security/fraud-protection/trusteer" />
+<meta property="og:title" content="IBM Security Trusteer solutions" />
+<meta property="og:description" content="Authenticate customers, detect fraud and protect against malicious users across all channels" />
+<meta property="og:image" content="https://1.cms.s81c.com/sites/default/files/2021-08-24/trusteer-leadspace.jpg" />
+<meta name="twitter:card" content="summary" />
+<script>cpp = {"path":"\/cloud\/ajax\/product\/{product}"}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Security",
+                        "item": "https://www.ibm.com/security"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Security Fraud Protection",
+                        "item": "https://www.ibm.com/security/fraud-protection"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Security Trusteer",
+                        "item": "https://www.ibm.com/security/fraud-protection/trusteer"
+                    }
+                ]
+            }
+        }
+    ]
+}</script>
+<script data-title="Components design metadata">/*
+Leadspace: v19 - Module 5E - us-en_security_fraud-protection_SP_trusteer-leadspace
+
+Bands/Sections:
+1. v19 - Module 7F - us-en_security_fraud-protection_SP_trusteer-overview
+2. v19 - Module 3F - us-en_security_fraud-protection_SP_trusteer-benefits
+3. v19 - Module 7A 4 Cols - us-en_security_fraud-protection_SP_trusteer-products
+4. v19 - Module 9F - us-en_security_fraud-protection_SP_trusteer-remote-workforce
+5. v19 - Module 3F - us-en_security_fraud-protection_SP_trusteer-why-truster
+6. v19 - Carousel Module 2B - us-en_security_fraud-protection_SP_trusteer-resources
+7. v19 - Module 12A - us-en_security_fraud-protection_SP_trusteer-next-steps
+8. v19 - Module 12F - us-en_security_fraud-protection_SP_trusteer-footnotes
+
+*/</script>
+<link rel="alternate" hreflang="en-us" href="https://www.ibm.com/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="es-ar" href="https://www.ibm.com/ar-es/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-au" href="https://www.ibm.com/au-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="pt-br" href="https://www.ibm.com/br-pt/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="es-cl" href="https://www.ibm.com/cl-es/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="es-co" href="https://www.ibm.com/co-es/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-cz" href="https://www.ibm.com/cz-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-dk" href="https://www.ibm.com/dk-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-eg" href="https://www.ibm.com/eg-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="fr-fr" href="https://www.ibm.com/fr-fr/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="de-de" href="https://www.ibm.com/de-de/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-hk" href="https://www.ibm.com/hk-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-in" href="https://www.ibm.com/in-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="it-it" href="https://www.ibm.com/it-it/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="ja-jp" href="https://www.ibm.com/jp-ja/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="ko-kr" href="https://www.ibm.com/kr-ko/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-my" href="https://www.ibm.com/my-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="es-mx" href="https://www.ibm.com/mx-es/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-nl" href="https://www.ibm.com/nl-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="es-pe" href="https://www.ibm.com/pe-es/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="pl-pl" href="https://www.ibm.com/pl-pl/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="ru-ru" href="https://www.ibm.com/ru-ru/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="ar-sa" href="https://www.ibm.com/sa-ar/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-sa" href="https://www.ibm.com/sa-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-sg" href="https://www.ibm.com/sg-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-za" href="https://www.ibm.com/za-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="es-es" href="https://www.ibm.com/es-es/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-se" href="https://www.ibm.com/se-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="zh-tw" href="https://www.ibm.com/tw-zh/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="tr-tr" href="https://www.ibm.com/tr-tr/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="ar-ae" href="https://www.ibm.com/ae-ar/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-ae" href="https://www.ibm.com/ae-en/security/fraud-protection/trusteer" />
+<link rel="alternate" hreflang="en-gb" href="https://www.ibm.com/uk-en/security/fraud-protection/trusteer" />
+<link rel="revision" href="https://www.ibm.com/security/fraud-protection/trusteer" />
+
+    <title>IBM Security Trusteer solutions  | IBM</title>
+    <link rel='dns-prefetch' href='//1.www.s81c.com' />
+<link rel='preconnect' href='//1.www.s81c.com' />
+    <link href="//1.www.s81c.com/common/v18/drupal/css/www.css" rel="preload" as="style"  />
+    <link rel="stylesheet" href="//1.www.s81c.com/common/v18/drupal/css/www.css" media="all" />
+<link href="//1.www.s81c.com/common/v18/drupal/css/grid-fluid.css" rel="preload" as="style"  />
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/drupal/css/grid-fluid.css" media="all" />
+<link href="//1.www.s81c.com/common/v18/drupal/css/tables.css" rel="preload" as="style"  />
+<link rel="stylesheet" href="//1.www.s81c.com/common/v18/drupal/css/tables.css" media="all" />
+<link rel="preload" href="//1.www.s81c.com/common/fonts/plex/v1/ibmplexsans-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="//1.www.s81c.com/common/fonts/plex/v1/ibmplexsans-regularitalic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="//1.www.s81c.com/common/fonts/plex/v1/ibmplexsans-semibold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="//1.www.s81c.com/common/fonts/icons-ibm-v12.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="//1.www.s81c.com/common/fonts/plex/v1/ibmplexsans-light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" media="all" href="//1.www.s81c.com/common/v19a/css/www.css" />
+<link rel="stylesheet" media="all" href="//1.cms.s81c.com/sites/default/files/css/css_CzOQ3ZCYBuQbCNMqG9SmLrtv02eq_J8oTOHZvGYE9M8.css" />
+<link rel="stylesheet" media="all" href="//1.cms.s81c.com/sites/default/files/css/css_85KPJRKrhmnymPvMs-oSJCI72T4_MxK5_sB_aTl-i90.css" />
+
+    <script src="//1.www.s81c.com/common/stats/ibm-common.js"></script>
+<script src="//1.www.s81c.com/common/v18/drupal/js/www.js" defer></script>
+<script src="//1.www.s81c.com/common/carbon/plex/load-non-latin-plex.js" defer></script>
+<script src="//1.www.s81c.com/common/v19a/js/www.js" defer></script>
+
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/css/no-js.css" />
+    </noscript>
+  </head>
+  <body id="ibm-com"  uuid="d26c8607-2d25-4cd4-bcdc-97cc58564e48" class="path-node page-node-type-page-wrapper ibm-type">
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div id="ibm-top" class="ibm-landing-page">
+    <div class="region region-masthead">
+    
+
+    
+              
+
+<div id="ibm-masthead" role="banner" aria-label="IBM" data-mhtype="minimal" class="simple  ibm-mhtype-minimal">
+  <div id="ibm-universal-nav">
+    <nav role="navigation" aria-label="IBM">
+      <div id="ibm-home"><a href="https://www.ibm.com/us/en">IBM®</a></div>
+                    <!-- Site Navigation -->
+              
+      
+      <ul id="ibm-menu-links" role="toolbar" aria-label="Site map">
+        <li><a href="https://www.ibm.com/sitemap/us/en">Site map</a></li>
+      </ul>
+    </nav>
+
+          <div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead">
+        <form id="ibm-search-form" action="https://www.ibm.com/Search/" method="get">
+          <p>
+            <label for="q">IBM</label>
+            <input type="text" maxlength="100" value="" placeholder=Search name="q" id="q" aria-label="Search"/>
+            <input type="hidden" value="18" name="v"/>
+            <input type="hidden" value="utf" name="en"/>
+            <input type="hidden" value="en" name="lang"/>
+            <input type="hidden" value="us" name="cc"/>
+            <input type="submit" id="ibm-search" class="ibm-btn-search" value="Submit"/>
+          </p>
+        </form>
+      </div>
+    
+
+  </div> 
+  </div>
+
+  </div>
+
+  <div id="ibm-content-wrapper">
+      <header  aria-label="Navigation Header">
+                  <!-- Site Navigation -->
+      <nav role="navigation" aria-label="Site Navigation"  id="block-ibm-duo-subnavigation" class="ibm-sitenav-menu-container">
+        <div class="ibm-sitenav-menu-name">
+      <a href="/security">Security</a>
+  </div>
+<div class="ibm-sitenav-menu-list">
+  <ul class="menubar">
+                                        <li role="presentation">
+              <a href="/security/products" role="menuitem" tabindex="0">Products</a>
+            </li>
+                                                      <li class="ibm-haschildlist" role="presentation">
+              <button role="menuitem" tabindex="-1">Solutions</button>
+              <ul role="menu">
+                                                      <li role="presentation">
+                      <a href="https://www.ibm.com/security/artificial-intelligence" role="menuitem">AI cybersecurity</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="/security/cloud" role="menuitem">Cloud security</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/data-encryption" role="menuitem">Data encryption</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/privacy" role="menuitem">Data privacy</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/data-security" role="menuitem">Data security</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/identity-access-management" role="menuitem">IAM</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/mobile" role="menuitem">Mobile security</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/ransomware" role="menuitem">Ransomware</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="/qradar/security-qradar-siem" role="menuitem">SIEM</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="/qradar/security-qradar-soar" role="menuitem">SOAR </a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://www.ibm.com/security/zero-trust" role="menuitem">Zero trust</a>
+                    </li>
+                                                </ul>
+            </li>
+                                                      <li role="presentation">
+              <a href="/security/services" role="menuitem" tabindex="0">Services</a>
+            </li>
+                                                      <li class="ibm-haschildlist" role="presentation">
+              <button role="menuitem" tabindex="-1">Learn</button>
+              <ul role="menu">
+                                                      <li role="presentation">
+                      <a href="https://www.securitylearningacademy.com/" role="menuitem">Learning Academy</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="https://securityintelligence.com/?_ga=2.249392708.2124122170.1594668211-1516945837.1590590074" role="menuitem">Blog</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="/security/learn" role="menuitem">Security topics</a>
+                    </li>
+                                                </ul>
+            </li>
+                                                      <li class="ibm-haschildlist" role="presentation">
+              <button role="menuitem" tabindex="-1">Explore More</button>
+              <ul role="menu">
+                                                      <li role="presentation">
+                      <a href="/security/community/partners" role="menuitem">Partners</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="/security/community" role="menuitem">IBM Security Community</a>
+                    </li>
+                                                                        <li role="presentation">
+                      <a href="/security/community/app-exchange" role="menuitem">App Exchange</a>
+                    </li>
+                                                </ul>
+            </li>
+                                  </ul>
+</div>
+
+      </nav>
+      
+
+  </header>
+
+
+
+      <div class="region region-help">
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+  </div>
+
+      <div class="region region-content">
+    <div id="block-ibm-duo-content">
+  
+    
+      
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+  <section  role="article" about="/node/402206" class="ibm-duo-leadspace ibm-duo-leadspace-large ibm-background-gray-100" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-leadspace-large__container">
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-grid-col-seamless ibm-duo-leadspace-large__bg">
+
+                  <div class="picturefill-background ibm-duo-leadspace-large__image ani-reveal ani-fadeIn">
+            <span data-src="//1.cms.s81c.com/sites/default/files/2021-08-24/trusteer-leadspace.jpg"></span>
+            <span data-src="" data-media="(min-width: 320px)"></span>
+            <span data-src="//1.cms.s81c.com/sites/default/files/2021-08-24/trusteer-leadspace.jpg" data-media="(min-width: 672px)"></span>
+          </div>
+        
+              </div>
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-7 ibm-duo-leadspace-large__content">
+                  <div class="ibm-grid-col-sm-4-3 ibm-grid-col-lg-16-12 ibm-grid-col-xlg-16-16 ibm-grid-col-seamless ibm-mb-4 ibm-duo-leadspace-large__headline ani-reveal ani-fadeInUp" data-wow-delay=".2s">
+            <h1 class="bx--type-expressive-heading-05 bx--type-light ibm-textcolor-gray-10 ibm-pb-0 ibm-mb-0">
+                  <span>IBM Security Trusteer solutions</span>
+
+            </h1>
+          </div>
+        
+        <div class="ibm-duo-leadspace-large__subhead">
+                      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-lg-16-10 ibm-grid-col-xlg-16-12 ibm-grid-col-seamless ani-reveal ani-fadeInUp" data-wow-delay=".4s">
+              <p class="bx--type-expressive-heading-03 ibm-textcolor-gray-30 ibm-mb-0">
+                    <span>Authenticate customers, detect fraud and protect against malicious users across all channels</span>
+
+              </p>
+            </div>
+          
+            
+            <div class="ibm-btn-row ibm-button-link ibm-mt-4 ani-reveal ani-fadeInUp" data-wow-delay=".6s">
+          
+
+        
+  
+  
+  
+
+
+
+
+        
+  <div class='ibm-duo-button-item'>
+    <a  target="_blank" href="https://www.ibm.com/security/digital-assets/trusteer/digital-identity-trust-demo" class="ibm-btn-pri ibm-duo-btn-cta ibm-duo-u--link-icon">
+      Explore the Trusteer demo
+      
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+    </a>
+  </div>
+
+          
+
+        
+            
+  
+  
+
+
+
+
+        
+  <div class='ibm-duo-button-item'>
+    <a  target="_self" data-ibm-contact="scheduler-link" href="javascript:void(0)" class="ibm-btn-sec ibm-duo-btn-cta ibm-duo-u--link-icon ibm-btn-sec--white">
+      Book a meeting
+      
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+    </a>
+  </div>
+
+      </div>
+  <div class="ibm-grid-col-sm-4-4 ani-reveal ani-fadeInUp" data-wow-delay=".7s">
+      </div>
+
+          
+        </div>
+      </div>
+
+      <div class="ibm-grid-col-sm-4-1 ibm-grid-col-md-8-0 ibm-grid-col-lg-16-1"></div>
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-8 ibm-grid-col-xlg-16-8 ibm-grid-col-seamless ibm-duo-leadspace-large__media-full">
+              </div>
+    </div>
+  </section>
+
+
+
+      
+
+
+  
+
+<main role="main" aria-labelledby="ibm-pagetitle-h1">
+  <div id="ibm-pcon">
+    <div id="ibm-content">
+      <div id="ibm-content-body" class="ibm-padding-top-0">
+        <div id="ibm-content-main">
+          
+                    
+          <div class="node__content">
+                                                                      
+
+
+
+
+
+
+
+<div
+   id="ibm-primary-tabs" data-widget="stickytabs" class="ibm-duo-band--anchor-links ibm-duo-sticky-tabs ibm-border-gray-70"
+  role="navigation"
+  aria-label="Page Sections"
+  >
+  <div class="anchor-bar-arrows-container ibm-background-gray-100">
+    <div  class="ibm-grid-container">
+                                
+
+                    
+          
+          <button class="anchor-bar-arrow ibm-background-gray-100 ibm-border-gray-70 ibm-textcolor-gray-10" id="anchor-bar-left-arrow" aria-label="Previous" aria-hidden="true"></button>
+          <button class="anchor-bar-arrow ibm-background-gray-100 ibm-border-gray-70 ibm-textcolor-gray-10" id="anchor-bar-right-arrow" aria-label="Next" aria-hidden="true"></button>
+
+          <ul  class="ibm-duo-link-list ibm-link-list" data-widget="adjustanchorlinks">
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004342">
+                  <span>01</span>Overview</a>
+              </li>
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004356">
+                  <span>02</span>Benefits</a>
+              </li>
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004390">
+                  <span>03</span>Trusteer products</a>
+              </li>
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004404">
+                  <span>04</span>Remote workforce risks</a>
+              </li>
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004444">
+                  <span>05</span>Why Trusteer</a>
+              </li>
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004468">
+                  <span>06</span>Resources</a>
+              </li>
+                          <li>
+                <a class="ibm-type-b ibm-type-b--tight ibm-textcolor-gray-10 ibm-static_type_sizing ani-reveal ani-fadeInUp" href="#3004476">
+                  <span>07</span>Next steps</a>
+              </li>
+                      </ul>
+
+          <details id="ibm-anchor-link-nav-mobile" class="ibm-alt-select" data-selection="">
+            <summary class="ibm-alt-select__current ibm-textcolor-gray-10">
+              <span class="ibm-alt-select__current--text">01 Overview</span>
+              <b role="presentation" class="ibm-alt-select__open-indicator"></b>
+            </summary>
+            <div class="ibm-alt-select__dropdown">
+              <ul class="ibm-alt-select__option-list">
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004342" data-selected="true">
+                      <span>01</span>
+                      <span>Overview</span>
+                    </button>
+                  </li>
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004356" >
+                      <span>02</span>
+                      <span>Benefits</span>
+                    </button>
+                  </li>
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004390" >
+                      <span>03</span>
+                      <span>Trusteer products</span>
+                    </button>
+                  </li>
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004404" >
+                      <span>04</span>
+                      <span>Remote workforce risks</span>
+                    </button>
+                  </li>
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004444" >
+                      <span>05</span>
+                      <span>Why Trusteer</span>
+                    </button>
+                  </li>
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004468" >
+                      <span>06</span>
+                      <span>Resources</span>
+                    </button>
+                  </li>
+                                  <li class="ibm-alt-select__option-item">
+                    <button class="ibm-alt-select__option" data-value="#3004476" >
+                      <span>07</span>
+                      <span>Next steps</span>
+                    </button>
+                  </li>
+                              </ul>
+            </div>
+          </details>
+
+                  </div>
+  </div>
+</div>
+                                                  
+
+
+
+
+
+
+  <section  role="article" about="/node/3004342" id="3004342" class="ibm-duo-band ibm-duo-module-7f ibm-background-white-core" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-u--relative">
+      <span class="ibm-duo-band--horizontal-line ibm-duo-band--horizontal-line--100 ibm-border-gray-30 ani-reveal ani-fadeInUp"></span>
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-4 ibm-duo-u--pt-4">
+        
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+          <span > Overview</span>
+
+    </h2>
+  </div>
+
+
+      </div>
+
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12">
+                          
+
+
+
+
+<div class="ibm-grid-container ibm-duo-u--pt-md-4 ibm-duo-u--pb-10">
+  <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-8">
+          <h2 class="bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-mb-3 ibm-pb-0 ibm-duo-module-7f__headline ani-reveal ani-fadeInUp">
+            <span > Optimize both security and customer experience</span>
+
+      </h2>
+    
+          <div class="bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-0 ibm-duo-module-7f__body ibm-duo-u--body ani-reveal ani-fadeInUp ibm-duo-u--body">
+                    <p>IBM Security™ Trusteer® solutions help you to detect fraud, authenticate users and establish identity trust across the omnichannel customer journey. Trusteer uses cloud-based intelligence, AI and machine learning to holistically identify new and existing customers while improving the user experience. More than 500 leading organizations rely on Trusteer to help secure their customers’ digital journey and support business growth.</p>
+      
+      </div>
+    
+      </div>
+
+  <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-2"></div>
+
+  <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-6">
+    <div class="ibm-grid-container">
+      
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-16 ibm-duo-module-7f__media ani-reveal ani-fadeInUp">
+            
+
+              <a class="v19-play-icon-gray-60 ibm-video-player-con ibm-video-placeholder ibm-widget-processed ibm-duo-play ibm-duo-play--relative" data-widget="videoplayer" data-videodisplay="overlay" data-overlayplayersize="xlarge" data-showimageplaybutton="true" data-videoid="1_1a70brw6" data-showvideoduration="false" data-videotype="kaltura" href="//mediacenter.ibm.com/id/1_1a70brw6" aria-label="Trusteer – Seamless, yet more secure customer experience (01:32)" data-kaltura-fallbackid="1_1a70brw6" data-wow-delay=".2s">
+            <div class="ibm-duo-u--ratio--sixteen-nine">
+        
+
+<img loading="lazy" src="//1.cms.s81c.com/sites/default/files/2021-08-24/truster-video.jpg" alt="Trusteer – Seamless, yet more secure customer experience"
+        class=""
+  />
+      </div>
+    
+          <span class="ibm-play-link">
+            <svg id="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="false"  aria-label="Play this video">
+  <path d="M7,28a1,1,0,0,1-1-1V5a1,1,0,0,1,1.4819-.8763l20,11a1,1,0,0,1,0,1.7525l-20,11A1.0005,1.0005,0,0,1,7,28ZM8,6.6909V25.3088L24.9248,16Z" transform="translate(0)"/>
+  <rect width="32" height="32" style="fill: none;"/>
+</svg>
+      </span>
+      </a>
+
+      <div class="ibm-duo-play--title ibm-grid-col-sm-4-4 ibm-grid-col-seamless ani-reveal ani-fadeInUp">
+      <p class="bx--type-body-long-01 ibm-textcolor-gray-70 ibm-mt-1 ibm-mb-0 ibm-pb-0">Trusteer – Seamless, yet more secure customer experience (01:32)</p>
+    </div>
+          </div>
+          </div>
+  </div>
+</div>
+
+
+                    </div>
+          </div>
+  </section>
+
+              
+
+
+
+
+
+
+  <section  role="article" about="/node/3004356" id="3004356" class="ibm-duo-band ibm-duo-module-3f ibm-duo-u--transparent-bleed ibm-background-white-core" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-u--relative">
+      <span class="ibm-duo-band--horizontal-line ibm-duo-band--horizontal-line--100 ibm-border-gray-30 ani-reveal ani-fadeInUp"></span>
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-duo-u--pt-4">
+        
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+          <span > Benefits</span>
+
+    </h2>
+  </div>
+
+
+      </div>
+
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12">
+
+                                
+          <div class="ibm-grid-container ibm-duo-u--relative ibm-border-gray-30 ibm-duo-module-3f__row ibm-duo-module-3f__count-3" data-widget="setsameheight" data-always="true" data-items=".ibm-duo-card__heading">
+            
+              
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-5 ibm-grid-col-seamless ibm-duo-module-3f__item ibm-duo-u--border--bottom-1 ibm-border-gray-30 ani-reveal ani-fadeInUp">
+                    
+
+  
+
+
+
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-duo-card-text ibm-card--noborder ibm-mb-0 ibm-duo-card--cta-no">
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__title">
+      <h3 class="bx--type-expressive-heading-04 ibm-mb-3 ibm-pb-0 ibm-duo-card__heading ibm-textcolor-gray-90 ani-reveal ani-fadeInUp">
+            <span > Continuous digital identity assurance</span>
+
+      </h3>
+    </div>
+  
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-duo-card__asset">
+
+                        <div class="ibm-mb-3 ibm-duo-card__icon ibm-duo-card__icon--md ani-reveal ani-fadeInUp">
+                          
+
+<img loading="lazy" src="//1.cms.s81c.com/sites/default/files/2021-08-24/trusteer-digital-identity.svg" alt=""
+        class=""
+  />
+                      </div>
+              
+          </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__desc">
+      <div class="bx--type-body-long-02 ibm-mb-0 ibm-textcolor-gray-70 ani-reveal ani-fadeInUp ibm-duo-u--body">
+                    <p>Transparently identify unauthorized access and activities.</p>
+      
+      </div>
+    </div>
+  
+  </div>
+
+
+                </div>
+            
+              
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-5 ibm-grid-col-seamless ibm-duo-module-3f__item ibm-duo-u--border--bottom-1 ibm-border-gray-30 ani-reveal ani-fadeInUp">
+                    
+
+  
+
+
+
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-duo-card-text ibm-card--noborder ibm-mb-0 ibm-duo-card--cta-no">
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__title">
+      <h3 class="bx--type-expressive-heading-04 ibm-mb-3 ibm-pb-0 ibm-duo-card__heading ibm-textcolor-gray-90 ani-reveal ani-fadeInUp">
+            <span > Scalable and agile cloud platform</span>
+
+      </h3>
+    </div>
+  
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-duo-card__asset">
+
+                        <div class="ibm-mb-3 ibm-duo-card__icon ibm-duo-card__icon--md ani-reveal ani-fadeInUp">
+                          
+
+<img loading="lazy" src="//1.cms.s81c.com/sites/default/files/2021-08-24/trusteer-cloud-platform.svg" alt=""
+        class=""
+  />
+                      </div>
+              
+          </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__desc">
+      <div class="bx--type-body-long-02 ibm-mb-0 ibm-textcolor-gray-70 ani-reveal ani-fadeInUp ibm-duo-u--body">
+                    <p>Establish cross-organizational, actionable insights through real-time assessments.</p>
+      
+      </div>
+    </div>
+  
+  </div>
+
+
+                </div>
+            
+              
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-5 ibm-grid-col-seamless ibm-duo-module-3f__item ibm-duo-u--border--bottom-1 ibm-border-gray-30 ani-reveal ani-fadeInUp">
+                    
+
+  
+
+
+
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-duo-card-text ibm-card--noborder ibm-mb-0 ibm-duo-card--cta-no">
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__title">
+      <h3 class="bx--type-expressive-heading-04 ibm-mb-3 ibm-pb-0 ibm-duo-card__heading ibm-textcolor-gray-90 ani-reveal ani-fadeInUp">
+            <span > Advanced AI and machine learning</span>
+
+      </h3>
+    </div>
+  
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-duo-card__asset">
+
+                        <div class="ibm-mb-3 ibm-duo-card__icon ibm-duo-card__icon--md ani-reveal ani-fadeInUp">
+                          
+
+<img loading="lazy" src="//1.cms.s81c.com/sites/default/files/2021-08-24/trusteer-ai-machine-learning.svg" alt=""
+        class=""
+  />
+                      </div>
+              
+          </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__desc">
+      <div class="bx--type-body-long-02 ibm-mb-0 ibm-textcolor-gray-70 ani-reveal ani-fadeInUp ibm-duo-u--body">
+                    <p>Use intelligence services to assess risk, reduce operational costs, and improve security.</p>
+      
+      </div>
+    </div>
+  
+  </div>
+
+
+                </div>
+                        <div class=" ibm-duo-u--border--hide-last-1 ibm-background-white-core"></div>
+          </div>
+        </div>
+          </div>
+  </section>
+
+              
+
+
+
+
+
+
+
+  <section  role="article" about="/node/3004390" id="3004390" class="ibm-duo-band ibm-duo-module-7a ibm-background-cool-gray-10" data-bg-lazy-load>
+
+      
+
+
+
+
+<section  id="3004390" class="ibm-duo-band ibm-duo-module-1f ibm-background-cool-gray-10" data-bg-lazy-load>
+  <div class="ibm-grid-container ibm-duo-u--relative">
+    <span class="ibm-duo-band--horizontal-line ibm-duo-band--horizontal-line--75 ibm-border-gray-30 ani-reveal ani-fadeInUp"></span>
+
+    <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-4 ibm-duo-u--pt-4">
+      
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+          <span > Trusteer products</span>
+
+    </h2>
+  </div>
+
+
+    </div>
+
+                          
+
+
+
+  
+  
+
+<div class="ibm-duo-text-promo ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-duo-u--pt-md-4 ibm-duo-u--pb-8">
+  
+  
+  
+  </div>
+            </div>
+</section>
+
+              
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-duo-u--pt-2 ibm-duo-u--pb-2">
+          <div class="ibm-grid-container ibm-duo-module-7a__items ibm-duo-module-7a__items--4-col" data-widget="setsameheight" data-always="true" data-items=".ibm-duo-card__heading">
+
+                          
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-grid-col-seamless ibm-duo-module-7a__item ani-reveal ani-fadeInUp">
+                                  
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+  <div class="ibm-blocklink ibm-duo-card__link ibm-duo-card__flex ibm-background-white-core">
+    <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless ibm-mb-3 ibm-duo-card__heading">
+
+        
+                  <h2 class="ibm-duo-card__headline bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+            IBM Security™ Trusteer® Pinpoint Detect
+          </h2>
+        
+        
+              </div>
+
+              <div class="ibm-pt-2 ibm-border-gray-30 ibm-duo-card__border-top">
+          <div class="ibm-duo-card__desc ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-0 ibm-duo-u--body">
+                        <p>Outsmart account takeover attempts with AI, behavioral biometrics and machine learning.</p>
+
+<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="3a8ff632-981f-4376-b756-70eec7180529" href="/products/trusteer-pinpoint-detect">Learn more →</a></p>
+      
+          </div>
+        </div>
+          </div>
+
+    
+  </div>
+</div>
+                              </div>
+                          
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-grid-col-seamless ibm-duo-module-7a__item ani-reveal ani-fadeInUp">
+                                  
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+  <div class="ibm-blocklink ibm-duo-card__link ibm-duo-card__flex ibm-background-white-core">
+    <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless ibm-mb-3 ibm-duo-card__heading">
+
+        
+                  <h2 class="ibm-duo-card__headline bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+            IBM Security™ Trusteer® Pinpoint Assure
+          </h2>
+        
+        
+              </div>
+
+              <div class="ibm-pt-2 ibm-border-gray-30 ibm-duo-card__border-top">
+          <div class="ibm-duo-card__desc ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-0 ibm-duo-u--body">
+                        <p>Help power digital transformations by seamlessly assessing the risk of new and guest digital identities.</p>
+
+<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="b18e03dc-8e17-480c-abf0-73ca3e03b6ce" href="/products/trusteer-pinpoint-assure">Learn more →</a></p>
+      
+          </div>
+        </div>
+          </div>
+
+    
+  </div>
+</div>
+                              </div>
+                          
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-grid-col-seamless ibm-duo-module-7a__item ani-reveal ani-fadeInUp">
+                                  
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+  <div class="ibm-blocklink ibm-duo-card__link ibm-duo-card__flex ibm-background-white-core">
+    <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless ibm-mb-3 ibm-duo-card__heading">
+
+        
+                  <h2 class="ibm-duo-card__headline bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+            IBM Security™ Trusteer® Mobile SDK
+          </h2>
+        
+        
+              </div>
+
+              <div class="ibm-pt-2 ibm-border-gray-30 ibm-duo-card__border-top">
+          <div class="ibm-duo-card__desc ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-0 ibm-duo-u--body">
+                        <p>Enhance your mobile growth with real-time device and session risk assessment.</p>
+
+<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="17f9aad4-b75d-412c-9adf-1e43a4737b3e" href="/products/trusteer-mobile-sdk">Learn more →</a></p>
+      
+          </div>
+        </div>
+          </div>
+
+    
+  </div>
+</div>
+                              </div>
+                          
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-grid-col-seamless ibm-duo-module-7a__item ani-reveal ani-fadeInUp">
+                                  
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+  <div class="ibm-blocklink ibm-duo-card__link ibm-duo-card__flex ibm-background-white-core">
+    <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless ibm-mb-3 ibm-duo-card__heading">
+
+        
+                  <h2 class="ibm-duo-card__headline bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+            IBM Security™ Trusteer® Rapport
+          </h2>
+        
+        
+              </div>
+
+              <div class="ibm-pt-2 ibm-border-gray-30 ibm-duo-card__border-top">
+          <div class="ibm-duo-card__desc ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-grid-col-seamless bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-0 ibm-duo-u--body">
+                        <p>Detect and remediate malware and identify phishing attacks within a matter of minutes.</p>
+
+<p><a data-entity-substitution="canonical" data-entity-type="node" data-entity-uuid="faec4313-36c4-4a2d-96e3-52f721438997" href="/products/phishing-and-malware-protection">Learn more →</a><br /><a data-entity-substitution="" data-entity-type="" data-entity-uuid="" href="https://www.ibm.com/support/trusteer">Get support →</a></p>
+      
+          </div>
+        </div>
+          </div>
+
+    
+  </div>
+</div>
+                              </div>
+            
+          </div>
+        </div>
+        </section>
+
+              
+
+
+
+
+
+
+  <section  role="article" about="/node/3004404" id="3004404" class="ibm-duo-band ibm-duo-module-9f ibm-background-gray-100" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-u--relative">
+      <span class="ibm-duo-band--horizontal-line ibm-duo-band--horizontal-line--100 ibm-border-gray-70 ani-reveal ani-fadeInUp"></span>
+
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-4 ibm-duo-u--pt-4 ibm-duo-module-9f__label ani-reveal ani-fadeInUp">
+          
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-10 ibm-pb-0 ibm-mb-0">
+          <span > Remote workforce risks</span>
+
+    </h2>
+  </div>
+
+
+        </div>
+      
+              
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-duo-u--pt-4 ibm-duo-u--pb-10 ibm-grid-col-seamless ">
+          
+                                  <div class="ibm-duo-carousel-split__item">
+                  
+
+  
+
+
+
+<div class="promo-split ibm-background-gray-100 " id="tab_3004402">
+  <div class="ibm-grid-container ibm-duo-module-9f__container">
+
+    <div class="ibm-grid-col-sm-4-0 ibm-grid-col-md-8-0 ibm-grid-col-lg-16-4 ibm-duo-module-9f__spacer"></div>
+
+    <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-4 ibm-pb-3 ibm-duo-module-9f__content">
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12 ibm-grid-col-seamless">
+          <h3 class="bx--type-expressive-heading-04 ibm-mb-3 ibm-pb-0 ibm-textcolor-gray-10 ani-reveal ani-fadeInUp">
+                <span > Employees working from home? Know the risk.</span>
+
+          </h3>
+        </div>
+      
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-15 ibm-grid-col-seamless">
+          <div class="bx--type-body-short-02 ibm-textcolor-gray-30 ibm-mb-0 ibm-duo-module-9f__desc ani-reveal ani-fadeInUp">
+            
+
+  <div class="ibm-duo-read-more">
+    <div class="ibm-duo-read-more__body">
+      <div class="ibm-duo-read-more__body_inner ibm-duo-u--body">
+                    <p>Many employees now working from home are using personal, unmanaged devices. Trusteer provides an agentless solution to quickly expose the risk, alerting on compromised credentials and infected devices that attempt to access your data.</p>
+      
+      </div>
+    </div>
+    <div class="ibm-duo-read-more__gradient ibm-background-gray-100">
+      <button class="ibm-duo-read-more__button ibm-textcolor-blue-60" aria-expanded="false" type="button">
+        Read More      </button>
+    </div>
+  </div>
+          </div>
+        </div>
+      
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12 ibm-grid-col-seamless ibm-mt-4 promo-split__cta ani-reveal ani-fadeInUp" data-wow-delay=".7s">
+          
+                      
+
+        
+  
+  
+  
+
+
+
+  
+  
+  <p class='ibm-mb-0 ibm-duo-u--pr-2 ibm-pb-1'>
+    <a  target="_blank" href="https://www.ibm.com/security/digital-assets/trusteer/remote-workforce" class="ibm-duo-u--link-icon ibm-textcolor-blue-50 ibm-duo-u--link-icon--rtl">
+      <span>Learn more about remote workforce risks</span>
+      
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+    </a>
+  </p>
+
+
+                  </div>
+          </div>
+
+    <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-8 ibm-duo-module-9f__media">
+              <div class="ibm-duo-u--ratio--sixteen-nine">
+          
+
+<img loading="lazy" src="//1.cms.s81c.com/sites/default/files/2021-08-24/remote%20workforce.jpg" alt="overhead view of person on sofa working on laptop"
+        class=""
+  />
+        </div>
+
+                  </div>
+
+  </div>
+</div>
+
+
+              </div>
+          
+                  </div>
+          </div>
+  </section>
+
+              
+
+
+
+
+
+
+  <section  role="article" about="/node/3004444" id="3004444" class="ibm-duo-band ibm-duo-module-3f ibm-duo-u--transparent-bleed ibm-background-white-core" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-u--relative">
+      <span class="ibm-duo-band--horizontal-line ibm-duo-band--horizontal-line--100 ibm-border-gray-30 ani-reveal ani-fadeInUp"></span>
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-duo-u--pt-4">
+        
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+          <span > Why Trusteer</span>
+
+    </h2>
+  </div>
+
+  <div class="ibm-duo-heading__subhead ibm-grid-col-sm-4-3 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12 ibm-grid-col-seamless ibm-mt-3 ibm-mb-3 ani-reveal ani-fadeInUp">
+    <p class="bx--type-body-short-02 ibm-textcolor-gray-70 ibm-mb-0 ibm-pb-0">
+          <span > Examine the quantified benefits*</span>
+
+    </p>
+  </div>
+
+      </div>
+
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12">
+
+          
+          <div class="ibm-grid-container ibm-duo-u--relative ibm-border-gray-30 ibm-duo-module-3f__row 2" data-widget="setsameheight" data-always="true" data-items=".ibm-duo-card__heading">
+            
+              
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-5 ibm-grid-col-seamless ibm-duo-module-3f__item ibm-duo-u--border--bottom-1 ibm-border-gray-30 ani-reveal ani-fadeInUp">
+                    
+
+ 
+
+
+
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-duo-card-text ibm-card--noborder ibm-mb-0 ibm-duo-card--cta-yes">
+  
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-duo-card__asset">
+
+                        <p class="ibm-mb-3 ibm-type-m bx--type-sans ibm-pb-0 ibm-duo-card__stats ibm-textcolor-gray-90 ibm-duo-u--gradient ibm-duo-u--gradient--watson ani-reveal ani-fadeInUp">
+                <span > 156%</span>
+
+          </p>
+              
+          </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__desc">
+      <div class="bx--type-body-long-02 ibm-mb-0 ibm-textcolor-gray-70 ani-reveal ani-fadeInUp ibm-duo-u--body">
+                    <p>ROI driven by Trusteer, and documented in this Forrester Total Economic Impact report.</p>
+      
+      </div>
+    </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-mt-3 ibm-duo-card__cta ibm-pb-0 ani-reveal ani-fadeInUp">
+              
+
+        
+  
+  
+  
+
+
+
+  
+  
+  <p class='ibm-mb-0 ibm-duo-u--pr-2 ibm-pb-1'>
+    <a  target="_blank" href="https://www.ibm.com/account/reg/signup?formid=urx-43251" class="ibm-duo-u--link-icon ibm-textcolor-blue-60 ibm-duo-u--link-icon--rtl">
+      <span>Register for the report</span>
+      
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+    </a>
+  </p>
+
+
+          </div>
+  </div>
+
+
+                </div>
+            
+              
+              <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-5 ibm-grid-col-seamless ibm-duo-module-3f__item ibm-duo-u--border--bottom-1 ibm-border-gray-30 ani-reveal ani-fadeInUp">
+                    
+
+ 
+
+
+
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-duo-card-text ibm-card--noborder ibm-mb-0 ibm-duo-card--cta-yes">
+  
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16 ibm-duo-card__asset">
+
+                        <p class="ibm-mb-3 ibm-type-m bx--type-sans ibm-pb-0 ibm-duo-card__stats ibm-textcolor-gray-90 ibm-duo-u--gradient ibm-duo-u--gradient--watson ani-reveal ani-fadeInUp">
+                <span > 85%</span>
+
+          </p>
+              
+          </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-duo-card__desc">
+      <div class="bx--type-body-long-02 ibm-mb-0 ibm-textcolor-gray-70 ani-reveal ani-fadeInUp ibm-duo-u--body">
+                    <p>rates of access takeover detection achieved with Trusteer. Join the Forrester webinar to learn more.</p>
+      
+      </div>
+    </div>
+  
+      <div class="ibm-grid-col-sm-4-3 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-15 ibm-mt-3 ibm-duo-card__cta ibm-pb-0 ani-reveal ani-fadeInUp">
+              
+
+        
+  
+  
+  
+
+
+
+  
+  
+  <p class='ibm-mb-0 ibm-duo-u--pr-2 ibm-pb-1'>
+    <a  target="_blank" href="https://event.on24.com/eventRegistration/EventLobbyServlet?target=reg20.jsp&amp;referrer=&amp;eventid=2385363&amp;sessionid=1&amp;key=B79063A512CEB9FED1044D8AD9FF0794&amp;regTag=&amp;sourcepage=register" class="ibm-duo-u--link-icon ibm-textcolor-blue-60 ibm-duo-u--link-icon--rtl">
+      <span>Watch the webinar</span>
+      
+    
+        
+
+                      <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" aria-label="This is an external link"><path d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"></path><polygon points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"></polygon></svg>
+          
+    
+    </a>
+  </p>
+
+
+          </div>
+  </div>
+
+
+                </div>
+                        <div class=" ibm-duo-u--border--hide-last-1 ibm-background-white-core"></div>
+          </div>
+        </div>
+          </div>
+  </section>
+
+              
+
+
+
+
+
+
+  <section  role="article" about="/node/3004468" id="3004468" class="ibm-duo-band ibm-duo-module-2b ibm-duo-u--pt-4 ibm-duo-u--pb-4 ibm-background-cool-gray-10" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-module-2b__container">
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4">
+        
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+          <span > Trusteer resources</span>
+
+    </h2>
+  </div>
+
+
+      </div>
+
+      
+                                          
+        
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-12 ibm-grid-col-seamless">
+          <div class="ibm-duo-carousel ibm-duo-carousel__2b ani-reveal ani-fadeInUp" data-widget="setsameheight" data-always="true" data-items=".ibm-duo-card__heading">
+
+                          <button type="button" class="slick-arrow slick-prev" data-ibm-cm-avoid="true">
+      <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" aria-label="Show previous content"><path d="m10 16l10-10l1.4 1.4l-8.6 8.6l8.6 8.6l-1.4 1.4l-10-10z" /></svg>
+</button>
+            
+            
+                          <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-duo-carousel__item ibm-duo-carousel-2b__item">
+                    
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+
+  
+      
+
+        
+  
+  
+  
+
+
+
+    <a  target="_blank" href="https://tools.totaleconomicimpact.com/go/ibm/trusteer/index.html" class="ibm-blocklink ibm-duo-card__link ibm-duo-u--link-icon--rtl ibm-background-white-core ibm-duo-card--hover-light">
+        <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-container">
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-pb-4">
+          
+          
+                      <h3 class="bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-mb-3 ibm-duo-card__heading">
+                  <span > Fraud prevention benefits calculator</span>
+
+            </h3>
+          
+                      <div class="bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-3 ibm-duo-card__desc">
+                          <p>Get a customized estimate of the economic benefits that Trusteer fraud detection can provide.</p>
+      
+            </div>
+                  </div>
+      </div>
+    </div>
+
+          <div class="ibm-card__bottom ibm-duo-card__bottom">
+          <div class="ibm-grid-container">
+            <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16">
+              
+
+        
+  
+  
+  
+
+
+
+    <p class="ibm-fright ibm-duo-u--link-icon">
+    
+    
+        
+
+                      <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" aria-label="This is an external link"><path d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"></path><polygon points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"></polygon></svg>
+          
+    
+  </p>
+
+            </div>
+          </div>
+      </div>
+      
+  </a>
+
+  </div>
+
+
+                </div>
+                          <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-duo-carousel__item ibm-duo-carousel-2b__item">
+                    
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+
+  
+      
+
+        
+  
+  
+  
+
+
+
+    <a  target="_blank" href="https://www.ibm.com/downloads/cas/QJYXQKYQ" class="ibm-blocklink ibm-duo-card__link ibm-duo-u--link-icon--rtl ibm-background-white-core ibm-duo-card--hover-light">
+        <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-container">
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-pb-4">
+          
+          
+                      <h3 class="bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-mb-3 ibm-duo-card__heading">
+                  <span > Leadership Compass report </span>
+
+            </h3>
+          
+                      <div class="bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-3 ibm-duo-card__desc">
+                          <p>KuppingerCole has named IBM a market leader in fraud reduction intelligence platforms. (2.4 MB)</p>
+      
+            </div>
+                  </div>
+      </div>
+    </div>
+
+          <div class="ibm-card__bottom ibm-duo-card__bottom">
+          <div class="ibm-grid-container">
+            <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16">
+              
+
+        
+  
+  
+  
+
+
+
+    <p class="ibm-fright ibm-duo-u--link-icon">
+    
+    
+        
+
+                      <svg class="ibm-duo-u--icon--pdf" width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" aria-label="Download this PDF"></path><g fill="#000" fill-rule="nonzero"><path d="M16 9.143V8h-3.429v5.714h1.143V11.43h1.715v-1.143h-1.715V9.143zM9.714 13.714H7.43V8h2.285a1.716 1.716 0 011.715 1.714V12a1.716 1.716 0 01-1.715 1.714zm-1.143-1.143h1.143a.572.572 0 00.572-.571V9.714a.572.572 0 00-.572-.571H8.571v3.428zM5.143 8H2.286v5.714h1.143V12h1.714c.63 0 1.142-.512 1.143-1.143V9.143C6.285 8.512 5.774 8 5.143 8zm-1.714 2.857V9.143h1.714v1.714H3.43z"/><path d="M11.429 6.857V4.571a.52.52 0 00-.172-.4l-4-4a.52.52 0 00-.4-.171H1.143A1.146 1.146 0 000 1.143v13.714C0 15.488.512 16 1.143 16h9.143v-1.143H1.143V1.143h4.571V4.57c.002.63.513 1.141 1.143 1.143h3.429v1.143h1.143zM6.857 4.571v-3.2l3.2 3.2h-3.2z"/></g></svg>
+          
+    
+  </p>
+
+            </div>
+          </div>
+      </div>
+      
+  </a>
+
+  </div>
+
+
+                </div>
+                          <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-duo-carousel__item ibm-duo-carousel-2b__item">
+                    
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+
+  
+      
+
+        
+  
+  
+  
+
+
+
+    <a  target="_blank" href="https://www.ibm.com/downloads/cas/PRKQRG60" class="ibm-blocklink ibm-duo-card__link ibm-duo-u--link-icon--rtl ibm-background-white-core ibm-duo-card--hover-light">
+        <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-container">
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-pb-4">
+          
+          
+                      <h3 class="bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-mb-3 ibm-duo-card__heading">
+                  <span > Trusteer solution brief</span>
+
+            </h3>
+          
+                      <div class="bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-3 ibm-duo-card__desc">
+                          <p>Establish digital identity trust across the omnichannel customer journey with Trusteer. (269 KB)</p>
+      
+            </div>
+                  </div>
+      </div>
+    </div>
+
+          <div class="ibm-card__bottom ibm-duo-card__bottom">
+          <div class="ibm-grid-container">
+            <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16">
+              
+
+        
+  
+  
+  
+
+
+
+    <p class="ibm-fright ibm-duo-u--link-icon">
+    
+    
+        
+
+                      <svg class="ibm-duo-u--icon--pdf" width="16" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" aria-label="Download this PDF"></path><g fill="#000" fill-rule="nonzero"><path d="M16 9.143V8h-3.429v5.714h1.143V11.43h1.715v-1.143h-1.715V9.143zM9.714 13.714H7.43V8h2.285a1.716 1.716 0 011.715 1.714V12a1.716 1.716 0 01-1.715 1.714zm-1.143-1.143h1.143a.572.572 0 00.572-.571V9.714a.572.572 0 00-.572-.571H8.571v3.428zM5.143 8H2.286v5.714h1.143V12h1.714c.63 0 1.142-.512 1.143-1.143V9.143C6.285 8.512 5.774 8 5.143 8zm-1.714 2.857V9.143h1.714v1.714H3.43z"/><path d="M11.429 6.857V4.571a.52.52 0 00-.172-.4l-4-4a.52.52 0 00-.4-.171H1.143A1.146 1.146 0 000 1.143v13.714C0 15.488.512 16 1.143 16h9.143v-1.143H1.143V1.143h4.571V4.57c.002.63.513 1.141 1.143 1.143h3.429v1.143h1.143zM6.857 4.571v-3.2l3.2 3.2h-3.2z"/></g></svg>
+          
+    
+  </p>
+
+            </div>
+          </div>
+      </div>
+      
+  </a>
+
+  </div>
+
+
+                </div>
+                          <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-duo-carousel__item ibm-duo-carousel-2b__item">
+                    
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+
+  
+      
+
+        
+  
+  
+  
+
+
+
+    <a  target="_blank" href="https://www.ibm.com/account/reg/signup?formid=urx-35184" class="ibm-blocklink ibm-duo-card__link ibm-duo-u--link-icon--rtl ibm-background-white-core ibm-duo-card--hover-light">
+        <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-container">
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-pb-4">
+          
+          
+                      <h3 class="bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-mb-3 ibm-duo-card__heading">
+                  <span > Digital identity trust ebook</span>
+
+            </h3>
+          
+                      <div class="bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-3 ibm-duo-card__desc">
+                          <p>This ebook explores how knowing your customers strengthens both relationships and security.</p>
+      
+            </div>
+                  </div>
+      </div>
+    </div>
+
+          <div class="ibm-card__bottom ibm-duo-card__bottom">
+          <div class="ibm-grid-container">
+            <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16">
+              
+
+        
+  
+  
+  
+
+
+
+    <p class="ibm-fright ibm-duo-u--link-icon">
+    
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+  </p>
+
+            </div>
+          </div>
+      </div>
+      
+  </a>
+
+  </div>
+
+
+                </div>
+                          <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-duo-carousel__item ibm-duo-carousel-2b__item">
+                    
+
+
+
+
+
+<div class="ibm-card ibm-duo-card ibm-card--noborder ibm-mb-0">
+
+  
+      
+
+        
+  
+  
+  
+
+
+
+    <a  target="_blank" href="https://passwordless.mybluemix.net" class="ibm-blocklink ibm-duo-card__link ibm-duo-u--link-icon--rtl ibm-background-white-core ibm-duo-card--hover-light">
+        <div class="ibm-card__content ibm-duo-card__content">
+      <div class="ibm-grid-container">
+        <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-7 ibm-grid-col-lg-16-14 ibm-pb-4">
+          
+          
+                      <h3 class="bx--type-expressive-heading-04 ibm-textcolor-gray-90 ibm-mb-3 ibm-duo-card__heading">
+                  <span > Passwordless authentication infographic</span>
+
+            </h3>
+          
+                      <div class="bx--type-body-long-02 ibm-textcolor-gray-70 ibm-mb-3 ibm-duo-card__desc">
+                          <p>See how new authentication strategies can improve customer experience while stopping fraud.</p>
+      
+            </div>
+                  </div>
+      </div>
+    </div>
+
+          <div class="ibm-card__bottom ibm-duo-card__bottom">
+          <div class="ibm-grid-container">
+            <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-8 ibm-grid-col-lg-16-16">
+              
+
+        
+  
+  
+  
+
+
+
+    <p class="ibm-fright ibm-duo-u--link-icon">
+    
+    
+        
+
+                      <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" aria-label="This is an external link"><path d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"></path><polygon points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"></polygon></svg>
+          
+    
+  </p>
+
+            </div>
+          </div>
+      </div>
+      
+  </a>
+
+  </div>
+
+
+                </div>
+                        <span class="ibm-duo-carousel__counter ibm-duo-carousel__counter--5 bx--type-body-long-01 ibm-mb-1 ibm-textcolor-gray-90"></span>
+
+                          <button type="button" class="slick-arrow slick-next" data-ibm-cm-avoid="true">
+      <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" aria-label="Show next content"><polygon points="22,16 12,26 10.6,24.6 19.2,16 10.6,7.4 12,6"></polygon></svg>
+</button>
+                      </div>
+        </div>
+      
+    </div>
+  </section>
+
+              
+
+  
+
+
+
+
+
+  <section  role="article" about="/node/3004476" id="3004476" class="ibm-duo-band ibm-duo-module-12a ibm-background-gray-100 ibm-duo-u--gradient ibm-duo-u--gradient--watson" data-bg-lazy-load>
+    
+                      
+
+  
+
+
+
+
+
+<div class="ibm-grid-container ibm-duo-u--pt-4 ibm-duo-u--pb-4 ">
+  <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-duo-module-12a__content">
+          <h2 class="ibm-duo-module-12a__headline bx--type-semibold bx--type-productive-heading-04 ibm-mb-0 ibm-pb-0 ibm-textcolor-gray-10">
+            <span > How can we help?</span>
+
+      </h2>
+    
+          <div class="ibm-duo-module-12a__subhead ibm-textcolor-gray-10">
+                    <p>Discuss your fraud detection and digital identity trust use case with a Trusteer expert.</p>
+      
+      </div>
+    
+      </div>
+
+  
+    <div class="ibm-grid-col-sm-4-0 ibm-grid-col-md-8-2 ibm-grid-col-lg-16-4"></div>
+          <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-4 ibm-grid-col-lg-16-4 ibm-duo-module-12a__cta ani-reveal ani-fadeInUp">
+                  
+
+        
+            
+  
+  
+
+
+
+
+        
+  <div class='ibm-duo-button-item'>
+    <a  target="_self" data-ibm-contact="scheduler-link" href="javascript:void(0)" class="ibm-btn-pri ibm-duo-btn-cta ibm-duo-u--link-icon">
+      Book a meeting
+      
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+    </a>
+  </div>
+
+                  
+
+        
+  
+  
+  
+
+
+
+
+        
+  <div class='ibm-duo-button-item'>
+    <a  target="_self" href="https://www.ibm.com/support/trusteer" class="ibm-btn-sec ibm-duo-btn-cta ibm-duo-u--link-icon ibm-btn-sec--white">
+      Get Trusteer support
+      
+    
+        
+
+                      <svg focusable="false" class="ibm-duo-u--link-icon--arrow-right" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" aria-label="View this link" width="20" height="20" viewBox="0 0 20 20" slot="icon"><path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg>
+          
+    
+    </a>
+  </div>
+
+              </div>
+      </div>
+
+
+              </section>
+
+              
+
+
+
+
+
+
+  <section  role="article" about="/node/3004480" id="3004480" class="ibm-duo-band ibm-duo-module-12f ibm-background-white-core" data-bg-lazy-load>
+    <div class="ibm-grid-container ibm-duo-u--relative">
+      <span class="ibm-duo-band--horizontal-line ibm-duo-band--horizontal-line--100 ibm-border-gray-30 ani-reveal ani-fadeInUp"></span>
+
+      <div class="ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-4 ibm-duo-u--pt-4">
+        
+
+  <div class="ibm-duo-heading__headline ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-grid-col-seamless ibm-mb-3 ani-reveal ani-fadeInUp">
+    <h2 class="bx--type-productive-heading-02 ibm-textcolor-gray-90 ibm-pb-0 ibm-mb-0">
+          <span > Footnote</span>
+
+    </h2>
+  </div>
+
+
+      </div>
+
+                              
+
+
+
+
+  
+  
+<div class="ibm-duo-text-promo ibm-grid-col-sm-4-4 ibm-grid-col-md-8-6 ibm-grid-col-lg-16-8 ibm-duo-u--pt-md-4 ibm-duo-u--pb-8">
+  
+  
+      <div class="bx--type-caption-01 ibm-mb-0 ibm-duo-u--body ibm-duo-u--max-width--100 ibm-textcolor-gray-70 ani-reveal ani-fadeInUp">
+                  <p>* "The Total Economic Impact™ Of IBM Security Trusteer", Forrester Research, March 2020</p>
+      
+    </div>
+  
+  </div>
+
+
+                    </div>
+  </section>
+
+      
+          </div>
+
+        </div>       </div>     </div>   </div> </main>
+
+  </div>
+
+  </div>
+
+  </div>
+    <footer role="contentinfo" aria-label="IBM">
+      <div class="region region-footer">
+    
+
+
+
+<div id="ibm-footer">
+
+    <div class="ibm-columns">
+      <div class="ibm-col-1-1">
+                  <div class="ibm-footer-corporate-links">
+            <ul>
+                              <li>
+                  <a href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen">Contact IBM</a>
+                </li>
+                              <li>
+                  <a href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen">Privacy</a>
+                </li>
+                              <li>
+                  <a href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen">Terms of use</a>
+                </li>
+                              <li>
+                  <a href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen">Accessibility</a>
+                </li>
+                            <li id="ibm-truste-cp">
+                <a href="#" onclick="truste.eu.clickListener();return false;">Cookie preferences</a>
+              </li>
+            </ul>
+          </div>
+        
+                </div>
+    </div>
+
+</div>
+
+  </div>
+
+  </footer>
+  
+</div>
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/402226","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en-us"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"hc_fractal\/01-1f,hc_fractal\/02-2b,hc_fractal\/03-3f,hc_fractal\/03-anchor-link-nav,hc_fractal\/05-5e,hc_fractal\/07-7a,hc_fractal\/07-7f,hc_fractal\/09-9f,hc_fractal\/12-12a,hc_fractal\/12-12f,hc_fractal\/7a-4-col,hc_fractal\/animations,hc_fractal\/card,hc_fractal\/card-pri,hc_fractal\/card-text,hc_fractal\/full-width-9f,hc_fractal\/full-width-text,hc_fractal\/heading,hc_fractal\/image,hc_fractal\/main_css,hc_fractal\/main_js,hc_fractal\/picturefill_background,hc_fractal\/read_more,hc_fractal\/slick,hc_fractal\/text,hc_fractal\/text-media,ibm_ckeditor\/ibm_ckeditor_table_style,ibm_duo\/ibm_duo,ibm_duo\/ibm_duo_animations,ibm_tmgmt_concurrency\/ibm_tmgmt_concurrency_messaging,ibm_tmgmt_concurrency\/ibm_tmgmt_concurrency_publisher,ibm_tmgmt_concurrency\/ibm_tmgmt_concurrency_publisher_finish,metadata\/focus_area,northstar\/font,northstar\/grid-fluid,northstar\/shame,northstar\/stats,northstar\/tables,system\/base,tactic_codes\/tactic_codes","theme":"ibm_duo","theme_token":"tukYwRBHSxdmbQSR22i-r4Qk0vATjpkt0F3kYFh8CKs"},"ajaxTrustedUrl":[],"ibm_tmgmt_concurrency_publisher":{"nid":"402226","language":"en-us","submit_button":"#edit-submit","form":"#content-moderation-entity-moderation-form","route":"entity.node.canonical"},"user":{"uid":0,"permissionsHash":"38c521f2e73acba97a244c38ca669a8077be690dd45b09557a61cf00896ec935"}}</script>
+<script src="//1.cms.s81c.com/sites/default/files/js/js_63wwdit6R1woNWoaDlwylNeV7MUx-txkEHqas92k8rM.js"></script>
+<script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+<script src="//1.www.s81c.com/common/v18/drupal/js/tables.js" defer></script>
+<script src="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/js/interactions.js?v=1.1.11" defer></script>
+<script src="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/js/background-image-lazy-load.js?v=1.1.11" defer></script>
+<script src="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/js/v18-widgets.js?v=1.1.11" defer></script>
+<script src="//1.www.s81c.com/common/js/tactic.js" defer></script>
+<script src="//1.www.s81c.com/common/js/tacticbindlinks.js" defer></script>
+<script src="//1.cms.s81c.com/sites/default/files/js/js_W_bHvUagE3lFYZ970giSXaOtloIBMvGEE_Phl54d5lY.js"></script>
+<script src="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/js/plugins/picturefill-background.js?v=1.1.10" defer></script>
+<script src="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/js/slick-sliders.js?v=1.1.18" defer></script>
+<script src="//1.cms.s81c.com/modules/contrib/hc_fractal/dist/js/read-more.js?v=1" defer></script>
+<script src="//1.cms.s81c.com/sites/default/files/js/js_-Myjg-IhJ4RjBOd2_jdgMWU1ah7QVioXJPtsMA5QVwk.js"></script>
+
+      <script type="text/javascript"  src="/tvOIl/xB7/L9lF/NtaXo6/jk/uawYJ2GJE3OX/T3VIcjEB/Qwx5OTh/tXwYB"></script></body>
+</html>

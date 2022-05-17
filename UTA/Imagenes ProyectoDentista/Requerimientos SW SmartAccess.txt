@@ -1,0 +1,10 @@
+---------Por Fraccionamiento.
+*Windows Server Estandard (Revisar si se puede usar uno pirata). 
+*Sql Server Express (la versión express es gratuita y es funcional para fraccionamientos pequeños).
+*Software de escritorio remoto para poder dar mantenimiento y hacer configuraciones remotamente (Puede ser cualquier versión p.e. AnyDesk).
+
+--------Para todos los fraccionamientos.
+*Hosting de windows expuesto a internet que permita alojar Servicio Web Api .Net Framework 4.7 o superior (Es importante que su rendimiento sea optimo para que se comunique con la app móvil y los servidores de cada fraccioamiento).
+*Cuenta de desarrollador IOS 99 dls. por año, para desarrollar y publicar en tienda app store.
+*Cuenta de google play pago de una sola vez 25 dls. (esa ya la tiene Jonas). Para publicar en google play android.
+*Cuenta de correo para enviar emails (ya se tiene uno smart.acces@sisags.com).

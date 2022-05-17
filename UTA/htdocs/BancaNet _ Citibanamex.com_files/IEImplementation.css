@@ -1,0 +1,15 @@
+.jfpw-slider-wrap-vertical.jfpw-slider-wrap-vertical {
+	position: absolute;
+	right: 29px;
+	float:left;
+	top: 46px;
+	}
+
+[if IE].tituloDVA {
+	padding: 4px 0 0 30px;
+	font-size: 20px !important;
+	float: left;
+}
+
+.bottom_contenido .links{ padding:2px 0 0 0; font-size:12px; float:right;}
+

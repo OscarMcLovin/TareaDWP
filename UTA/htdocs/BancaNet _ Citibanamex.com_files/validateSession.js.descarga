@@ -1,0 +1,25 @@
+function doTimer(milliseconds){
+	var t=setTimeout("callToLogOut()",milliseconds);
+}
+
+function callToLogOut() {
+	location.replace('/MXGCB/apps/logout/flow.action?logOutType=timeOut');
+}
+
+function resetTime(){
+	clearTimeout(logoutTimeout);
+	logoutTimeout=setTimeout("callToLogOut()",sessionTimeout);
+} 
+
+function resetTimeOverlay(){  
+	if(timeoutDisplayRenew<=0.0){
+		var logoutTimeoutOverlay = setTimeout("displayTimeoutOverlayPostLogin()",1);
+	}else{
+		var logoutTimeoutOverlay = setTimeout("displayTimeoutOverlayPostLogin()",timeoutDisplayRenew);
+	}
+}
+
+
+
+
+

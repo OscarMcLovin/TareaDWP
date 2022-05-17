@@ -1,0 +1,65 @@
+ .tituloDVA {
+	  float: left;
+    font-size: 20px !important;
+    !margin-top: 14px;
+    !position: relative;
+	padding-top: 15px;
+	margin-left: 32px;
+}
+
+
+
+.bottom_contenidoDVA {
+	width: auto;
+	margin-left: 10px;
+	margin-right: 13px;
+	background: #F7F7F7;
+	height: 47px;
+}
+
+.linksDVA {
+	padding: 15px 30px 0 0;
+	font-size: 12px;
+	float: right;
+}
+
+.llamarDVA {
+	background: url(../img/avatar/img/llamar.gif) 10px 7px no-repeat;
+}
+
+.llamarDVA:hover {
+	background: url(../img/avatar/img/llamar_h.gif) 10px 7px no-repeat;
+	color: #3399CC;
+}
+
+.enviarDVA {
+	background: url(../img/avatar/img/enviar.gif) 10px 9px no-repeat;
+}
+
+.contentDVA {
+	background: url(../img/avatar/img/bg_modal.png) repeat-y;
+	width: 572px;
+}
+
+.padding30T15B0DVA {
+	padding: 15px 15px 0 15px ;
+}
+
+.jfpw-slider-wrap-vertical.jfpw-slider-wrap-vertical {
+	!position: absolute;
+	right: 29px;
+	top: 49px;
+}
+.jfpw-slider-vertical-corners-wrap.bIE .jfpw-slider-wrap-vertical 
+{
+right:-454px;
+top:-222px;
+height:230px;
+
+}
+
+.floatLeft{
+float:left;
+}
+
+

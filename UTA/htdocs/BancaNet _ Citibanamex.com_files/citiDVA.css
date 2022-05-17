@@ -1,0 +1,1227 @@
+/*!
+ * DVA Stylesheet
+ * API version: v3.2.5
+ * Version Generated on: 18-05-15
+ * Modified Date: 18-09-15
+ */iframe {
+    border: 0;
+}
+
+#targetPage {
+    background: linear-gradient(to bottom,#64b4fe 0,#2685e3 50%,#0072dd 51%,#0072dd 100%) repeat scroll 0 0 rgba(0,0,0,0);
+    border: 1px solid #00498d;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 #fff;
+    color: #fff;
+    font-size: 11px;
+    height: 16px;
+    left: 17px;
+    position: relative;
+    top: -27px;
+    width: 110px;
+}
+
+.jampTD {
+    padding-left: 105px;
+    padding-top: 13px;
+    vertical-align: middle;
+}
+
+.clickto {
+    !float: right;
+    margin-left: 244px;
+    margin-top: -23px;
+    !position: relative;
+}
+
+input[type=text]::-ms-clear {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.input::-ms-clear {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.inputboxonclick::-ms-clear {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.input {
+    border: 1px solid #ccc;
+    background: white;
+    !background-image: url('/JEA/DVA/images/Search-Magnifying-Glass.png');
+    !background-position: left;
+    !background-repeat: no-repeat;
+    !background-size: 10px;
+    font-size: 12px;
+    height: 26px!important;
+    !padding-bottom: 5px;
+    color: #666;
+    font-family: Arial;
+    font-weight: normal;
+    padding: 2px;
+    line-height: 2;
+    !width: 253px;
+    float: left;
+    overflow: hidden;
+}
+
+.inputboxonclick {
+    border: 1px solid #0171ae;
+    background: white;
+    line-height: 3;
+    position: relative;
+    font-size: 12px;
+    height: 36px!important;
+    outline: 0;
+    float: left;
+    overflow: hidden;
+}
+
+.searchBox {
+    padding-left: 11px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    height: 30px;
+    position: relative;
+    !top: 17px;
+    !margin-left: -12px;
+    font-family: Arial;
+    font-weight: normal;
+    font-size: 12px;
+    color: #666;
+}
+
+#extendSearchBox {
+    background: #f0f0f0;
+    border: 1px solid #e2e2e2;
+    color: #666;
+    height: 22px;
+    margin-left: -410px;
+    margin-top: 54px;
+    position: absolute;
+    width: 488px;
+    display: none;
+    border-top: 0;
+}
+
+.pasteAjaxResId {
+    !border: 1px solid;
+    display: none;
+    height: 179px;
+    padding-top: 10px;
+    overflow: auto;
+    position: relative;
+    !top: 13px;
+}
+
+.jamTextClass {
+    font-size: 12px;
+    color: #666;
+    font-family: Arial;
+    font-weight: 50%;
+    position: relative;
+    !margin-top: -10px;
+    height: 30px;
+}
+
+.suggesstionCounter {
+    -moz-border-bottom-colors: none!important;
+  -moz-border-left-colors: none!important;
+  -moz-border-right-colors: none!important;
+  -moz-border-top-colors: none!important;
+  background: #e8e8e8 none repeat scroll 0 0;
+  border-color: #dddbdb -moz-use-text-color #dddbdb #dddbdb!important;
+  border-image: none!important;
+  border-style: solid none solid solid!important;
+  border-width: 1px medium 1px 1px!important;
+  color: #05589d;
+  display: none;
+  font-family: Arial!important;
+  font-size: 12px!important;
+  height: 14px!important;
+  /*left: 55px;*/
+  padding-bottom: 1px;
+  padding-left: 2px!important;
+  padding-right: 3px!important;
+ /* !position: relative;
+  !right: -25px;*/
+  top: 0;
+  width: 13px!important;
+  margin: 6px;                                 
+  margin-left: 0px;
+}
+
+.counterForInner {
+    font-family: 'Interstate', 'Interstate_Reg', Arial;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    height: 21px;
+    padding-top: 13px;
+}
+
+.footerdiv {
+    padding-top: 8px;
+    height: 33px;
+    !position: relative;
+    top: 0;
+    z-index: -1;
+    display: inline-block;
+    width: 100%;
+}
+
+.autoSuggestContainer {
+    background: none repeat scroll 0 0 #FFF;
+    min-height: 59px;
+    !width: 255px;
+    position: fixed;
+    !margin-top: 5px;
+    !margin-left: 12px;
+    border: 1px solid #ccc;
+    display: none;
+    z-index: 1;
+    margin-left: 12px;
+    margin-top: -1px;
+    min-height: 59px;
+    position: fixed;
+    width: 254px;
+}
+
+.autoSuggestTableClass {
+    !height: 100%;
+    width: 100%;
+    !border: 1px solid;
+    font-family: Arial!important;
+    font-weight: normal!important;
+    font-size: 11px!important;
+    color: #333!important;
+    border-spacing: 0;
+    cursor: pointer;
+}
+
+.autoSuggestTableClass1 {
+    height: 172px;
+    width: 100%;
+    !border: 1px solid;
+    font-family: 'Interstate', 'Interstate_Reg', Arial !important;
+    font-weight: normal!important;
+    font-size: 12px!important;
+    color: #05589d!important;
+    border-spacing: 0;
+    !cursor: pointer;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-collapse: separate;
+    border-spacing : 3px;
+}
+
+.autoSuggestTableClass2 {
+    height: 174px;
+    width: 100%;
+    !border: 1px solid;
+    font-family: 'Interstate', 'Interstate_Reg', Arial !important;
+    font-weight: normal!important;
+    font-size: 11px!important;
+    color: #333!important;
+    border-spacing: 0;
+    cursor: pointer;
+    padding-left: 11px;
+    padding-right: 11px;
+    border-collapse: separate;
+}
+
+.autoSuggestTableClass1 tr:first-child td:last-child {
+    color: #05589d!important;
+}
+
+.autoSuggestTableClass1 tr:last-child td {
+    border-bottom: 0;
+}
+
+.autoSuggestTableClass1 tr:last-child td:first-child {
+    border-bottom: none!important;
+}
+
+.autoSuggestTableClass2 tr:last-child td {
+    border-bottom: 0;
+}
+
+.autoSuggestTableClass2 tr:last-child td:first-child {
+    border-bottom: none!important;
+}
+
+.tdClass {
+    !border-bottom: 1px solid #e2e2e2;
+    height: 40px;
+    padding-left: 8px;
+    vertical-align: middle;
+    outline: 0;
+    font-family: 'Interstate', 'Interstate_Reg', Arial;
+}
+
+.tdClass:hover {
+    background: #056DAE;
+    color: #fff;
+}
+
+.tdClass1 :hover {
+    background: #f0f0f0;
+}
+
+.tdClass1 {
+    height: 56px;
+    padding: 0 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #05589d!important;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px 0 rgba(130, 167, 217, 0.32);
+}
+
+.tdClass1Error {
+    border-bottom: 1px solid #e2e2e2;
+    height: 56px;
+    padding-left: 14px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.tdClassPrediction:hover {
+    !background: #f0f0f0;
+    outline: 0;
+    text-decoration: underline;
+}
+
+#AskMe {
+    !background: -moz-linear-gradient(top,#b2e1ff 0,#66b6fc 100%);
+    background: #05589d;
+    !background-image: url('/test/overlay/back.png');
+    !background-position: left;
+    !background-repeat: no-repeat;
+    !box-shadow: 1px 1px 1px #888;
+    border: 1px solid #a5a5a5;
+    !border-radius: 5px;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    !text-shadow: 1px 1px #888;
+}
+
+.detailPageBody {
+    !padding-top: 10px;
+    font-family: Lucida Grande!important;
+    font-size: 14px;
+    height: 297px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 25px;
+    !top: -22px;
+    display: none;
+    !border: 1px solid;
+}
+
+.headerDiv {
+    padding-left: 9px;
+    padding-top: 12px;
+    cursor: pointer;
+    height: 40px;
+    width: 280px;
+    !border: 1px solid black;
+    !background: none repeat scroll 0 0 #05589d;
+}
+
+.shadowClass {
+    position: absolute;
+    width: 280px;
+    height: 277px;
+    display: none;
+    background-color: #fafafa;
+    !margin-top: 17px;
+    float: center;
+    opacity: .8;
+    filter: alpha(opacity = 80);
+    z-index: 1;
+}
+
+#spinnerId {
+    position: relative;
+    margin-left: 28px;
+    top: 12px;
+    display: none;
+    height: 44px;
+}
+
+#spinnerIdAjax {
+    position: fixed;
+    margin-left: 125px;
+    !margin-top: -8px;
+    display: none;
+}
+
+.deleteClass {
+    width: 0;
+    height: 0;
+    position: relative;
+    left: 238px;
+    top: -19px;
+    border: 8px solid white;
+    opacity: 0;
+    z-index: 1;
+}
+
+#headerContent {
+    color: #fff;
+  font-family: Arial;
+  font-size: 12px;
+  font-weight: bold;
+  /*left: 36px;
+  !padding-right: 5px;
+  !position: relative;
+  !top: 18px;*/
+  /*padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+  padding-top: 8px;*/
+  padding: 6px;
+  outline: 0;
+  display:inline-block;
+}
+
+#ParentDiv {
+    !border: 1px solid;
+    !border-top: 2px solid #7e7e7e;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    !border-color: #7e7e7e #ccc #ccc;
+    width: 280px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    background: white;
+    z-index: 1001;
+    font-family: Arial;
+    font-size: 18px;
+    line-height: normal;
+}
+
+.arrow_box {
+    display: none;
+    position: relative;
+    background: #fefed3;
+    border: 1px solid #ccc;
+    position: relative;
+    top: -46px;
+    left: -2px;
+    width: 246px;
+    !height: 26px;
+    height: auto;
+    -webkit-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.45);
+    -moz-box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.45);
+    box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.45);
+    font-size: 11px;
+    font-style: Arial;
+    padding-left: 11px;
+    padding-top: 11px;
+    font-family: Arial;
+    font-size: 11px;
+    vertical-align: bottom;
+    line-height: 1;
+    margin-left: 2px;
+}
+
+.arrow_box:after,.arrow_box:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(254,254,211,0);
+    border-top-color: #fefed3;
+    border-width: 7px;
+    margin-left: -10px;
+}
+
+.arrow_box:before {
+    border-color: rgba(204,204,204,0);
+    border-top-color: #ccc;
+    border-width: 7px;
+    margin-left: -11px;
+}
+
+#button1 {
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    border: 0;
+    background: #05589d;
+}
+
+#button1:hover {
+    background-color: #0171ae;
+}
+
+.headerImg {
+    !background-image: url('/DVA/Images/Smart-Assistant.png') -32px -12px no-repeat;
+  !background-image: url('/JEA/DVA/images/citi_1c-red_rev_rgb_25pxH.png');
+  width: auto;
+  height: 23px;
+  background-repeat: no-repeat;
+  !background-image: url('/JEA/DVA/images/citi-logo.png');
+  !background-image: url("/JEA/DVA/images/citi-rgb-logo.png");
+  background-position: -1px 1px;
+  vertical-align: middle;
+  border: 0;
+  /*!position: absolute;*/
+  /*top: 14px;*/
+  /*left: 8px;*/
+  display:inline-block;
+  float:left;
+  padding-top:4px;
+}
+
+#upImage {
+    background-image: url("/JEA/DVA/images/up-carret.png");
+  background-position: -2px 6px;
+  background-repeat: no-repeat;
+  display: none;
+  height: 17px;
+  margin-left: 2px;
+  !margin-top: 10px;
+  position: absolute;
+  width: 16px;
+  top: 14px !important;
+}
+
+#downImage {
+    background-image: url("/JEA/DVA/images/down-carret.png");
+  background-position: -1px 6px;
+  background-repeat: no-repeat;
+  !border: 1px solid;
+  height: 20px;
+  margin-left: -9px;
+  !margin-top: 10px;
+  position: absolute;
+  width: 20px;
+  top: 14px !important;
+}
+
+#leftArrowImage {
+    background-image: url("/JEA/DVA/images/Arrows-Back-Next.png");
+    background-position: 0 1px;
+    background-repeat: no-repeat;
+    border: medium none;
+    height: 22px;
+    !left: 108px;
+    margin-top: -1px;
+    position: relative;
+    vertical-align: middle;
+    width: 21px;
+    outline: 0;
+    display: inline-block;
+}
+
+#rightArrowImage {
+    background-image: url("/JEA/DVA/images/Arrows-Back-Next.png");
+    background-position: -63px 0;
+    background-repeat: no-repeat;
+    border: medium none;
+    height: 21px;
+    left: 148px;
+    !margin-top: 1px;
+    !position: absolute;
+    vertical-align: middle;
+    width: 28px;
+    !z-index: -1;
+    outline: 0;
+    display: inline-block;
+}
+
+.bulletImgId {
+    !background-position: 1px 0;
+    !height: 11px;
+    !width: 9px;
+    background-repeat: no-repeat;
+    background-position: 14px 23px;
+    !margin-top: 83px;
+    !position: absolute;
+}
+
+#bulletImgId1 {
+    background: url("/JEA/DVA/images/Arrows-Expand-Collapse.png");
+    !background-position: 1px 0;
+    height: 11px;
+    width: 9px;
+    background-repeat: no-repeat;
+    background-position: 4px 3px;
+    margin-top: 83px;
+    position: absolute;
+}
+
+#bulletImgId2 {
+    background: url("/JEA/DVA/images/Arrows-Expand-Collapse.png");
+    !background-position: 1px 0;
+    height: 11px;
+    width: 9px;
+    background-repeat: no-repeat;
+    background-position: 4px 3px;
+    margin-top: 37px;
+    position: absolute;
+}
+
+#bulletImgId3 {
+    background: url("/JEA/DVA/images/Arrows-Expand-Collapse.png");
+    !background-position: 1px 0;
+    height: 11px;
+    width: 9px;
+    background-repeat: no-repeat;
+    background-position: 4px 3px;
+    margin-top: 23px;
+    position: absolute;
+}
+
+#backButtonArrowImg {
+    background: url("/JEA/DVA/images/Arrows-Expand-Collapse.png");
+    background-repeat: no-repeat;
+    height: 17px;
+    left: 453px;
+    position: absolute;
+    top: 9px;
+    width: 4px;
+}
+
+.backButtonContent {
+    color: #05589d;
+    !font-size: 11px!important;
+    cursor: pointer;
+    font-weight: bold!important;
+    left: 164px;
+    position: relative;
+    top: 5px;
+    white-space: nowrap;
+    outline: 0;
+}
+
+#dvaWidget {
+    height: auto;
+    width: 100%;
+    display: none;
+}
+
+.wrapperBackButtonClass {
+    background-image: url("/JEA/DVA/images/Search-X.png");
+    height: 10px;
+    left: 249px;
+    position: relative;
+    top: 26px;
+    width: 10px;
+    z-index: 0;
+}
+
+.borderDivClass {
+    height: 0;
+    left: 237px;
+    position: absolute;
+    top: 24px;
+    width: 0;
+    border: 7px solid black;
+    filter: alpha(opacity=0);
+    -ms-filter: "alpha(opacity=0)";
+    opacity: 0;
+}
+
+#takeALookID {
+    padding-left: 11px;
+}
+
+.errorTDClass {
+    height: 59px;
+    padding-left: 5px;
+    background: white;
+    cursor: default;
+    vertical-align: middle;
+}
+
+.wrapper {
+    padding-right: 5px;
+    float: left;
+}
+
+.searchIcon {
+    background-image: url('/JEA/DVA/images/Search-Magnifying-Glass.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+}
+
+.notificationContent {
+    background-color: #f0f0f0;
+    !background: -moz-linear-gradient(center top,#fff 0,#e5e5e5 100%) repeat scroll 0 0 rgba(0,0,0,0);
+    border: 1px solid #dddbdb!important;
+    color: #333!important;
+    display: none;
+    font-family: Arial!important;
+    font-size: 12px!important;
+    height: 10px!important;
+    padding-left: 1px!important;
+    padding-right: 2px!important;
+    position: relative;
+    width: 10px!important;
+    border-left: none!important;
+}
+
+#notifyContentExpand {
+    font-size: 12px!important;
+    font-family: 'Interstate', 'Interstate_Reg', Arial !important;
+    margin-left: 26px!important;
+    color: #333;
+}
+
+#predictiveCount {
+    display: none;
+}
+
+#suggesstionCounterId {
+    border: none!important;
+    background: none!important;
+    left: 0;
+    top: 0;
+    color: #333;
+    outline: 0;
+    margin-left: -3px;
+}
+
+.abc {
+    width: 247px;
+    !border: 1px solid black;
+    height: auto;
+    overflow-wrap: break-word;
+    position: absolute;
+    bottom: 5px;
+    background-color: #fefed3;
+    font-size: 11px;
+    font-style: Arial;
+    padding-left: 11px;
+    padding-top: 11px;
+    font-family: Arial;
+    margin-left: -11px;
+}
+
+.headerPipe {
+    border-right: 1px solid #999;
+    color: white;
+    margin-left: 21px;
+    padding: 2px 10px 3px 0;
+}
+
+.shadowDivSearch {
+   background-color: white;
+    background-image: url("/JEA/DVA/images/Search-Magnifying-Glass.png");
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    display: block;
+    height: 14px;
+    left: 18px;
+    position: absolute;
+    top: 70px;
+    width: 14px;
+    z-index: 1001
+}
+
+.shadowDivGo {
+    display: block;
+    height: 25px;
+    left: 235px;
+    position: absolute;
+    text-align: center;
+    top: 62px;
+    width: 30px;
+    z-index: 1002;
+}
+
+.goContant {
+    color: #333;
+    cursor: pointer;
+    font-family: 'Interstate', 'Interstate_Reg', Arial;
+    font-size: 12px;
+    font-weight: bold;
+    left: 7px;
+    position: absolute;
+    text-align: center;
+    top: 6px;
+}
+
+.borderGOContent {
+    border-right: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    left: 0;
+    padding: 12px 0 8px;
+    position: absolute;
+    top: 3px;
+}
+
+#backButtonId {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #ccc #e2e2e2 #e2e2e2;
+    border-image: none;
+    border-right: 1px solid #e2e2e2;
+    !border-top: 1px dashed #ccc;
+    !border-width: 1px;
+    color: #666;
+    font-family: Arial!important;
+    font-size: 12px!important;
+    font-weight: normal!important;
+    height: 25px;
+    left: -1px;
+    position: absolute;
+    top: 50px;
+    width: 490px;
+    outline: 0;
+}
+
+.inputDynamicSection {
+    !color: #666;
+    float: left;
+    font-family: 'Interstate', 'Interstate_Reg', Arial !important;
+    font-size: 12px!important;
+    font-weight: bold!important;
+    height: 16px!important;
+    line-height: 1;
+    margin-left: 13px;
+    margin-top: 2px;
+    overflow: hidden;
+    !padding: 2px;
+    border: 0!important;
+    !opacity: 0;
+    !color: #7e7e7e;
+    !font-weight: bold;
+    color: #333;
+	width:200px;
+    white-space: nowrap;  
+    text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;  
+	-ms-text-overflow: ellipsis;
+}
+
+
+#pagination0 {
+    margin-left: -10px;
+    margin-top: 11px;
+}
+
+#pagination1 {
+    margin-left: 1px;
+}
+
+#pagination2 {
+    margin-left: 1px;
+}
+
+#pagination3 {
+    margin-left: 1px;
+}
+
+#pagination4 {
+    margin-left: 1px;
+}
+
+#pagination5 {
+    margin-left: 2px;
+}
+
+#backButtonIdContent:hover {
+    text-decoration: underline;
+}
+
+.background_color_grey {
+    background: #f0f0f0;
+    outline: 0;
+}
+
+#lpButtonDVA a:link {
+    color: #05589d;
+}
+
+#lpButtonDVA a:hover {
+    text-decoration: underline;
+    color: #05589d;
+}
+
+#pages {
+    left: 2px;
+    top: -2px;
+    position: relative;
+    outline: 0;
+    display: inline-block;
+}
+
+.detailPageBodyLC {
+    background: none repeat scroll 0 0 #e2e2e2;
+    !padding-top: 10px;
+    font-family: Lucida Grande;
+    font-size: 14px;
+    height: 297px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 5px;
+    !top: -22px;
+    display: none;
+    !border: 1px solid;
+}
+
+.dvaLpTableClass {
+    left: 2px;
+    top: 3px;
+    position: relative;
+    border: 15px solid #e2e2e2!important;
+}
+
+.dvaLpSenMsgClass {
+    line-height: 0;
+}
+
+.dvaLpCallClass {
+    border-spacing: 20px;
+    border-top: 1px dashed white;
+}
+
+.dvaLpSenMsgClassBlank {
+    background: none repeat scroll 0 0 white;
+    height: 50px;
+    left: 228px;
+    width: 241px;
+}
+
+.dvaLpCallClassBlank {
+    background: none repeat scroll 0 0 white;
+    border-top: 1px dashed #e2e2e2;
+    height: 50px;
+    left: 228px;
+    top: 65px;
+    width: 241px;
+}
+
+.spinnerIdNonDva {
+    top: 111px!important;
+}
+
+.counterForInnerNonDVA {
+    left: -14px;
+    padding: 15px;
+    position: absolute;
+    top: 102px;
+}
+
+#DVAautosuggestContainerSearch {
+    border: 1px solid black;
+    height: 19px;
+    !left: 12px;
+    position: relative;
+    !top: 242px;
+    width: 252px;
+    z-index: 1001;
+    display: none;
+}
+
+.DVAsearchIconAutoSearch {
+    background-image: url('/JEA/DVA/images/Search-Magnifying-Glass.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    position: relative;
+    top: 4px;
+}
+
+.DVAsearchTextClass {
+    left: 17px;
+    position: relative;
+    top: -1px;
+}
+
+.DVAErrorSearch {
+    top: 59px;
+}
+
+#textboxDynamicSearchSection {
+    !border: 1px solid black;
+    !border: 1px solid black;
+    position: relative;
+    top: -3px;
+    width: 176px;
+    border: 0;
+}
+
+.inputboxonclickPosition {
+    width: 221px;
+  border-left: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-right: 30px solid white !important;
+  outline: 1px solid #0171ae!important;
+  float: left;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.inputboxonclickPosDetail {
+    width: 433px;
+    border-left: none;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 30px solid white;
+    outline: 1px solid #0171ae;
+    float: left;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.textboxPosition {
+    width: 219px;
+    border: 1px solid #ccc;
+    outline: 0;
+    padding-right: 20px;
+    float: left;
+    padding-left: 16px;
+}
+
+.textboxPositionBlur {
+    width: 209px;
+    border-left: 14px solid white !important;
+ border-top: 0 !important;
+ border-bottom: 0 !important;
+ border-right: 30px solid white !important;
+    outline: 1px solid #ccc;
+    float: left;
+    padding-left: 5px;
+    padding-right: 0px;
+}
+
+.textboxPositionBlurDetail {
+    width: 391px!important;
+  border: 1px solid #ccc;
+  border-left: 14px solid white !important;
+ border-top: 0 !important;
+ border-bottom: 0 !important;
+ border-right: 30px solid white !important;
+    outline: 0;
+  padding-right: 30px;
+  float: left;
+  padding-left: 5px;
+}
+
+#EscalationToCustomerCareDiv {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid grey;
+    border-radius: 2px;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 12px 13px 11px 12px;
+    padding: 12px;
+    position: relative;
+    !top: -289px;
+}
+
+.DVAGreyBackground {
+    background: none repeat scroll 0 0 #e2e2e2;
+}
+
+.brandingDVA {
+        border: 1px solid #0a9bd2 !important;
+    background: linear-gradient(to bottom, #0a9bd2, #0a4b87) !important;
+    background: -moz-linear-gradient(top, #0a9bd2, #0a4b87) !important;
+    background: -ms-linear-gradient(top, #0a9bd2, #0a4b87) !important;
+    background: -o-linear-gradient(top, #0a9bd2, #0a4b87) !important;
+    background: -webkit-linear-gradient(top, #0a9bd2, #0a4b87) !important;
+    background: #056DAE !important;
+   ! filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#0A9BD2', endColorstr='#0A4B87', GradientType=0) !important;
+   ! filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#0A9BD2, endColorstr=#0A4B87) !important
+   
+ !  background-color: rgba(91, 94, 85, 0.5) !important;
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0A9BD2,endColorstr=#0A4B87) !important;
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#0A9BD2,endColorstr=#0A4B87)" !important;
+
+}
+
+.DVABetaLabel {
+    color: #fff;
+    font-family: Arial;
+    font-size: 11px;
+    display: none;
+    padding-left: 4px;
+}
+
+.subheaderLine {
+    border: 0px dashed #e2e2e2;
+    position: relative;
+    top: 39px;
+    width: 463px;
+    display: none;
+}
+
+.IECompDVA {
+    padding-top: 0;
+    top: -8px;
+}
+
+.IECompDVA2 {
+    top: -9px;
+    position: relative;
+}
+
+.IEComDVA3 {
+    width: 209px;
+}
+
+.IEComDVA5 {
+    width: 221px;
+}
+
+.IEComDVA4 {
+    width: 432px;
+}
+
+.removeOutline {
+    outline: 0;
+}
+
+.removeSpace {
+    padding-right: 0!important;
+}
+
+.noPredictionCMS1 {
+    color: #666;
+    font-family: 'Interstate', 'Interstate_Reg', Arial;
+    font-size: 12px;
+    padding: 10px 21px;
+    position: absolute;
+    top: 101px;
+    white-space: normal;
+}
+
+.noPredictionCMS2 {
+    color: #666;
+    font-family: 'Interstate', 'Interstate_Reg', Arial;
+    font-size: 12px;
+    padding: 0px 21px;
+    position: absolute;
+    top: 167px;
+    white-space: normal;
+}
+input[type="text"]{
+	font-family: 'Interstate', 'Interstate_Reg', Arial;
+}
+.DVA-hidden {
+    display: none;
+}
+
+#ContactUsDVALP {
+    background: #e2e2e2 none repeat scroll 0 0;
+    display: none;
+    font-family: Lucida Grande;
+    font-size: 14px;
+    height: 110px;
+    left: 843px;
+    margin-top: 86px;
+    overflow: hidden;
+    position: absolute;
+    top: 6px;
+    z-index: 1001;
+}
+
+.cN-contactUsFooter>span {
+    display: block;
+    float: left;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 13px;
+}
+
+.cN-contactUsFooter {
+    background-color: #fff;
+    color: #333;
+    float: left;
+    height: 48px;
+    margin: 1px -35px;
+    padding: 0 15px;
+    width: 100%;
+}
+
+#overlayFooter {
+    width: 522px;
+}
+
+#snapshotOverlay #overlayFooter {
+    width: 522px;
+}
+
+.ui-dialog.jfpw-dialog #contactusFooter {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 500px) {
+  /* overall div*/
+  div#ParentDiv{
+  	width: 270px !important
+  }
+  /* header */
+  .headerDiv.brandingDVA{
+  	width: 260px !important
+  }
+  .clickto{
+  	margin-left: 239px !important
+  }
+  /* Input field bottom to headerdiv */
+  .searchbox .textbox{
+  	width: 189px !important
+  }
+  .shadowDivGo{
+  	left: 232px !important
+  }
+  /* Input field telling the selected option */
+  #backButtonId{
+  	width: 270px !important
+  }
+  #backButtonId #textboxDynamicSection{
+  	width: 100px !important
+  }
+  .backButtonContent{
+  	left: 59px !important
+  }
+  #backButtonArrowImg{
+  	left: 166px !important
+  }
+  /* Suggestion box with result */
+  .autoSuggestContainer{
+  	width: 222px !important
+  }
+  .textboxPositionBlur{
+  	width: 202px !important
+  }
+  .textboxPositionBlurDetail{
+  	width: 172px !important
+  }
+  .inputboxonclickPosDetail{
+  	width: 172px !important
+  }
+}

@@ -1,0 +1,634 @@
+/*PLUGINS*/
+
+$.fn.spaces= function(noOfSpaces) {
+var space = " ", returnValue = "";
+            for(var index=0; index < noOfSpaces; index++) {
+                returnValue += space;
+            }
+            return returnValue;
+};
+
+function ddFix(classSelector){
+				$("."+classSelector).parent().show();
+                $("."+classSelector).find("dd").each(function(){
+                var space = 0 , ddW = 464 , leftW = 0, rightW = 0;
+                leftW  = $(this).find("span").width();
+                rightW = $(this).find(".float-right").width();
+                space = Math.round((454 - leftW - rightW - 27)/3);
+                $(this).html("<span>"+$(this).find("span").text()+"</span>"+ "<div style='display:none'>"+ $(this).spaces(space) + "</div><div class='float-right'>"+ $(this).find(".float-right").html() + '</div>');
+                });
+                $("."+classSelector).parent().hide();
+
+}
+
+/* Create the global JavaScript Namespace Object for functionality related to the Universal Experience Framework */
+var latamMex = {};
+
+
+/** 
+ * @namespace 
+ * @param {DOM Object} window Window object for accessing within the local scope of the common JavaScript modules
+ * @param {jQuery Object} jQuery The jQuery object so the scope of the jQuery object can be local to avoid
+ * 						  naming collisions/changes.
+ * @return Publicly available modules.
+ * */
+ 
+latamMex.validate = (function(window, $) {  
+	return {
+			alphanumeric : (function() {
+			/* Private module variables */
+			//var replaceNonAlphaNumeric = new RegExp("[^a-zA-Z0-9_ ]+$"); //regular expression for alphanumerics  
+			//Allows Tab, enter, end, del, left, right 
+			var replaceNonAlphaNumeric = new RegExp("[^0-9|.|a-z|A-Z\u00F1\u00D1] g");//Spanish Character Implementation
+						
+
+			return {
+
+				/**
+				 * @public
+				 * @description This is a public function within the testModule
+				 * @param {text} id - ID of the tooltip link element that will trigger the respective help bubble
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				isValid : function(e) {
+					/*-------------------------------------------------------
+					# Function to validate alphanumeric input
+					-------------------------------------------------------*/
+						var verified = (e.which == 8 || e.which == undefined || e.which == 0) ? null : String.fromCharCode(e.which).match(replaceNonAlphaNumeric);
+						if (verified) {e.preventDefault();}
+					},
+				/**
+				 * @public
+				 * @description This is a public function within the validate module
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				initialize : function(selector) {
+						jQuery(selector).keypress(function(e){
+						latamMex.validate.alphanumeric.isValid(e);
+						return true;
+					});
+					
+					$(selector).bind('copy paste', function (e) {
+						e.preventDefault();
+					});
+				}
+
+				
+			}
+		}())
+	}
+}(window, window.jQuery));
+
+/** 
+ * @namespace 
+ * @param {DOM Object} window Window object for accessing within the local scope of the common JavaScript modules
+ * @param {jQuery Object} jQuery The jQuery object so the scope of the jQuery object can be local to avoid
+ * 						  naming collisions/changes.
+ * @return Publicly available modules.
+ * */
+latamMex.widgets = (function(window, $) {  
+	return {
+		tooltip : (function() {
+			/* Private module variables */
+			
+						
+
+			return {
+
+				/**
+				 * @public
+				 * @description This is a public function within the testModule
+				 * @param {text} id - ID of the tooltip link element that will trigger the respective help bubble
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				openTooltip : function(tooltip) {
+					/**-------------------------------------------------------
+					* Function to validate alphanumeric input
+					-------------------------------------------------------
+					*/
+
+					$(tooltip).find('#tt_container').show();
+						
+					},
+				/**
+				 * @public
+				 * @description This is a public function within the validate module
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				initialize : function(triggerBy, tooltipId, title, contentBody, width, position, extraClass) {
+						var tooltipTitle = "";
+						var classPosition, right = 0;
+						if(extraClass === undefined){
+							extraClass = "";
+						}else{
+							extraClass = " "+extraClass;
+						}
+
+						if(title !== undefined && title != ''){
+							tooltipTitle = '<p class="mx-tooltip-title">'+'<b>'+title+'</b>'+'</p>';
+						}
+						switch(position){
+							case 'right':
+								right = (width - 40) + "px";
+								classPosition = "tt_rightUEF";
+							break;
+							case 'left':
+								right = "0";
+								classPosition = "tt_leftUEF";
+							break;
+						}
+						var tooltip = '<div id="'+tooltipId+'" class="medium'+extraClass+'" style="width: '+width+';display:none;">'+
+									'<div class="'+classPosition+'"></div>'+
+										'<a class="tt_close">x</a>'+
+										'<div class="clear"></div>'+
+										tooltipTitle+
+										'<p class="mx-tooltip-body">'+contentBody+'</p>'+
+									'</div>';
+
+						$(triggerBy).append(tooltip);
+						$(triggerBy).click(function(e){
+							if(right != 0){
+								var posR = parseInt(width);
+								right = posR - 60;
+								$(triggerBy).find('#tt_container').css('right', right+'px');
+							}
+							
+							var left = $('#'+tooltipId).parent().find(".hasToolTip").width();
+							if(right == 0)
+							$(triggerBy).find('#tt_container').css('left', (33)+'px') ;
+							latamMex.widgets.tooltip.openTooltip(triggerBy);
+  							return false;
+						});
+						$('.tt_close').click(function(e){
+							e.stopPropagation();
+							$(this).parent().hide();
+						});
+						
+						//INC0040065790 fix revert
+						//var tooltip = $('#tt_container');
+						//$(document).on('click', function(){
+    					//	if(tooltip.is(':visible')){
+    					//		tooltip.hide();
+    					//	}
+						//});
+
+				}
+
+			}
+		}()),
+
+		openWindow : (function() {
+			/* Private module variables */
+			
+						
+
+			return {
+
+				/**
+				 * @public
+				 * @description This is a public function within the testModule
+				 * @param {text} id - ID of the tooltip link element that will trigger the respective help bubble
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				//methodSample : function(e) {
+					/**-------------------------------------------------------
+					* Function to validate alphanumeric input
+					-------------------------------------------------------
+					*/
+						
+				//	},
+				/**
+				 * @public
+				 * @description This is a public function within the validate module
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				initialize : function(triggerBy, url, width, height, target, top, left) {
+						$(triggerBy).click(function(){
+							console.log(left);
+							if(left === undefined){
+								var left = (screen.width/2)-(width/2);
+							}
+							if(top === undefined){
+  								var top = (screen.height/2)-(height/2);
+  							}
+  							//window.open(url, target,"toolbar=yes, scrollbars=yes, resizable=yes, top="+top+", left="+left+", width="+width+", height="+height+"");
+  							//--------------------------------------------QC10585--------------------------------------
+  							window.open(url, target,"directories=no,titlebar=yes,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,top="+top+",left="+left+",width="+width+",height="+height+"");
+  							//--------------------------------------------QC10585--------------------------------------
+  							return false;
+						});
+				}
+
+				
+			}
+		}())
+	}
+}(window, window.jQuery));
+
+/** 
+ * @namespace 
+ * @param {DOM Object} window Window object for accessing within the local scope of the common JavaScript modules
+ * @param {jQuery Object} jQuery The jQuery object so the scope of the jQuery object can be local to avoid
+ * 						  naming collisions/changes.
+ * @return Publicly available modules.
+ * */
+ 
+latamMex.forms = (function(window, $) {  
+	return {
+		dropDownListener : (function(){
+			return {
+
+				/**
+				 * @public
+				 * @description Function to add event listener to any given drop down.
+				 * @param mainsSelector (the input selector)
+				 * @param optionSelector (the option conatiner selector)
+				 * @param truncate (wether to add ellipsis to the end if the text is too large)
+				 * @returns N/A
+				 * @branch 
+				 */
+				initialize : function(mainSelector, optionsSelector, truncate) {
+					var isOver = true;
+
+					$(mainSelector).bind('click',function(){
+						$(optionsSelector).slideToggle(500,"swing");
+					});
+
+					$(optionsSelector+' dl dd').bind("click" ,function(){
+						// Shorten text if needed
+						if(truncate) {
+							shortText = latamMex.forms.threeDots(mainSelector, $(this));
+							$(mainSelector).val(shortText);
+						} else {
+							$(mainSelector).val($(this).text());
+						}
+						// Check if there's a recurrent payment image, show or hide
+						recurrentCheck = new RegExp('^(.*dosFlechasUEF+.*)+$');
+						if($(this).html().match(recurrentCheck)){
+							$(mainSelector).prev('#dosFlechasUEFBackground').show();
+						} else {
+							$(mainSelector).prev('#dosFlechasUEFBackground').hide();
+						} 
+						
+						$(mainSelector).trigger("change");
+						isOver = true;
+						$(mainSelector).trigger("focusout");
+					});
+
+					$(optionsSelector+' dl dd').mouseover(function(){
+						isOver = false;
+					});
+
+					$(optionsSelector+' dl dd').mouseout(function(){
+						isOver = true;
+					});
+
+					$(mainSelector).bind('focusout',function(){
+						if($(optionsSelector).css("display") == 'block' && isOver){
+							setTimeout(function(){
+									$(optionsSelector).slideToggle(500,"swing");
+								}, 100);
+						}
+					});
+				},
+				dropDownTrigger: function(){
+					//alert('dropdown triggered')
+						$('#subapp-box dl').delegate('dd','click',function(){
+							$(this).parent().parent().parent().find('input').trigger('change'); 
+						});  
+				} 
+			}
+		}()),
+		
+		/**
+		 * @public
+		 * @description Function to add ellipsis to the end of the the text if it is too long
+		 * @param mainsSelector (The input selector to place the truncated text in)
+		 * @param selectedItem (the option that was selected)
+		 * @returns (truncated text with ellipsis [...] at the end)
+		 * @branch 
+		 */
+		threeDots : function(mainSelector, selectedItem) {
+			// Check width of the dropdown
+			selectWidth = ($(mainSelector).width()) - 46;
+			selectText = selectedItem.text();
+			// Find the number of characters
+			charNum = selectText.length;
+			// The widht is divided into 75px "sections" that hold an average of 11 characters, mixing caps and punctuation
+			sections = selectWidth / 75;
+			newCharNum = sections * 11;
+			// Trigger only if the text is actually too long
+			if(charNum > newCharNum) {
+				// Check if it is an amount field
+				if(selectText.match(RegExp('Available:')) || selectText.match(RegExp('Disponible:'))) {
+					// Divide the text into different parts, count the characters and subtract the amount
+					numberStart =  selectText.search(RegExp('[0-9]{3}'));
+					amountText = selectText.substring(numberStart + 3);
+					amountQuantity = amountText.length;
+					accountText = selectText.substring(0, numberStart);
+					accountQuantity = accountText.length;
+					accountNumber = selectText.substring(numberStart, (numberStart + 3));
+					shortTextNum = newCharNum - amountQuantity;
+					shortText = selectText.substring(0, shortTextNum) + '... - ';
+					newText = shortText + accountNumber + '               ' + amountText;
+					return newText;
+				} else {
+					// Trim the text after the new character max and add the ellipsis
+					newText = selectText.substring(0, newCharNum) + '...';
+				}
+			} else {
+				newText = selectText;
+			}
+			return newText;
+		},
+
+		fieldError : (function() {
+			/* Private module variables */
+			
+						
+
+			return {
+
+				/**
+				 * @public
+				 * @description This is a public function within the testModule
+				 * @param {text} id - ID of the tooltip link element that will trigger the respective help bubble
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				invalid : function(selectors) {
+					/*-------------------------------------------------------
+					# Function to validate alphanumeric input
+					-------------------------------------------------------*/
+						for (i in selectors)
+    					{
+							$(selectors[i]).addClass("error_UEF");
+						}
+					},
+				/**
+				 * @public
+				 * @description This is a public function within the validate module
+				 * @returns N/A
+				 * @branch 7.10
+				 */
+				errorTooltip : function(triggerBy,contentBody) {
+					if(typeof(triggerBy) == 'object'){
+						var selectorCount = triggerBy.selectors.length;
+						for(i in triggerBy.selectors){
+								
+							var bubbleError = '<div class="mx-bb-error hide"><span class="errorB_UEF marginL-20">'+
+	     										'<span class="flecha3 mx-bb-flecha"></span>'+
+	     										'<span class="content_bigUEF mx-bb-content">'+triggerBy.contentBody[i]+'</span>'+
+											'</span></div>';
+							//hasClass('dateYearDD') been added specifically for DAtea and YEar drodwon -Teleton
+							//if need to use for other application- try to follow the DOM Structure in Teleton
+							if($(triggerBy.selectors[i]).hasClass('dateYearDD')){
+								$(triggerBy.selectors[i]).children('.tooltipPosition').append(bubbleError);
+								$(".mx-bb-error").eq(i).css("left",$(triggerBy.selectors[i]).children('.tooltipPosition').width()+20);
+								$('#dueMonthComboId').addClass("error_UEF");
+								$('#dueYearComboId').addClass("error_UEF");
+							}else{
+								$(triggerBy.selectors[i]).parent().append(bubbleError);
+								$(".mx-bb-error").eq(i).css("left",$(triggerBy.selectors[i]).parent().width()+20);
+								$(triggerBy.selectors[i]).addClass("error_UEF");
+							}
+							
+							if($(triggerBy.selectors[i]).hasClass('dateYearDD')){
+								$('#dueMonthComboId, #dueYearComboId').focus(function(){
+									if($('#dueMonthComboId').hasClass('error_UEF') || $('#dueYearComboId').hasClass('error_UEF')){
+										$('.mx-bb-error').addClass('hide');
+										$('.tooltipPosition').children('.mx-bb-error').removeClass('hide');
+									}
+									
+								});
+							}else{
+								$(triggerBy.selectors[i]).focus(function(){
+									if($(this).hasClass('error_UEF')){
+										$('.error_UEF').each(function(){
+											$(this).parent().find('.mx-bb-error').addClass('hide');	
+											if($(this).parents().hasClass('dateYearDD')){
+												$(this).parents().find('.mx-bb-error').addClass('hide');	
+											}
+										});
+										if($(this).next().hasClass('oculto2')){
+											$(this).next().next('.mx-bb-error').removeClass('hide');
+										}else{
+											$(this).next('.mx-bb-error').removeClass('hide');
+										}
+									}
+								});
+							}
+							$(triggerBy.selectors[i]).change(function(){
+								if($(this).val().trim() != '' && $(this).val().trim() != undefined){
+									$(this).removeClass('error_UEF');
+									$(this).next('.mx-bb-error').addClass('hide');
+									$('.error_UEF').eq(0).parent().find('.mx-bb-error').removeClass('hide');
+								}
+								else{
+									$('.error_UEF').eq(0).parent().find('.mx-bb-error').addClass('hide');
+									$(this).addClass('error_UEF');	
+									$('.error_UEF').eq(0).parent().find('.mx-bb-error').removeClass('hide');
+								}
+							});
+							
+						}
+						$(".mx-bb-error.hide").filter(':first').removeClass("hide");
+					}
+					else{
+					
+						var bubbleError = '<div class="mx-bb-error"><span class="errorB_UEF marginL-20">'+
+	     										'<span class="flecha3 mx-bb-flecha"></span>'+
+	     										'<span class="content_bigUEF mx-bb-content">'+contentBody+'</span>'+
+											'</span></div>';
+						$(triggerBy).parent().append(bubbleError);
+						$(".mx-bb-error").css("left",$(triggerBy).parent().width()+20);
+					}
+				}
+
+
+			}
+		}()),
+		checkBox : (function(){
+			return{
+				initialize: function(){
+					$("input[type='checkbox']").imageTick({
+			            tick_image_path: "/JFP/regional/images/img_form/check_1.png",
+			            no_tick_image_path: "/JFP/regional/images/img_form/no_check_1.png"
+			        });
+			        
+			        $("label.checkR").click(function(e){
+			        	e.preventDefault();
+			        });
+
+			        $("input[type='checkbox']").click(function(e){
+			        		e.stopPropagation();
+			        });
+				}
+			}
+		}()),
+		/* Amount Format Validation */
+		amountFormat : (function(){
+			return{
+				initialize: function(inputSelector){
+					$(inputSelector).keyup(function(){
+						// Getting the value from the input
+						impVal = $(this).val();
+						// Patter to test the value and avoid other keys
+						pattern = new RegExp(/[^0-9$,.\s]/g);
+						// Test if impVal has other characters
+						if(pattern.test(impVal)){
+							// Keep numeric data '$', ',' , '.' and ' '
+							$(this).val(impVal.replace(/[^0-9$,.\s]/g,""));
+						}
+					});
+			        $(inputSelector).focusout(function(){
+			            impVal = $(this).val();
+			            decVal = "";
+			            // Only if the value is different than ''.
+				        if(impVal != ''){
+				            // Test if the amount has any , . 
+				            pattern = new RegExp(/[$,]/g);
+				            // If it doesn't have any of this chars we proceed to format
+				            if(!pattern.test(impVal)){
+					            splitDecimals = impVal.split('.');
+					            impVal = splitDecimals[0];
+					            // Keeping the decimal points.
+					            // Check if the amount has decimals
+					            if(splitDecimals[1] == undefined){
+					            	if(!isNaN(impVal)){
+						            	decVal = ".00";
+						    		}
+					            }
+					            else{
+					            	// Keep only 2 decimal points
+					            	decVal = "."+splitDecimals[1].substring(0,2);
+					            }
+					            // Remove any $ , \s and . if any left.	
+					            impVal = impVal.replace(/[$,\s.]/g,'');
+					            // Parse to int in order to remove 0's from the begining.
+					            impVal = parseInt(impVal);
+					            // Asign the new value to the input.
+					            $(this).val(impVal);
+					            // Mask the new value to "5,000" format.
+					            $(this).mask('#,##0', {reverse : true});
+					            // Add the $ sign
+					            $(this).val('$ '+$(this).val()+decVal);
+				            }
+				            else{
+
+				            	splitDecimals = impVal.split('.');
+					            impVal = splitDecimals[0];
+
+					            patternComma = new RegExp(/,/g);
+					            // If the input has only the '$' must be formated
+				            	if(!patternComma.test(impVal)){
+				            		// Remove any $ , \s and . if any left.	
+					            	impVal = impVal.replace(/[$,\s.]/g,'');
+				            		// Remove any 0's from the begining.
+				            		impVal = parseInt(impVal);
+				            		// Keeping the decimal points.
+						            // Check if the amount has decimals
+						            if(splitDecimals[1] == undefined){
+						            	if(!isNaN(impVal)){
+						            		decVal = ".00";	
+						            	}
+						            }
+						            else{
+						            	// Keep only 2 decimal points
+						            	decVal = "."+splitDecimals[1].substring(0,2);
+						            }
+				            		// Asign the new value to the input.
+						            $(this).val(impVal);
+						            // Mask the new value to "5,000" format.
+						            $(this).mask('#,##0', {reverse : true});
+						            // Add the $ sign
+						            $(this).val('$ '+$(this).val()+decVal);
+				            	}
+				            	// If the input has ',' it remains the same
+				            	else{
+				            		// If the amount starts with 0's it must be formated
+				            		tmpIntVal = impVal.replace(/[$,\s.]/g,'');
+				            		firstInt = tmpIntVal.substring(0,1);
+
+				            		if(firstInt != "" && firstInt == 0){
+				            			splitDecimals = impVal.split('.');
+					            		impVal = splitDecimals[0];
+					            		decVal = splitDecimals[1];
+
+										impVal = impVal.replace(/[$,\s.]/g,'');
+					            		impVal = parseInt(impVal);
+
+					            		// Keeping the decimal points
+							            // Check if the amount has decimals
+							            if(splitDecimals[1] == undefined){
+								            if(!isNaN(impVal)){
+							            		decVal = ".00";	
+							            	}
+							            }
+							            else{
+							            	// Keep only 2 decimal points
+							            	decVal = "."+splitDecimals[1].substring(0,2);
+							            }
+					            		
+					            		// Asign the new value to the input.
+							            $(this).val(impVal);
+							            // Mask the new value to "5,000" format.
+							            $(this).mask('#,##0', {reverse : true});
+							            // Add the $ sign
+							            $(this).val('$ '+$(this).val()+decVal);
+				            		}
+				            		else{
+				            			impVal = $(this).val();
+				            			impVal = impVal.replace(/[$\s]/g,'');
+				            			splitDecimals = impVal.split(".");
+				            			impVal = splitDecimals[0];
+
+				            			// Keeping the decimal points.
+							            // Check if the amount has decimals
+							            if(splitDecimals[1] == undefined){
+							            	tmpImpVal = impVal.replace(/[$\s]/g,'');
+								            if(!isNaN(tmpIntVal)){
+							            		decVal = ".00";	
+							            	}
+							            }
+							            else{
+
+							            	// Keep only 2 decimal points
+							            	decVal = "."+splitDecimals[1].substring(0,2);
+							            }
+				            			$(this).val('$ '+impVal+decVal);	
+				            		}
+				            	}
+				            }
+			        	}
+			        });
+			       /* $(inputSelector).focus(function(){
+					console.log('happie')
+			            impVal = $(this).val();
+						console.log('impVal'+impVal)
+			            $(this).unmask();
+			            $(this).val(impVal);
+			        });*/
+			        $(inputSelector).focus(function(){
+						var splittenValue = $.trim($(this).val().replace(/[^0-9.]/g, '')).split('.');
+						impVal = splittenValue[0];
+	                    if(splittenValue.length > 1){
+							$(this).unmask();
+							$(this).val(splittenValue[0]+'.'+splittenValue[1]);
+						}
+						else{
+							$(this).unmask();
+						}
+					});
+
+				}
+			}
+		}())
+	}
+}(window, window.jQuery));

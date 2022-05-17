@@ -1,0 +1,133 @@
+﻿﻿﻿﻿(function($) {
+
+ if (!userTypeVar) {
+  
+  if (getWindowName() != "" && getWindowName() != null && getWindowName() != "null" && window.name != null && window.name != "") {
+   if (isNaN(parseFloat(getWindowName())) && !isFinite(getWindowName())){
+      setWindowName();
+   }
+  } else {
+    setWindowName();
+  }
+ } else {
+  //Customer flow
+  //Get "page" cookie
+  var cookie = $.cookie("WID") == undefined ? "null" : $.cookie("WID");
+   if ((getWindowName() == null) || (getWindowName() == "") || (getWindowName() == "null") || window.name == null || window.name == "") {
+	  if((typeof(sessionWindowName) == "undefined")  || (sessionWindowName == null) || (sessionWindowName == "") ||  sessionWindowName != getWindowName()) {			  
+		   //Error scenario - Application launched in another tab
+		   if (typeof(cookieValue) == "undefined" || cookie == "null" || cookieValue == null) {
+				if (typeof(logoutEdify) != "undefined"){ logoutEdify(true); } 
+				//Tab was closed and reopened - take user to Timeout page
+				else{
+					var login = $.cookie("logged") == undefined ? "null" : $.cookie("logged");
+					if(login == 'true'){
+						location.replace('/MXGCB/JPS/portal/InvalidTab.do');
+					} else{
+						location.replace('/MXGCB/apps/logout/flow.action?logOutType=manual&source=singleTab');
+					}
+				}
+		   } else {
+			//Another tab is active - take user to Invalid Tab.do
+			location.replace('/MXGCB/JPS/portal/InvalidTab.do');
+		   }
+	  } else{
+	      location.replace('/MXGCB/JPS/portal/InvalidTab.do');
+	  } 
+  }else {
+      if (sessionWindowName != null && sessionWindowName == getWindowName()){
+	   //This function sets page cookie with window.name with an expiry of 8 minutes
+	   var date = new Date();
+	   date.setTime(date.getTime() + timeValue);
+	   $.cookie("WID", getWindowName(), {
+		path: '/',
+		expires: date
+	   });
+	   $(window).on('unload',function() {
+	    
+		$.cookie("WID", "null", {
+		 path: '/',
+		 expires: -1
+		});
+	   });
+  }else{
+		var login = $.cookie("logged") == undefined ? "null" : $.cookie("logged");
+		if(login == 'true'){
+			location.replace('/MXGCB/JPS/portal/InvalidTab.do');
+		} else{
+			location.replace('/MXGCB/apps/logout/flow.action?logOutType=manual&source=singleTab');
+		}
+  }}
+  var myVar;
+  $( document ).ready(function() {
+   myVar = setInterval(checkCookie, 1200);
+  });
+ }
+ 
+function getWindowName() {
+        if (typeof(Storage) !== "undefined" && sessionStorage != null) {
+		
+		try{
+			var wn = sessionStorage.getItem("windowName");
+			if(wn != null && wn != "" && wn != "null"){
+			  return wn;
+			  }
+			  else{
+			     return window.name;
+			  }
+			}catch(exception) {
+			
+			 return window.name;
+			}
+		}
+		else{
+				return window.name;
+			}
+  }
+	
+	
+ function setWindowName() {
+       var a = (new Date()).getTime();
+    
+	   if(typeof(Storage) !== "undefined" && sessionStorage != null) {
+		  
+		  try{
+             sessionStorage.setItem("windowName", a) ;
+            }
+	 
+	     catch(exception){
+          window.name = a ;
+	    } 
+   }		
+	  window.name = a ;
+}
+	
+function checkCookie() {
+  var cookieVal = $.cookie('logout') == undefined ? 'null' : $.cookie('logout');
+	if (cookieVal=='true') {
+	   $.cookie("logout", "null", {path: '/', expires: -1 });
+	  if(typeof(logoutEdify) != "undefined"){ logoutEdify(); } 
+	  location.replace('/MXGCB/apps/logout/flow.action?logOutType=manual&source=secondTab');
+	}
+ }
+})(jQuery);
+
+function logoutEdifyCompleted(){
+    var login = $.cookie("logged") == undefined ? "null" : $.cookie("logged");
+	if(login == 'true'){
+		location.replace('/MXGCB/JPS/portal/InvalidTab.do');
+	} else{
+		location.replace('/MXGCB/apps/logout/flow.action?logOutType=manual&source=singleTab');
+	}
+}              
+
+$( document ).ready(function() {
+   if(location.href.indexOf('logout') != -1){
+		var date = new Date();
+		date.setTime(date.getTime() + timeValue);
+		$.cookie("logout", "true", {path: '/', expires: date });
+		$.cookie("logged", "null", {path: '/', expires: -1 });		
+	} else {
+		 $.cookie("logout", "null", {path: '/', expires: -1 });	
+	}
+  });

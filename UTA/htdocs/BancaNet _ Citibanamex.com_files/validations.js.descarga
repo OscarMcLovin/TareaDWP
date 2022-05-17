@@ -1,0 +1,1447 @@
+var inputFormSubmitted = false;
+
+function submitInEnter(event){
+		var keycode = event.which != 0 ? event.which : event.keyCode;
+		var code = getCode(event);
+		
+		if (((keycode == undefined && code == 13) || (keycode == 13))){
+			
+			validarUserNumber(this);
+			//document.forms["preSignonForm"].submit();
+		}
+}
+
+function validateActivatePassword(){
+
+var pass = validateEnteredPwdsActivate();
+var num = validateEnteredNumsActivate();
+
+if(pass&&num){
+	document.forms['activePwdform'].submit();
+}else{
+	return false;
+}
+}
+
+
+function cleanToolTip(inputClean){
+
+	//cleaning displayed error/ok sign for the second field, if present
+	var childNodesArray = document.getElementById(inputClean).getElementsByTagName("span");
+	for(i=0; i<childNodesArray.length; i++){
+		if(childNodesArray[i].style.display == 'inline'){
+			var filledNode = childNodesArray[i].id;
+			document.getElementById(filledNode).style.display = 'none';
+			}
+	}
+}
+
+
+function validateEnteredNumsActivate(){
+
+//retrieving user input
+var pw1 = document.getElementById('firstNum').value;
+var pw2 = document.getElementById('secondNum').value;
+
+
+//cleaning displayed error/ok sign for the first field, if present
+var childNodesArray = document.getElementById('firstNumErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('num1Ok').style.display = 'none';
+	
+	
+//cleaning displayed error/ok sign for the second field, if present
+var childNodesArray = document.getElementById('secondNumErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('num2Ok').style.display = 'none';
+
+var firstFieldValidated = validateFirstFieldNumActivate(pw1);
+
+var secondFieldValidated = validateSecondFieldNumActivate(pw2, pw1);
+
+
+var formSubmitable = true;
+var focusAsigned = false;
+
+
+//focus goes to the first field with errors
+if(firstFieldValidated == "notOk"){
+	//document.getElementById('firstNum').focus();
+	formSubmitable = false;
+	focusAsigned = true;
+	$(document.getElementById('firstNum')).addClass("revisar2");
+}else{
+	var firstNum = $(document.getElementById('firstNum'));
+	if (firstNum != null) {
+		$(document.getElementById('firstNum')).removeClass("revisar2");
+	}
+	document.getElementById('num1Ok').style.display = 'inline';
+}
+
+if(secondFieldValidated == "notOk"){
+	if(!focusAsigned){
+		//document.getElementById('secondNum').focus();
+	}
+	formSubmitable = false;
+	$(document.getElementById('secondNum')).addClass("revisar2");
+}else{
+	var secondNum = $(document.getElementById('secondNum'));
+	if (secondNum != null) {
+		$(document.getElementById('secondNum')).removeClass("revisar2");
+	}
+	document.getElementById('num2Ok').style.display = 'inline';
+}
+	
+return formSubmitable;
+
+
+}
+
+
+
+
+function validateFirstFieldNumActivate(pw1){
+
+var validation = "ok"; 
+
+
+//must contain letters and numbers
+var onlyNum = onlyNumbers(pw1);
+
+if(onlyNum==1){
+	document.getElementById('num1OnlyNums').style.display = 'inline';
+	return "notOk";
+}
+
+
+//must contain 8 characters
+var countPw1 = pw1.length;
+
+if(countPw1!=8){
+	var num1Length = document.getElementById('num1Length');
+	num1Length.style.display = 'inline';
+	addOnMouseOut(num1Length, document.getElementById('firstNum'));
+	return "notOk";
+}
+
+
+//first character must be a letter
+var firstCharPw1 = pw1.charAt(0);
+
+if(firstCharPw1 == '0'){
+	document.getElementById('num1FirstCharNo0').style.display = 'inline';
+	return "notOk";
+}
+
+
+//customer number must not be included in password
+var customerNumber = parseInt(document.getElementById('custNum').value,10);
+
+if(pw1.search(customerNumber)!=-1){
+	document.getElementById('num1CustNumNotAllowed').style.display = 'inline';
+	return "notOk";
+}
+
+//must not contain more than 2 occurrences of any number or letter
+var character;
+
+var pwdArray = pw1.split('');
+var counter = 0;
+
+for(i=0; i < pw1.length; i++){
+	character = pw1.charAt(i);
+	for(j=0; j < pwdArray.length; j++){
+		if(pwdArray[j] == character){
+			counter++;
+		}	
+	}
+	if(counter>2){
+		document.getElementById('num1MoreThanTwoOcur').style.display = 'inline';
+		return "notOk";
+	}
+	counter = 0;
+}
+
+
+//must not contain more than two consecutive characters together
+var moreThanTwoConsecutive = 0;
+
+moreThanTwoConsecutive = moreThanTwoConsecutiveCharacters(pw1);
+if(moreThanTwoConsecutive == 1){
+	document.getElementById('num1MoreThanTwoConsecutiveChars').style.display = 'inline';
+	return "notOk";
+}
+
+
+return validation;
+}
+
+//second field validations
+function validateSecondFieldNumActivate(pw2, pw1){
+
+
+var validation = "ok"; 
+
+
+//must contain letters and numbers
+var onlyNum = onlyNumbers(pw2);
+
+if(onlyNum==1){
+	document.getElementById('num2OnlyNums').style.display = 'inline';
+	return "notOk";
+}
+
+
+//must contain 8 characters
+var countPw2 = pw2.length;
+
+if(countPw2!=8){
+	var num2Length = document.getElementById('num2Length');
+	num2Length.style.display = 'inline';
+	addOnMouseOut(num2Length, document.getElementById('secondNum'));
+	return "notOk";
+}
+
+
+//first character must be a letter
+var firstCharPw2 = pw2.charAt(0);
+
+if(firstCharPw2 == '0'){
+	document.getElementById('num2FirstCharNo0').style.display = 'inline';
+	return "notOk";
+}
+
+
+//customer number must not be included in password
+var customerNumber = parseInt(document.getElementById('custNum').value,10);
+
+if(pw2.search(customerNumber)!=-1){
+	document.getElementById('num2CustNumNotAllowed').style.display = 'inline';
+	return "notOk";
+}
+
+//must not contain more than 2 occurrences of any number or letter
+var character;
+
+var pwdArray = pw2.split('');
+var counter = 0;
+
+for(i=0; i < pw2.length; i++){
+	character = pw2.charAt(i);
+	for(j=0; j < pwdArray.length; j++){
+		if(pwdArray[j] == character){
+			counter++;
+		}	
+	}
+	if(counter>2){
+		document.getElementById('num2MoreThanTwoOcur').style.display = 'inline';
+		return "notOk";
+	}
+	counter = 0;
+}
+
+
+//must not contain more than two consecutive characters together
+var moreThanTwoConsecutive = 0;
+
+moreThanTwoConsecutive = moreThanTwoConsecutiveCharacters(pw2);
+if(moreThanTwoConsecutive == 1){
+	document.getElementById('num2MoreThanTwoConsecutiveChars').style.display = 'inline';
+	return "notOk";
+}
+
+
+//second input must match first input
+if(pw1!=pw2){
+	document.getElementById('num2NoMatchNum1').style.display = 'inline';
+	return "notOk";
+}
+
+
+
+return validation;
+}
+
+
+
+
+
+
+
+
+
+function validateEnteredPwdsActivate(){
+
+//retrieving user input
+var pw1 = document.getElementById('firstPwd').value;
+var pw2 = document.getElementById('secondPwd').value;
+
+
+//cleaning displayed error/ok sign for the first field, if present
+var childNodesArray = document.getElementById('firstPwdErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('pwd1Ok').style.display = 'none';
+	
+	
+//cleaning displayed error/ok sign for the second field, if present
+var childNodesArray = document.getElementById('secondPwdErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('pwd2Ok').style.display = 'none';
+
+var firstFieldValidated = validateFirstField(pw1);
+
+var secondFieldValidated = validateSecondField(pw2, pw1);
+
+
+var formSubmitable = true;
+var focusAsigned = false;
+
+
+//focus goes to the first field with errors
+if(firstFieldValidated == "notOk"){
+	//document.getElementById('firstPwd').focus();
+	formSubmitable = false;
+	focusAsigned = true;
+	$(document.getElementById('firstPwd')).addClass("revisar2");
+}else{
+	var firstPwdStyle = $(document.getElementById('firstPwd'));
+	if (firstPwdStyle != null) {
+	
+		$(document.getElementById('firstPwd')).removeClass("revisar2");
+	}
+	document.getElementById('pwd1Ok').style.display = 'inline';
+}
+
+if(secondFieldValidated == "notOk"){
+	if(!focusAsigned){
+		//document.getElementById('secondPwd').focus();
+	}
+	formSubmitable = false;
+	$(document.getElementById('secondPwd')).addClass("revisar2");
+}else{
+
+	var secondPwdStyle = $(document.getElementById('secondPwd'));
+	if (secondPwdStyle != null) {
+		$(document.getElementById('secondPwd')).removeClass("revisar2");
+	}
+	document.getElementById('pwd2Ok').style.display = 'inline';
+}
+	
+return formSubmitable;
+
+
+}
+
+
+
+
+
+
+// CHANGE PASSWORD
+
+
+	function openWindow (pURL){
+		window.open(pURL,"window1","width=650,height=450,scrollbars=yes, top=100, left=200, resizable=yes");
+	}
+	
+	
+
+
+	function validarUserNumber(btn){
+		var btnEnter = '#enterId';
+		$(btnEnter).attr("disabled","true");
+		
+		if(inputFormSubmitted == true){
+		return;
+		}
+			
+			if(document.getElementById("MKD25") != null) {
+				if(document.getElementById("MKD25").GetText2(document.getElementById("textCliente")) != "") {
+					document.forms['preSignonForm'].username.value = document.getElementById("MKD25").GetText2(document.getElementById("textCliente"));
+				}
+			}else{
+				document.forms['preSignonForm'].username.value = document.getElementById("textCliente").value;
+			}
+			
+			var validation = true;
+			
+			var userNumberInput = document.getElementById('textCliente').value;
+			countNumber = userNumberInput.length;
+	
+			if (countNumber == 0){
+				document.getElementById('error_username').style.display = "inline";
+				document.getElementById('textCliente').style.background = '#ffff99';
+				addOnMouseOut_2(document.getElementById('error_username_msj'),document.getElementById('error_username'),document.getElementById('textCliente'));
+				//ensighten requirement 1.2
+				bnmx_tms.warningError("message('" + $.trim(error_username_msj.innerText) + "')");
+				validation = false;
+			}else{
+				var pattern = /^\d+$/;
+				var validClientNumber = userNumberInput.match(pattern);
+				if(validClientNumber==null){
+				//	displayPopup("modal_login_inputError");
+					//document.getElementById('error_usernameType').style.display = "inline";
+					//document.getElementById('textCliente').style.background = '#ffff99';
+					//addOnMouseOut_2(document.getElementById('error_usernameType_msj'),document.getElementById('error_usernameType'),document.getElementById('textCliente'));
+					//begining
+					$(function(){ 
+					jQuery("#modal_login_inputError").jfpwidget("open");
+					/*ensighten requirement 1.3*/
+					_bnmxData={
+						"PgID":"MX|BNP3|LOGIN|SESIONRECHAZADA",
+						"language":languageLayout,
+						"server":servInfo
+					};
+					bnmx_tms.sessionRejected();
+					/*END ensighten requirement 1.3*/
+					$('#sliderVertical').jfpwidget('refresh');
+					$('#sliderVertical').jfpwidget('setProperty','slider',100);
+					});
+
+					if ($.browser.msie == true) {
+					$(".tituloDVA").attr("style", "padding-top:13px; margin-top:2px; margin-left:31px;");
+	
+					}
+					if ($.browser.mozilla == true) {
+			$(".tituloDVA").attr("style", "padding-top: 9px;");
+			} 
+					validation = false;
+				}
+			}
+			
+			
+			if(validation){
+				document.getElementById('preSignonForm').action = '/MXGCB/apps/loginbnp/flow.action';
+				//document.getElementById("eiName").value = "submit";
+				//$(btnEnter).attr("disabled","true");
+				inputFormSubmitted = true;
+				document.forms["preSignonForm"].submit(function(){return true;});
+			}else{
+				$(btnEnter).attr("disabled","false");
+				inputFormSubmitted = false;
+				return false;
+			}
+	}
+	
+	
+
+	var formSumbitted = false; //IE fix restrict 1 submit event on enter
+
+	function validarUserKey(){
+		var btn = '#enterId';
+		
+		if(formSumbitted == true){
+		
+		return;
+		
+		}
+		
+		if(document.getElementById("MKD25") != null) {
+			if(document.getElementById("MKD25").GetText2(document.getElementById("textFirma")) != "") {
+				document.forms['preSignonForm2'].password.value = document.getElementById("MKD25").GetText2(document.getElementById("textFirma"));
+			}
+		}else{
+			document.forms['preSignonForm2'].password.value = document.getElementById("textFirma").value;
+		}
+			
+		var validation = true;
+		
+		var accessKeyInput = document.getElementById('textFirma').value;
+		
+		countKey = accessKeyInput.length;
+		if (countKey == 0){
+			document.getElementById('error_userKey').style.display = "inline";
+			document.getElementById('textFirma').style.background = '#ffff99';
+			addOnMouseOut_2(document.getElementById('error_userKey_msj'), document.getElementById('error_userKey'), document.getElementById('textFirma'));
+			//ensighten requirement 1.6
+			bnmx_tms.warningError("message('" + $.trim(error_userKey_msj.innerText) + "')");
+			validation = false;
+		}else{
+			if(countKey < 8){
+				document.getElementById('error_userKeyLenght').style.display = "inline";
+				document.getElementById('textFirma').style.background = '#ffff99';
+				addOnMouseOut_2(document.getElementById('error_userKeyLenght_msj'), document.getElementById('error_userKeyLenght'), document.getElementById('textFirma'));
+				validation = false;
+			}
+		}
+				
+		if(validation){
+			document.getElementById('preSignonForm2').action = '/MXGCB/apps/loginbnp/flow.action';
+			document.getElementById("eiName").value = "submit";
+			document.getElementById("dateLogin").value = new Date().getTime();
+			 if (typeof(Storage) !== "undefined" && sessionStorage != null &&  sessionStorage.getItem("windowName") != null && sessionStorage.getItem("windowName") != "" && sessionStorage.getItem("windowName") != "null"){
+		          document.getElementById("windowId").value = sessionStorage.getItem("windowName");
+			}else{
+			document.getElementById("windowId").value = window.name;
+			}
+			$(btn).attr("disabled","true");
+			formSumbitted = true;
+			if(typeof localStorage !="undefined") { //R18.1-COPS-Clear all localStorage				
+				/*R20-COPS_Banner*/
+				var restoreKey = localStorage.getItem('bannerFlg');
+				var copsBanbannerOffer = localStorage.getItem('bannerOffer');
+				/** Nemesis | Epic 1014 | R21 | Dashboard | Banner Teleton **/
+				var restoreTelKey = localStorage.getItem('bannerTeletonFlg');
+				var getshbannerFlg = localStorage.getItem('shbannerFlg');
+				localStorage.clear();
+			    localStorage.setItem('bannerFlg',restoreKey);	
+			    localStorage.setItem('bannerTeletonFlg', restoreTelKey);
+			    localStorage.setItem('bannerOffer', copsBanbannerOffer);
+			    localStorage.setItem('shbannerFlg', getshbannerFlg);
+			}
+			document.forms["preSignonForm2"].submit(function(){return true;});
+			
+		}else{
+			formSumbitted = false;
+			return false;
+		}
+	}
+
+
+	function deleteUserCookie() {
+		document.cookie ='c_ic=; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+	}
+	
+	
+	function identifyEscKeyPressedEvent(keyEvent)
+	  {               
+       var pressedKeyValue = keyEvent.keyCode;
+                    if(pressedKeyValue == 27)
+                    {
+                        document.getElementById("textFirma").value = "";
+                    }
+    }
+
+	
+	
+	function tabToEnter(e){
+		var pass = document.getElementById("textFirma").value;
+		var key = e.keyCode || e.which;
+		
+		if (key === 13){	
+			validarUserKey();
+		}
+	}
+
+
+
+
+
+function validateEnteredPwds(){
+
+//retrieving user input
+var pw1 = document.getElementById('firstPwd').value;
+var pw2 = document.getElementById('secondPwd').value;
+var actualpass = document.getElementById('actualPwd');
+
+
+//cleaning displayed error/ok sign for the Actual password field, if present
+var actualPwdErrors = document.getElementById('actualPwdErrors');
+if (actualPwdErrors != null ) {
+
+	var childNodesArray = actualPwdErrors.getElementsByTagName("span")
+	for(i=0; i<childNodesArray.length; i++){
+		if(childNodesArray[i].style.display == 'inline'){
+			var filledNode = childNodesArray[i].id;
+			document.getElementById(filledNode).style.display = 'none';
+			}
+	}
+	if (document.getElementById('actualPassOk') != null){
+		document.getElementById('actualPassOk').style.display = 'none';
+	}
+}
+
+//cleaning displayed error/ok sign for the first field, if present
+if(document.getElementById('firstPwdErrors') != null){
+var childNodesArray = document.getElementById('firstPwdErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('pwd1Ok').style.display = 'none';
+}	
+	
+//cleaning displayed error/ok sign for the second field, if present
+if(document.getElementById('secondPwdErrors') != null){
+var childNodesArray = document.getElementById('secondPwdErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('pwd2Ok').style.display = 'none';
+}
+
+var actualPassFieldValidated = validateActualPassField(actualpass);
+var firstFieldValidated = validateFirstField(pw1);
+
+var secondFieldValidated = validateSecondField(pw2, pw1);
+
+
+var formSubmitable = true;
+var focusAsigned = false;
+
+
+//focus goes to the first field with errors
+if(actualPassFieldValidated == "notOk"){
+	document.getElementById('actualPwd').focus();
+	formSubmitable = false;
+	focusAsigned = true;
+	$(document.getElementById('actualPwd')).addClass("revisar2");
+}else if(actualPassFieldValidated == "notOkModal"){
+	document.getElementById('actualPwd').focus();
+	formSubmitable = false;
+	focusAsigned = true;
+	showChangePasswordModal();
+	return false;
+}else{
+	var actualPwdStyle = $(document.getElementById('actualPwd'));
+	if (actualPwdStyle != null) {
+	
+		$(document.getElementById('actualPwd')).removeClass("revisar2");
+	}
+	if (document.getElementById('actualPassOk')){
+		document.getElementById('actualPassOk').style.display = 'inline';
+	}
+}
+
+if(firstFieldValidated == "notOk"){
+	//document.getElementById('firstPwd').focus();
+	formSubmitable = false;
+	focusAsigned = true;
+	$(document.getElementById('firstPwd')).addClass("revisar2");
+}else{
+	var firstPwdStyle = $(document.getElementById('firstPwd'));
+	if (firstPwdStyle != null) {
+	
+		$(document.getElementById('firstPwd')).removeClass("revisar2");
+	}
+	if(document.getElementById('pwd1Ok') != null)
+	document.getElementById('pwd1Ok').style.display = 'inline';
+}
+
+if(secondFieldValidated == "notOk"){
+	if(!focusAsigned){
+		//document.getElementById('secondPwd').focus();
+	}
+	formSubmitable = false;
+	$(document.getElementById('secondPwd')).addClass("revisar2");
+}else{
+	var secondPwdStyle = $(document.getElementById('secondPwd'));
+	if (secondPwdStyle != null) {
+		$(document.getElementById('secondPwd')).removeClass("revisar2");
+	}
+	if(document.getElementById('pwd2Ok') != null)
+	document.getElementById('pwd2Ok').style.display = 'inline';
+}
+	
+if(formSubmitable){
+	document.forms['formchangepassword'].submit();
+}else{
+	return false;
+}
+
+}
+
+function validateActualPassField(actualpass){
+
+var validation = "ok"; 
+
+var actualpassLength;
+
+if (actualpass != null){
+	actualpassLength = actualpass.value.length;
+
+	if (actualpassLength < 8 && actualpassLength!=0){
+		return "notOkModal";
+	}
+}
+if (actualpass != null) {
+	var pw1 = actualpass.value;
+	
+	if(pw1 == "" || pw1 == null){
+		if (document.getElementById('actualPwdEmpty')!= null){
+			var actualPwdEmpty = document.getElementById('actualPwdEmpty');
+			actualPwdEmpty.style.display = 'inline';
+			addOnMouseOut(actualPwdEmpty, document.getElementById('actualPwdEmpty'));
+			return "notOk";
+		}
+	}
+	
+	//must contain letters and numbers
+	var onlyNum = onlyNumbers(pw1);
+	var onlyLet = onlyLetters(pw1);
+	
+	if(onlyNum==0 || onlyLet==0){
+		document.getElementById('actualPassNumbersAndLetters').style.display = 'inline';
+		return "notOk";
+	}
+}
+
+return validation;
+}
+
+
+//first field validations
+function validateFirstField(pw1){
+
+var validation = "ok"; 
+
+if(pw1 == "" || pw1 == null){
+	if (document.getElementById('firstPwdEmpty') != null) {
+			var firstPwdEmpty = document.getElementById('firstPwdEmpty');
+			firstPwdEmpty.style.display = 'inline';
+			addOnMouseOut(firstPwdEmpty, document.getElementById('firstPwd'));
+			return "notOk";
+	}
+}
+
+//customer number must not be included in password
+var customerNumber = parseInt(document.getElementById('custNum').value,10);
+
+if(pw1.search(customerNumber)!=-1){
+	var pwd1CustNumNotAllowed = document.getElementById('pwd1CustNumNotAllowed');
+	pwd1CustNumNotAllowed.style.display = 'inline';
+	addOnMouseOut(pwd1CustNumNotAllowed, document.getElementById('firstPwd'));
+	return "notOk";
+}
+
+//must contain letters and numbers
+var onlyNum = onlyNumbers(pw1);
+var onlyLet = onlyLetters(pw1);
+
+if(onlyNum==0 || onlyLet==0){
+	var pwd1NumbersAndLetters = document.getElementById('pwd1NumbersAndLetters');
+	if(pwd1NumbersAndLetters != null){
+	pwd1NumbersAndLetters.style.display = 'inline';
+	addOnMouseOut(pwd1NumbersAndLetters, document.getElementById('firstPwd'));
+	return "notOk";
+}}
+
+
+//must contain 8 characters
+var countPw1 = pw1.length;
+
+if(countPw1!=8){
+	var pwd1Length = document.getElementById('pwd1Length');
+	pwd1Length.style.display = 'inline';
+	addOnMouseOut(pwd1Length, document.getElementById('firstPwd'));
+	return "notOk";
+}
+
+
+//first character must be a letter
+var firstCharPw1 = pw1.charAt(0);
+
+var fcpw1 = onlyLetters(firstCharPw1);
+
+if(fcpw1 == 1){
+	var pwd1FirstCharLetter = document.getElementById('pwd1FirstCharLetter');
+	pwd1FirstCharLetter.style.display = 'inline';
+	addOnMouseOut(pwd1FirstCharLetter, document.getElementById('firstPwd'));
+	return "notOk";
+}
+
+
+//no special characters allowed
+var allowedCharacters = /^[a-zA-Z0-9]+$/;
+
+var character;
+for(i=0; i < pw1.length; i++){
+	character = pw1.charAt(i);
+	if(!allowedCharacters.test(character)){
+		var pwd1NoSpecialCharsAllowed = document.getElementById('pwd1NoSpecialCharsAllowed');
+		pwd1NoSpecialCharsAllowed.style.display = 'inline';
+		addOnMouseOut(pwd1NoSpecialCharsAllowed, document.getElementById('firstPwd'));
+		return "notOk";
+	}
+}
+
+//must not contain more than 2 occurrences of any number or letter
+var character;
+
+var pwdArray = pw1.split('');
+var counter = 0;
+
+for(i=0; i < pw1.length; i++){
+	character = pw1.charAt(i);
+	for(j=0; j < pwdArray.length; j++){
+		if(pwdArray[j] == character){
+			counter++;
+		}	
+	}
+	if(counter>2){
+		var pwd1MoreThanTwoOcur = document.getElementById('pwd1MoreThanTwoOcur');
+		pwd1MoreThanTwoOcur.style.display = 'inline';
+		addOnMouseOut(pwd1MoreThanTwoOcur, document.getElementById('firstPwd'));
+		return "notOk";
+	}
+	counter = 0;
+}
+
+
+//must not contain more than two consecutive characters together
+var moreThanTwoConsecutive = 0;
+
+moreThanTwoConsecutive = moreThanTwoConsecutiveCharacters(pw1);
+if(moreThanTwoConsecutive == 1){
+	var pwd1MoreThanTwoConsecutiveChars = document.getElementById('pwd1MoreThanTwoConsecutiveChars');
+	pwd1MoreThanTwoConsecutiveChars.style.display = 'inline';
+	addOnMouseOut(pwd1MoreThanTwoConsecutiveChars, document.getElementById('firstPwd'));
+	return "notOk";
+}
+
+
+//must not contain the "Banamex" string
+var pw1LowerCase = pw1.toLowerCase();
+
+if(pw1LowerCase.search("banamex")!=-1){
+	var pwd1ContainsBanamexString = document.getElementById('pwd1ContainsBanamexString');
+	pwd1ContainsBanamexString.style.display = 'inline';
+	addOnMouseOut(pwd1ContainsBanamexString, document.getElementById('firstPwd'));
+	return "notOk";
+}
+
+
+return validation;
+}
+
+//second field validations
+function validateSecondField(pw2, pw1){
+
+var validation = "ok"; 
+
+if(pw2 == "" || pw2 == null){
+	if (document.getElementById('secondPwdEmpty') != null) {
+		var secondPwdEmpty = document.getElementById('secondPwdEmpty');
+		secondPwdEmpty.style.display = 'inline';
+		addOnMouseOut(secondPwdEmpty, document.getElementById('secondPwd'));
+		return "notOk";
+	}
+}
+
+//customer number must not be included in password
+var customerNumber = parseInt(document.getElementById('custNum').value,10);
+
+if(pw2.search(customerNumber)!=-1){
+		var pwd2CustNumNotAllowed = document.getElementById('pwd2CustNumNotAllowed');
+		pwd2CustNumNotAllowed.style.display = 'inline';
+		addOnMouseOut(pwd2CustNumNotAllowed, document.getElementById('secondPwd'));
+		return "notOk";
+}
+
+//must contain letters and numbers
+var onlyNum = onlyNumbers(pw2);
+var onlyLet = onlyLetters(pw2);
+
+if(onlyNum==0 || onlyLet==0){
+	var pwd2NumbersAndLetters = document.getElementById('pwd2NumbersAndLetters');
+	if(pwd2NumbersAndLetters != null)
+	pwd2NumbersAndLetters.style.display = 'inline';
+	addOnMouseOut(pwd2NumbersAndLetters, document.getElementById('secondPwd'));
+	return "notOk";
+}
+
+
+//must contain 8 characters
+var countPw2 = pw2.length;
+
+if(countPw2!=8){
+	var pwd2Length = document.getElementById('pwd2Length');
+	pwd2Length.style.display = 'inline';
+	addOnMouseOut(pwd2Length, document.getElementById('secondPwd'));
+	return "notOk";
+}
+
+
+//first character must be a letter
+var firstCharPw2 = pw2.charAt(0);
+
+var fcpw2 = onlyLetters(firstCharPw2);
+
+if(fcpw2 == 1){
+	var pwd2FirstCharLetter = document.getElementById('pwd2FirstCharLetter');
+	pwd2FirstCharLetter.style.display = 'inline';
+	addOnMouseOut(pwd2FirstCharLetter, document.getElementById('secondPwd'));
+	return "notOk";
+}
+
+
+//no special characters allowed
+var allowedCharacters = /^[a-zA-Z0-9]+$/;
+
+var character;
+for(i=0; i < pw2.length; i++){
+	character = pw2.charAt(i);
+	if(!allowedCharacters.test(character)){
+		var pwd2NoSpecialCharsAllowed = document.getElementById('pwd2NoSpecialCharsAllowed');
+		pwd2NoSpecialCharsAllowed.style.display = 'inline';
+		addOnMouseOut(pwd2NoSpecialCharsAllowed, document.getElementById('secondPwd'));
+		return "notOk";
+	}
+}
+
+//must not contain more than 2 occurrences of any number or letter
+var character;
+
+var pwdArray = pw2.split('');
+var counter = 0;
+
+for(i=0; i < pw2.length; i++){
+	character = pw2.charAt(i);
+	for(j=0; j < pwdArray.length; j++){
+		if(pwdArray[j] == character){
+			counter++;
+		}	
+	}
+	if(counter>2){
+		var pwd2MoreThanTwoOcur = document.getElementById('pwd2MoreThanTwoOcur');
+		pwd2MoreThanTwoOcur.style.display = 'inline';
+		addOnMouseOut(pwd2MoreThanTwoOcur, document.getElementById('secondPwd'));
+		return "notOk";
+	}
+	counter = 0;
+}
+
+
+//must not contain more than two consecutive characters together
+var moreThanTwoConsecutive = 0;
+
+moreThanTwoConsecutive = moreThanTwoConsecutiveCharacters(pw2);
+if(moreThanTwoConsecutive == 1){
+		var pwd2MoreThanTwoConsecutiveChars = document.getElementById('pwd2MoreThanTwoConsecutiveChars');
+		pwd2MoreThanTwoConsecutiveChars.style.display = 'inline';
+		addOnMouseOut(pwd2MoreThanTwoConsecutiveChars, document.getElementById('secondPwd'));
+		return "notOk";
+}
+
+
+//must not contain the "Banamex" string
+var pw2LowerCase = pw2.toLowerCase();
+
+if(pw2LowerCase.search("banamex")!=-1){
+	var pwd2ContainsBanamexString = document.getElementById('pwd2ContainsBanamexString');
+	pwd2ContainsBanamexString.style.display = 'inline';
+	addOnMouseOut(pwd2ContainsBanamexString, document.getElementById('secondPwd'));
+	return "notOk";
+}
+
+
+//second input must match first input
+if(pw1!=pw2){
+	var pwd2NoMatchPwd1 = document.getElementById('pwd2NoMatchPwd1');
+	if(pwd2NoMatchPwd1 != null){
+	pwd2NoMatchPwd1.style.display = 'inline';
+	addOnMouseOut(pwd2NoMatchPwd1, document.getElementById('secondPwd'));
+	return "notOk";
+}}
+
+
+
+return validation;
+}
+
+
+
+function onlyLetters(varString){
+var strValue = 0;
+	var pattern = /^[a-zA-Z]+$/;
+	var character;
+	for(i=0; i < varString.length; i++){
+		character = varString.charAt(i);
+		if(!pattern.test(character)){
+			strValue = 1;
+		}
+	}
+	return strValue;	
+}
+
+
+//returns true if it finds more than two consecutive characters in the provided string
+function moreThanTwoConsecutiveCharacters(varString){
+	var strValue = 0;
+
+	var endPosition = varString.length - 1;
+	var charEvaluationInitial = "";
+	var charEvaluationSecond = "";
+	var charEvaluationThird = "";
+	for (var i = 0; i < endPosition; i++) {
+		charEvaluationInitial = varString.substring(i, (i + 1));
+		var valueAsciiInitial = charEvaluationInitial.charCodeAt(0);
+		charEvaluationSecond = varString.substring(i+1,(i + 2));
+		var valueAsciiSecond = charEvaluationSecond.charCodeAt(0);
+		charEvaluationThird = varString.substring(i+2,(i + 3));
+		var valueAsciiThird = charEvaluationThird.charCodeAt(0);
+		
+		if((valueAsciiInitial==valueAsciiSecond+1 || valueAsciiInitial==valueAsciiSecond-1)&&(valueAsciiThird==valueAsciiSecond+1 || valueAsciiThird==valueAsciiSecond-1))
+		{
+			var strValue = 1;
+			return strValue;
+		}
+	}
+	return strValue;
+}
+
+
+
+/**
+ * 
+ * @param varString
+ * @return strValue
+ * checks varString contain only numbers
+ */
+/**Start function onlyNumbers **/
+function onlyNumbers(varString){
+	var strValue = 0;
+	var pattern = /^\d$/;
+	var character;
+	for(i=0; i < varString.length; i++){
+		character = varString.charAt(i);
+		if(!pattern.test(character)){
+			strValue = 1;
+		}
+	}
+	return strValue;		
+}
+/**End function onlyNumbers **/
+
+/**
+ * @param varString
+ * @return strValue
+ * returns TRUE the there are two identical consecutive characters
+ */
+/**Start function isTwoCharactersEquals **/
+function isTwoCharactersEquals(varString){
+	var strValue = 0;
+	
+	var endPosition = varString.length - 1;
+	var charEvaluationInitial = "";
+	var charEvaluationSecond = "";
+	for (var i = 0; i < endPosition; i++) {
+		charEvaluationInitial = varString.substring(i, (i + 1));
+		var valueAsciiInitial = charEvaluationInitial.charCodeAt(0);
+		charEvaluationSecond = varString.substring(i+1,(i + 2));
+		var valueAsciiSecond = charEvaluationSecond.charCodeAt(0);
+		
+		if (valueAsciiInitial==valueAsciiSecond) {
+			strValue = 1;
+		}
+	}	
+	return strValue;
+}
+/**End function isTwoCharactersEquals **/
+
+/**
+ * @param varString
+ * @return strValue
+ * returns TRUE the there are two consecutive characters ascending or downstream
+ */
+/**Start function isConsecutiveCharacters **/
+function isConsecutiveCharacters(varString){
+	var strValue = 0;
+
+	var endPosition = varString.length - 1;
+	var charEvaluationInitial = "";
+	var charEvaluationSecond = "";
+	for (var i = 0; i < endPosition; i++) {
+		charEvaluationInitial = varString.substring(i, (i + 1));
+		var valueAsciiInitial = charEvaluationInitial.charCodeAt(0);
+		charEvaluationSecond = varString.substring(i+1,(i + 2));
+		var valueAsciiSecond = charEvaluationSecond.charCodeAt(0);
+		
+		if (valueAsciiInitial==valueAsciiSecond+1 || valueAsciiInitial==valueAsciiSecond-1) {
+			var strValue = 1;
+		}
+	}
+	return strValue;
+}
+
+/**
+ * 
+ * @param varString
+ * @return strValue
+ * returns true if the character is number
+ */
+/**Start function isNumber **/
+function isNumber(varString) 
+{
+	var strValue = 0;
+	var valueAscii = varString.charCodeAt(0);
+	if (valueAscii >= 48 && valueAscii <= 57) {
+		strValue = 1;
+	}
+	return strValue;
+}
+
+/**
+ * 
+ * @param varString
+ * @return strValue
+ * returns true if there is no number
+ */
+/**Start function notContainNumbers **/
+function notContainNumbers(varString) 
+{
+	var strValue = 1;
+	var endPosition = varString.length;
+	var charEvaluation = "";
+	for (var i = 0; i < endPosition; i++) {
+		charEvaluation = varString.substring(i, (i + 1));  
+		if (this.isNumber(charEvaluation)) {
+			strValue = 0;
+		}
+	}
+	return strValue;
+}
+
+
+
+function validateEnteredEContract(){
+
+//retrieving user input
+var email1 = document.getElementById('email1').value;
+var email2 = document.getElementById('email2').value;
+var cellphone = document.getElementById('customerCellularPhone').value;
+
+
+var childNodesArray = document.getElementById('firstEmailErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('email1Ok').style.display = 'none';
+	
+	
+
+var childNodesArray = document.getElementById('secondEmailErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('email2Ok').style.display = 'none';
+
+
+var childNodesArray = document.getElementById('cellphoneErrors').getElementsByTagName("span");
+for(i=0; i<childNodesArray.length; i++){
+	if(childNodesArray[i].style.display == 'inline'){
+		var filledNode = childNodesArray[i].id;
+		document.getElementById(filledNode).style.display = 'none';
+		}
+}
+document.getElementById('cellphoneOk').style.display = 'none';
+
+
+varAllClean=0;
+
+if(email1==""&&email2==""&&cellphone==""){
+varAllClean=1;
+}
+
+if(email1!=""||email2!=""||varAllClean==1){
+var firstFieldValidated = validateFirstEmail(email1);
+var secondFieldValidated = validateSecondEmail(email1, email2, firstFieldValidated);
+}
+
+if(cellphone!=""){
+var cellphoneValidated = validateCellphone(cellphone, firstFieldValidated, secondFieldValidated);
+}
+
+var formSubmitable = true;
+var focusAsigned = false;
+
+
+//focus goes to the first field with errors
+if(firstFieldValidated == "notOk"){
+	document.getElementById('email1').focus();
+	formSubmitable = false;
+	focusAsigned = true;
+	$(document.getElementById('email1')).addClass("revisar2");
+}else{
+	if(email1!=""){
+		$(document.getElementById('email1')).removeClass("revisar2");
+		//document.getElementById('email1Ok').style.display = 'inline';
+	}else{
+		$(document.getElementById('email1')).addClass("revisar2");
+	}
+}
+
+if(secondFieldValidated == "notOk"){
+	if(!focusAsigned){
+		document.getElementById('email2').focus();
+	}
+	formSubmitable = false;
+	$(document.getElementById('email2')).addClass("revisar2");
+}else{
+	if(email2!=""){
+		$(document.getElementById('email2')).removeClass("revisar2");
+		//document.getElementById('email2Ok').style.display = 'inline';
+	}else{
+		$(document.getElementById('email2')).addClass("revisar2");
+	}
+}
+
+if(cellphoneValidated == "notOk"){
+	if(!focusAsigned){
+		document.getElementById('customerCellularPhone').focus();
+	}
+	formSubmitable = false;
+	$(document.getElementById('customerCellularPhone')).addClass("revisar2");
+}else{
+	if(cellphone!=""){
+		//document.getElementById('cellphoneOk').style.display = 'inline';
+		$(document.getElementById('customerCellularPhone')).removeClass("revisar2");
+	}else{
+		$(document.getElementById('customerCellularPhone')).addClass("revisar2");
+	}
+}
+	
+if(formSubmitable){
+	document.forms['subappform'].submit('submit');
+}else{
+	return false;
+}
+}
+
+function validateEmailChars(val) {
+  if (/^[A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.([a-zA-Z]{2}|com|COM|org|ORG|net|NET|gov|GOV|biz|BIZ|info|INFO|name|NAME|aero|AERO|jobs|JOBS|museum|MUSEUM|coop|COOP)$/.test(val)){
+	return 1;
+  } else {
+	return 0;
+  }
+}
+
+function validateSpace(val){
+	var esp=val.split(" ");
+    if (esp.length >1) {  
+           return "notOk";  
+       }  
+    return "ok";
+}
+
+function validateLength(val, max, min, exactlyMax){
+	if(val==undefined){
+		return "min";
+	}
+	
+	var count = val.length;
+	
+	if(exactlyMax==1){
+		if(count!=max){
+			return "max";
+		}
+	}
+	if(count>max){
+		return "max";
+	}
+	if(count<min){
+		return "min";
+	}
+	return "ok";
+}
+
+
+function validateCellphone(cellphone, showErrorFirst, showErrorSecond){
+
+var validation = "ok"; 
+
+if (showErrorFirst=="notOk" || showErrorSecond=="notOk" ){
+	return "notOk";
+}
+
+
+//30 characters after and before @
+
+var lengthVal = validateLength(cellphone,10,1,1);
+
+if(lengthVal=="max"){
+	document.getElementById('cellphoneLength').style.display = 'inline';
+	return "notOk";
+}
+
+var onlyNum=onlyNumbers(cellphone);
+if(onlyNum==1){	
+	document.getElementById('cellphoneType').style.display = 'inline';
+	return "notOk";
+}
+
+return validation;
+}
+
+
+
+function validateFirstEmail(em1){
+
+var validation = "ok"; 
+
+
+//30 characters after and before @
+
+var em1p=em1.split("@");
+
+var lengthVal = validateLength(em1,61,1,0);
+
+if(lengthVal=="min"){
+	document.getElementById('email1Empty').style.display = 'inline';
+	return "notOk";
+}
+
+
+var correctChars=validateEmailChars(em1);
+
+if(correctChars==0){
+	document.getElementById('email1WrongChars').style.display = 'inline';
+	return "notOk";
+}
+
+
+var lengthVal1 = validateLength(em1p[0],30,1);
+var lengthVal2 = validateLength(em1p[1],30,1);
+if (lengthVal1=="ok")
+	var spaceVal1 = validateSpace(em1p[0]);
+if((lengthVal2=="ok"))	
+	var spaceVal2 = validateSpace(em1p[1]);
+
+
+
+if(lengthVal1!="ok" || lengthVal2!="ok" || spaceVal1!="ok"  || spaceVal2!="ok"  ){
+	document.getElementById('email1Wrong').style.display = 'inline';
+	return "notOk";
+}
+
+return validation;
+}
+
+//second field validations
+function validateSecondEmail(em1, em2, showErrors){
+
+var validation = "ok"; 
+
+if(showErrors=="notOk"){
+	return "notOk";
+}
+
+//must contain letters and numbers
+
+if(em1!=em2){
+	document.getElementById('email2Wrong').style.display = 'inline';
+	return "notOk";
+}
+var lengthVal = validateLength(em2,61,1,0);
+
+if(lengthVal=="min"){
+	document.getElementById('email2Empty').style.display = 'inline';
+	return "notOk";
+}
+
+var correctChars=validateEmailChars(em1);
+
+if(correctChars==0){
+	document.getElementById('email1WrongChars').style.display = 'inline';
+	return "notOk";
+}
+
+return validation;
+}
+function addOnMouseOut(spanElement, inputElement){
+	
+	spanElement.onmouseover = function(){
+		spanElement.style.display = 'inline';
+	}
+	
+	spanElement.onmouseout = function(){
+		spanElement.style.display = 'none';
+	}
+	
+	inputElement.onblur = function(){
+		spanElement.style.display = 'none';
+	}
+	
+	
+}
+
+
+function addOnMouseOut_2(spanElement ,spanElementToHide , inputElement){
+	
+	spanElement.onmouseover = function(){
+		spanElementToHide.style.display = 'inline';
+	}
+	
+	spanElement.onmouseout = function(){
+		spanElementToHide.style.display = 'none';
+	}
+	
+	inputElement.onblur = function(){
+		spanElementToHide.style.display = 'none';
+	}
+	
+	
+}
+
+/*
+* /JPS/portal/js/validateSession.js
+*/
+function doTimer(milliseconds){
+	var t=setTimeout("callToLogOut()",milliseconds);
+}
+
+function callToLogOut() {
+	location.replace('/MXGCB/apps/logout/flow.action?logOutType=timeOut');
+}
+
+function resetTime(){
+	clearTimeout(logoutTimeout);
+	logoutTimeout=setTimeout("callToLogOut()",sessionTimeout);
+} 
+
+function resetTimeOverlay(){  
+	if(timeoutDisplayRenew<=0.0){
+		var logoutTimeoutOverlay = setTimeout("displayTimeoutOverlayPostLogin()",1);
+	}else{
+		var logoutTimeoutOverlay = setTimeout("displayTimeoutOverlayPostLogin()",timeoutDisplayRenew);
+	}
+}
+
+function removeFirstZero(event) {
+    var inputPass = $('#textCliente');
+    if (inputPass.val().indexOf('0') == 0) {
+        inputPass.val(inputPass.val().replace(/^0+/g, ''));
+    }
+}
+
+
+function blockFirstZero(event) {
+    event = event || window.event;
+    var code = event.which || event.keyCode;
+    
+    if ($('#textCliente').val().length == 0 && code == 48) {
+        return false;
+    }
+    return true;
+}

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionBitacora" Type="nvarchar(max)" />
+    <Property Name="IdUsuario" Type="int" />
+    <Property Name="FechaBitacora" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="IdErrorLog" />
+    </Key>
+    <Property Name="IdErrorLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Error" Type="nvarchar(max)" />
+    <Property Name="Modulo" Type="nvarchar(max)" />
+    <Property Name="Fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Fraccionamiento">
+    <Key>
+      <PropertyRef Name="IdFraccionamiento" />
+    </Key>
+    <Property Name="IdFraccionamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdEstado" Type="int" />
+    <Property Name="Domicilio" Type="nvarchar(max)" />
+    <Property Name="IP" Type="nvarchar" MaxLength="50" />
+    <Property Name="ServerSql" Type="nvarchar(max)" />
+    <Property Name="PuertoSql" Type="nvarchar" MaxLength="9" />
+    <Property Name="UserSql" Type="nvarchar" MaxLength="50" />
+    <Property Name="PswSql" Type="nvarchar(max)" />
+    <Property Name="MacAdress" Type="nvarchar(max)" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="FechaModificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contrasena" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="FechaModificacion" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Bitacora_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Bitacora">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SAModelStoreContainer">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fraccionamiento" EntityType="Self.Fraccionamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bitacora_Usuario" Association="Self.FK_Bitacora_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Bitacora" EntitySet="Bitacora" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

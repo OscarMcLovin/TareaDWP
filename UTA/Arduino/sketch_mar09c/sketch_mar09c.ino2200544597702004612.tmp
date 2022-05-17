@@ -1,0 +1,19 @@
+volatile int memoria;
+const int LED =13;
+void setup() {
+  Serial.begin(9600);
+  attachInterrupt(digitalPinToInterrupt(2),boton ,RISING);
+}
+
+void loop() {
+  pinMode(LED,OUTPUT);
+  if(memoria>1){
+    digitalWrite(LED, HIGH); // enciende el LED
+    Serial.println(memoria);
+ 
+  }
+  digitalWrite(LED, LOW);
+}
+void boton(){
+  memoria++;
+}

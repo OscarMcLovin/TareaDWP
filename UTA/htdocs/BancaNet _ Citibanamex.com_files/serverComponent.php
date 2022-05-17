@@ -1,0 +1,2 @@
+
+Bootstrapper._serverTime = '2022-04-11 09:33:36'; Bootstrapper._clientIP = '0.0.0.0'; Bootstrapper.insertPageFiles(['https://nexus.ensighten.com/citi/mex_prod/code/3b9bfc36bb90d42be4daace426b14fcc.js?conditionId0=421908','https://nexus.ensighten.com/citi/mex_prod/code/556f009685a77dad10ee9bacdcfe567b.js?conditionId0=705362']);Bootstrapper.setPageSpecificDataDefinitionIds([]);

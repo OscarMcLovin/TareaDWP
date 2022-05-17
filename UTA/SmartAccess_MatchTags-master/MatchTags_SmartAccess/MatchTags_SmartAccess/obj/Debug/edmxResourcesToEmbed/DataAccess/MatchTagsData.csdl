@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionBitacora" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdUsuario" Type="Int32" />
+    <Property Name="FechaBitacora" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Bitacora_Usuario" FromRole="Bitacora" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="IdErrorLog" />
+    </Key>
+    <Property Name="IdErrorLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Error" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Modulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Fraccionamiento">
+    <Key>
+      <PropertyRef Name="IdFraccionamiento" />
+    </Key>
+    <Property Name="IdFraccionamiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdEstado" Type="Int32" />
+    <Property Name="Domicilio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServerSql" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PuertoSql" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="UserSql" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PswSql" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MacAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Boolean" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_Usuario" FromRole="Usuario" ToRole="Bitacora" />
+  </EntityType>
+  <Association Name="FK_Bitacora_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Bitacora">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" />
+    <EntitySet Name="Fraccionamiento" EntityType="Self.Fraccionamiento" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Bitacora_Usuario" Association="Self.FK_Bitacora_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Bitacora" EntitySet="Bitacora" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

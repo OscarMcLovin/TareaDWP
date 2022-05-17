@@ -1,0 +1,128 @@
+(function($) {
+	var isAjaxCalled = false;
+	
+	$.ajaxSetup({
+		statusCode: {
+			    400: function() {
+					window.location = urlSignonCancel;
+			    },
+			    500: function (xhr, ajaxOptions, thrownError){
+			    	var message= jQuery.trim(xhr.responseText);
+			    	if (message.length > 0){
+			    		//alert(message);
+			    	}
+                }    
+			  }
+	});
+	
+	$.submitForm = function(form, containerIdOverlay){
+		$.ajax({
+     	   type: "POST",
+     	   url: form.attr("action"),
+     	   data: form.serialize(),
+     	   beforeSend: function(data){
+				// Show Spinner
+     		},
+     	   success: function(data){
+     			$("#" + containerIdOverlay + "Content").html(data);
+     			//window.callJBAOnload = false;
+     			//window.JBAOnload = function(){};
+     	   },
+     	   complete: function(data){
+     		// Close Spinner
+     	   }
+     	 });
+	};
+	
+	$.openOverlay = function(containerIdOverlay, aUrl){
+		if(accountVar){
+			location.replace('/MXGCB/JPS/portal/ErrorPage.do');
+			}
+		if(isAjaxCalled == false){
+			isAjaxCalled = true;
+			$.ajax({
+				  url: aUrl,
+				  type: 'POST',
+				  success: function(data) {
+					$("#" + containerIdOverlay + "Content").html(data);
+					$("#" + containerIdOverlay + "OpacityLayer").css('opacity','.3');
+					$("#" + containerIdOverlay + "OpacityLayer").css({position: "absolute",width: "100%",height: "100%",top:"0px",left:"0px"});
+					$("#" + containerIdOverlay + "OpacityLayer").css("z-index", "14");
+					$("#" + containerIdOverlay + "OpacityLayer").css("background-color", "white");
+					$("#" + containerIdOverlay + "Error").css("z-index", "15");
+					$("#" + containerIdOverlay + "OpacityLayer").show("fast");
+					$("#" + containerIdOverlay + "Error").show();
+				  },
+				  complete: function(){
+					  isAjaxCalled = false;
+				  }
+			});
+		}
+	};
+	$.RPOverlay = function(config){
+		$.ajax({ 
+			url: config.url,
+			type:"POST", 
+			dataType: "html",
+			global:false,
+			async:true,
+			data: {
+				_flowExecutionKey:config.fek,
+				_eventId: config.eventId
+			},
+			success:function(data, status, jqXHR){
+				$("#" + config.containerIdOverlay + "Content").html(data);
+			},
+			error:function(jqXHR){
+
+			}
+		});
+		
+	};
+	
+	$.openHardToken = function(containerIdOverlay, aUrl, fek, eventId){
+		
+		$.ajax({
+			  url: aUrl,
+			  type: 'POST',
+			 data: {'_flowExecutionKey':fek, '_eventId': eventId},
+			  success: function(data) {
+                if(data.indexOf('otpinOverlay321968')== -1){
+				    $("#" + containerIdOverlay + "Content").html(data);
+                }
+			  }
+		});
+		
+	};
+	$.closeOverlay = function(containerIdOverlay){
+		$("#" + containerIdOverlay + "OpacityLayer").hide();
+		$("#" + containerIdOverlay + "Error").hide();
+	};
+	
+	$.OTPOverlay = function(config){
+		$.ajax({ 
+			url: config.url,
+			type:"POST", 
+			dataType: "html",
+			global:false,
+			async:true,
+			data : jQuery.param(config.params),
+			beforeSend:function(){
+				if(typeof latamMex !== 'undefined')
+					latamMex.JAMP.start();
+			},
+			complete:function(){
+				if(typeof latamMex !== 'undefined')
+					latamMex.JAMP.destroy();
+			},
+			success:function(data, status, jqXHR){
+				$("#" + config.containerIdOverlay + "Content").html(data);
+			},
+			error:function(jqXHR){
+				$('#appBody').html(jqXHR.responseText);
+			}
+		});
+		
+	};
+	
+})(jQuery);

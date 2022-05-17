@@ -1,0 +1,235 @@
+var headerMenuflg = 0;
+
+$(document).ready(function() {
+	  var checkLogin = $("#headerUXFTA").length;
+	  if(typeof checkLogin != 'undefined' && checkLogin != '' && checkLogin > 0){
+		  $(".newHeader-container").show();
+		  $("#newFecha").html(getDateText('es'));
+		  $("#newName").html($("#user-info .userInfo-content div.float-left span").html());
+		  $("#newLastaccess").html($("#user-info .userInfo-content div.float-right span").html());
+	  } else {
+		  $(".newHeader-container").hide();
+	  }
+	  
+	  setTimeout(function() {
+		  headerMenuflg = $("#nav_marketing li.active a").attr("data-id");
+		//  $(".newHeader-container #data-id-"+headerMenuflg).addClass("active");
+	  },1000);
+	  if(typeof localStorage != undefined) {
+		  var copsPath = (location.pathname).split("/")[3];
+		  if(copsPath.indexOf('copsparametric') != -1 || copsPath.indexOf('copsgen') != -1) {
+			  localStorage.setItem('mlFlg',3);
+		  } else if(copsPath.indexOf('investment') != -1 ) {
+			  localStorage.setItem('mlFlg',2);
+		  } else if(copsPath.indexOf('pnt') != -1 || copsPath.indexOf('seeebankingtransaction') != -1 || copsPath.indexOf('seetax') != -1) {
+			  localStorage.setItem('mlFlg',1);
+		  } else if(copsPath.indexOf('electronicstmts') != -1 || copsPath.indexOf('ssoedel') != -1 || copsPath.indexOf('prsonlzdaccount') != -1) {
+			  localStorage.setItem('mlFlg',4);
+		  } else if (copsPath.indexOf('ain') != -1) {
+			  localStorage.setItem('mlFlg',0);
+		  }
+		  var getmenuFlg = localStorage.getItem('mlFlg');
+		  if(getmenuFlg != null) {
+			  $(".ele-"+getmenuFlg+" a div").addClass("active");
+		  }
+	  } 
+	  	  
+ });
+
+$(document).ready(function() {
+	$("#data-id-6").removeClass("active");
+	$(".ayuda-container").hide();
+    $(".ayuda-active").on('click', function() {
+        $("#ayuda-container").toggle();
+       // $(".headermenu-ul li a div").removeClass("active")
+       // $("#data-id-6").toggleClass("active");
+    })
+    /*Remove enviar mensaje option menu - INC0089792767*/
+	  if($("#message").parent().length > 0) {
+		  $("#message").parent().css("display","none");
+		  $("ul.contact-dropdown-menu").css("height","74px");
+	  }
+});
+
+function openAyuda2() {
+	window.open('https://www.citibanamex.com/sitios/aclaraciones-cargos-tarjetas/index.html', 'myWin', 'width = 500, height = 500,resizable = yes,scrollbars=yes');
+}
+
+function contactOverlay() {	
+	$(".contact-dropdown-menu").toggle();	
+};
+
+function openSucur() {
+	window.open("http://www.banamex.com/recursos/apps/en/sucursal.htm", '_blank');
+}
+
+function ventanaPortal() {
+    var largo = 650;
+    var altura = 450;
+    var top = (screen.height-altura)/2;
+    var izquierda = (screen.width-largo)/2; 
+
+    window.open("https://www.banamex.com/SoporteBanamex/index.html?lid=MX|BNP3|MULTISALDOS-TextoBotton-02102017-AyudaBNP-irLearningCenter-ES","ventana1","width=650,height=450,scrollbars=yes,resizable=yes,top=" + top + ",left=" + izquierda);
+}
+
+function openChat() {
+	var hostname = (location.hostname).replace(/\d+/g, '');
+	if((hostname.indexOf("sit") !== -1) || (hostname.indexOf("uat") !== -1) || (hostname.indexOf("dev") !== -1) || (hostname.indexOf("gtgcg-avtlw03s") !== -1)){
+        hostname = hostname.replace("bancapersonal.",'');
+    } else {
+        if(hostname.indexOf('piloto') !== -1){
+            hostname = hostname.replace("piloto.bancanet.",'');
+        } else {
+            hostname = hostname.replace("bancanet.",'');
+        } 
+    }
+    var domain = location.protocol + '//chat.' + hostname + (location.port ? ':' + location.port : '');
+
+    javascript: popopen('registered', domain + '/MX/WebChat/');
+}
+
+  function logout(type) {
+	  if(typeof localStorage != undefined) {
+		   localStorage.removeItem('mlFlg');
+	  }
+	  location.replace('/MXGCB/apps/logout/flow.action?logOutType='+type);
+  }
+  
+  function openContact() {
+	$(".contact-dropdown-menu").hide();
+    var x=(screen.width-650)/2; 
+	var y=(screen.height-450)/2; 
+    var browserName = window.navigator.userAgent;
+    var locale = "es";
+
+    if (browserName.indexOf("Chrome") > 0)
+      var features="position: absolute,top="+y+",left="+x+",width=650,height=450, resizable=1";
+    else
+      var features="position: absolute,top="+y+",left="+x+",width=650,height=450, resizable=1,location=yes";
+
+    if (locale == "es"){
+      window.open('https://bancanet.banamex.com/contacto/queremos-escucharte.html','',features);
+    }
+    if (locale == "en"){
+      window.open('https://bancanet.banamex.com/contacto/queremos-escucharte_en.html','',features);
+    }
+  }
+  
+  function openCallUs() {
+	$(".contact-dropdown-menu").hide();
+    var x=(screen.width-650)/2; 
+    var y=(screen.height-450)/2;
+    var browserName = window.navigator.userAgent;
+    var locale = "es";
+    if (browserName.indexOf("Chrome") > 0)
+      var features="position: absolute,top="+y+",left="+x+",width=650,height=450, resizable=1";
+    else
+      var features="position: absolute,top="+y+",left="+x+",width=650,height=450, resizable=1,location=yes";
+
+    if (locale == "es"){
+      window.open('https://bancanet.banamex.com/contacto/llamanos.html','',features);
+    }
+    if (locale == "en"){
+      window.open('https://bancanet.banamex.com/contacto/llamanos_en.html','',features);
+    }
+  }
+  
+  function  openMessage() {
+	$(".contact-dropdown-menu").hide();
+    var x=(screen.width-650)/2; 
+    var y=(screen.height-450)/2;
+    var mx_locale = "es"
+    var browserName = window.navigator.userAgent;
+
+    if (browserName.indexOf("Chrome") > 0)
+      var features = "position: absolute,top="+y+",left="+x+",width=650,height=450,toolbar=0,status=0, scrollbars=1, resizable=1";
+    else
+	    var features = "position: absolute,top="+y+",left="+x+",width=650,height=450,toolbar=0,status=0, scrollbars=1, resizable=1,location=yes";
+	
+    if (mx_locale == "en"){
+      window.open('https://portal.banamex.com.mx/contactanos/contactanosModal/indexEng.html?xhost=http://www.banamex.com','',features);
+    }else {
+      window.open('https://portal.banamex.com.mx/esp/escribenos.html?xhost=http://www.banamex.com','',features);
+    }
+  }
+  
+  function getDateText(locale, pDate){
+	var out = "";
+	var dayNames=new Array();
+	var monthNames=new Array();
+   
+	dayNames['es']=new Array('Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado')
+	monthNames['es']=new Array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre')
+
+	dayNames['en']=new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday')
+	monthNames['en']=new Array('January','February','March','April','May','June','July','August','September','October','November','December')
+	
+	if (pDate){
+		var now = new Date(pDate);
+	}
+	else {
+		var now = new Date();
+	}
+		
+	var dayText=dayNames[locale][now.getDay()];
+	var monthText=monthNames[locale][now.getMonth()];
+	
+	var day=now.getDate(); //day
+	var year=now.getFullYear(); //year
+
+	//hh-mm-ss
+	var hours=now.getHours();
+	var minutes=now.getMinutes();
+	var seconds=now.getSeconds();
+
+	if(hours<=9)
+	   hours='0'+hours;
+
+	if(minutes<=9)
+	   minutes='0'+minutes;
+	
+	if(seconds<=9)
+	   seconds='0'+seconds;
+
+	if (locale == "es"){
+		out += dayText + " " + day + " de ";
+		out += monthText + " de ";
+		out += year;
+		out += ", " +hours+":"+minutes+":"+ seconds ;
+		
+	}
+	if (locale == "en"){
+		out += dayText + " ";
+		out += monthText + " ";
+		out += day + ", ";
+		out += year;
+		out += ", " +hours+":"+minutes+":"+ seconds;
+		
+	}
+
+	return out;
+	
+	
+}
+
+  
+  function menuclick(link) {
+	  console.log("menuList from js:"+link);
+	  if(typeof localStorage != undefined) {
+	      localStorage.setItem('mlFlg',link);
+	  }
+	  var redirectlink = '/MXGCB/CBOL/ain/dashboard/flow.action';
+	  $(".headermenu-main-container a").removeClass("active");
+	  if(link == 1) {
+		  redirectlink = '/MXGCB/CBOL/pnt/mmw/flow.action';
+	  } else if(link == 2) {
+		  redirectlink = '/MXGCB/apps/investment.seesummary/flow.action';
+	  } else if(link == 3) {
+		  redirectlink = '/MXGCB/apps/copsgen/flow.action';
+	  } else if(link == 4) {
+		  redirectlink = '/MXGCB/apps/changepassword/flow.action';
+	  } else if(link == 5) {
+		  redirectlink = '';
+	  }
+	  window.location = redirectlink;
+  }

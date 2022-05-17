@@ -1,0 +1,312 @@
+var newDomainName;
+
+function getInternetExplorerVersion() {
+	var rv = -1; // Return value assumes failure.
+	if (navigator.appName == 'Microsoft Internet Explorer') {
+		var ua = navigator.userAgent;
+		var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+		if (re.exec(ua) != null)
+			rv = parseFloat(RegExp.$1);
+	} else if (navigator.appName == 'Netscape') {
+		var ua = navigator.userAgent;
+		var re = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
+		if (re.exec(ua) != null)
+			rv = parseFloat(RegExp.$1);
+	}
+	return rv;
+}
+
+var customer_portal=null; 
+var chat_avail='true';
+var scriptLoaded = false;
+var isDocumentDomainSet;
+
+function popopen(userType,file,dvaPageFlag) {
+		var hostname = (location.hostname).replace(/\d+/g, '');
+        if((hostname.indexOf("sit") !== -1) || (hostname.indexOf("uat") !== -1) || (hostname.indexOf("dev") !== -1) || (hostname.indexOf("gtgcg-avtlw03s") !== -1)){
+            hostname = hostname.replace("bancapersonal.",'');
+        } else {
+            if(hostname.indexOf('piloto') !== -1){
+                hostname = hostname.replace("piloto.bancanet.",'');
+            } else {
+                hostname = hostname.replace("bancanet.",'');
+            } 
+        }
+        file = location.protocol + '//chat.' + hostname + (location.port ? ':' + location.port : '') + '/MX/WebChat/';
+       	// Overriding domain name in Mexico Bancanet only on click of chat link
+			if (null == sessionStorage.getItem("chatSessionFlag")) {
+				var ieVer = getInternetExplorerVersion();
+				if (ieVer != 7.0 && ieVer != 8.0 && ieVer != 9.0 && ieVer != 10.0) {
+					var domainName = document.domain;
+					var arr = domainName.split('.');
+					var arrLen = arr.length;
+					if (arrLen >= 2) {
+						var index = arrLen - 2;
+						document.domain = domainName.substring(domainName.indexOf(arr[index]), domainName.length);
+						isDocumentDomainSet = 'Y';
+						// console.log(document.domain);
+					} else {
+						// console.log("Cannot override document.domain.");
+					}
+				}
+			}
+	
+              // Changes for performance enhancement to load co-browse JS from Chat server only on invocation of popopen()	
+			 if (ieVer != 7.0 && ieVer != 8.0 && ieVer != 9.0 && ieVer != 10.0) {
+				 sessionStorage.setItem("chatSessionFlag","true");
+			 }
+              
+              if((null == customer_portal) || (true == customer_portal.closed)) {
+                 if((null != customer_portal && true == customer_portal.closed) /*|| (null == customer_portal &&  null != localStorage.getItem("chatWindowFlag"))*/){
+                       localStorage.removeItem('chatWindowFlag');
+                 }
+                 
+              var responseFlag = responseChatURL();                 
+                 
+                 
+              var windowLocation = null;
+              var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+              if (null == localStorage.getItem('chatWindowFlag')) {
+					var token = null;
+     				var samlTokenRequired = false;
+     				if (typeof chatConfigJson != "undefined" && "true" === chatConfigJson.samlTokenRequired) {
+	     				samlTokenRequired = true;
+	     				token = getSAMLToken();
+     				}
+     				if(token != "error" && responseFlag){
+						 // create window
+     						//Sonar fix begins
+						 /*if (isSafari) {
+							   customer_portal = window.open("about:blank",'customer_portal','width =465, height= 495,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,dependent=yes,scrollbars=yes');       
+						 } else {
+							   customer_portal = window.open("about:blank",'customer_portal','width =465, height= 495,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,dependent=yes,scrollbars=yes');
+						 }*/
+						 customer_portal = window.open("about:blank",'customer_portal','width =465, height= 495,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,dependent=yes,scrollbars=yes');
+						 //Sonar fix end
+						 localStorage.setItem("chatWindowFlag", customer_portal);
+						 //form1.submit();
+						 //Introduced To Fix APAC IE11 compatibility issue
+						// SAML changes start
+						
+						
+						// SAML changes end
+							submitChatForm(customer_portal, file, samlTokenRequired, token);
+						
+                    }
+					else{
+						showErrorMessage();
+					}
+              } else {
+                     if (null == customer_portal) {
+						var token = null;
+						var samlTokenRequired = false;
+						if (typeof chatConfigJson != "undefined" && "true" === chatConfigJson.samlTokenRequired) {
+							samlTokenRequired = true;
+							token = getSAMLToken();
+						}
+						if(token != "error" && responseFlag){
+							//Sonar fix begins
+						    /*if (isSafari) {
+								  customer_portal = window.open("",'customer_portal','width =465, height= 495,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,dependent=yes,scrollbars=yes');       
+							   } else {
+								  customer_portal = window.open("",'customer_portal','width =465, height= 495,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,dependent=yes,scrollbars=yes');
+							   }*/
+						    customer_portal = window.open("",'customer_portal','width =465, height= 495,toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=no,dependent=yes,scrollbars=yes');
+						    //Sonar fix end
+							   try {
+								  windowLocation = customer_portal.location.href; 
+								  if ( windowLocation  == "about:blank" ) {
+									  //form1.submit();
+									  //SAML changes start
+									
+										// SAML changes end
+										submitChatForm(customer_portal, file, samlTokenRequired, token);
+									
+								  }
+							   } catch(err) {
+								   //console.log(err);
+							   }
+							   customer_portal.focus();
+						}
+						else{
+							showErrorMessage();
+						}
+                     }
+					 
+               }
+             } else {
+                customer_portal.focus();
+             }
+
+  }
+
+function responseChatURL(){
+	var rFlag = false;
+    $.ajax({
+		url : aeWebServiceUrl,
+		type : "GET",
+		async : false,
+		global: false,
+		complete: function(data){
+			var status = data.status;
+			var rdyState = data.readyState;
+			if(status == 202 && rdyState == 4){
+				rFlag = true;
+			}
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			// console.log(errorThrown);
+		}
+	});
+    
+    return rFlag;	
+}
+
+function submitChatForm(customer_portal, file, samlTokenRequired, token) {
+	if (null != customer_portal) {
+		var form1 = customer_portal.document.createElement("form");
+		form1.action = file;
+		form1.target = "customer_portal";
+		form1.method = "POST";
+
+		// create an element 
+		if (!samlTokenRequired) {
+			var keepAliveElem = customer_portal.document.createElement("input");
+			keepAliveElem.type = "hidden";
+			keepAliveElem.name = "keepAliveUrl";
+			var getUtil = getContextPath();
+			var contextPath = getUtil[0];
+			var getParam = getUtil[1];
+			var urlKeepAlive = getAbsoluteUrl(getParam) + contextPath
+					+ chatConfigJson.keepAliveUrl;
+			keepAliveElem.value = urlKeepAlive;
+			form1.appendChild(keepAliveElem);
+
+			var encryptedPayload = customer_portal.document
+					.createElement("input");
+			encryptedPayload.type = "hidden";
+			encryptedPayload.name = "encryptedPayload";
+			encryptedPayload.value = chatConfigJson.encryptedPayload;
+			form1.appendChild(encryptedPayload);
+		}
+		if (samlTokenRequired && null != token) {
+			var samlToken = customer_portal.document.createElement("input");
+			samlToken.type = "hidden";
+			samlToken.name = "encryptedToken";
+			samlToken.value = token;
+			form1.appendChild(samlToken);
+		}
+
+		var dvaPageFlagElement = customer_portal.document
+				.createElement("input");
+		dvaPageFlagElement.type = "hidden";
+		dvaPageFlagElement.name = "From_DVA";
+		if ((typeof dvaPageFlag != 'undefined')) {
+			dvaPageFlagElement.value = dvaPageFlag;
+		} else {
+			dvaPageFlagElement.value = '0';
+		}
+		//Adding window name to form parameters
+		var windowName = customer_portal.document.createElement("input");
+		windowName.type = "hidden";
+		windowName.name = "windowName";
+		windowName.value = "customer_portal";
+
+		//KeepAlive fix : Adding second level domain name to form parameters after over-riding document.domain
+		var domainName = customer_portal.document.createElement("input");
+		domainName.type = "hidden";
+		domainName.name = "domainName";
+		domainName.value = document.domain;
+
+		if (typeof document.documentMode != "undefined") {
+			//Adding document.documentMode to form parameters for Internet Explorer only
+			var documentMode = customer_portal.document.createElement("input");
+			documentMode.type = "hidden";
+			documentMode.name = "documentMode";
+			documentMode.value = document.documentMode;
+			form1.appendChild(documentMode);
+		}
+
+		// append it to form
+		form1.appendChild(dvaPageFlagElement);
+		form1.appendChild(windowName);
+		form1.appendChild(domainName);
+		customer_portal.document.body.appendChild(form1);
+		form1.submit();
+	}
+}
+
+function popclose() {
+	if ((null != customer_portal) && (false == customer_portal.closed)) {
+		customer_portal.close();
+		customer_portal = null;
+	} else {
+		// alert('Window already closed!');
+	}
+}
+
+function getContextPath() {
+	var paramString = '';
+	var contextPath = document.URL;
+	contextPath = contextPath.split("/");
+	for (var i = 3; i < (contextPath.length - 1); i++) {
+		contextPath[i];
+		paramString += "../";
+	}
+	contextPath = contextPath[3];
+
+	return [ contextPath, paramString ];
+}
+
+function getAbsoluteUrl(localUrl) {
+	var href = window.location.href;
+	var pathArray = href.split('/');
+	var newPathname = "";
+	for (var i = 0; i < pathArray.length - 1; i++) {
+		if (i != 0)
+			newPathname += "/";
+		newPathname += pathArray[i];
+	}
+	return newPathname + '/' + localUrl;
+}
+       
+       
+function getSAMLToken() {
+	var getUtil = getContextPath();
+	var contextPath = 'MXGCB';
+	var serviceUrl = '/' + contextPath
+			+ '/REST/chatResource/fetchSAMLToken.jws';
+	var response = null;
+
+	jQuery.ajax({
+		url : serviceUrl,
+		type : "POST",
+		async : false,
+		contentType : "text/plain",
+		dataType : "text",
+	}).done(function(data, textStatus, jqXHR) {
+		if (typeof (data) == "string") {
+			//data = JSON.parse(data);
+			//console.log("success callback" + data);		
+			var responseData = JSON.parse(data);
+			if (null != responseData.token) {
+				//console.log("token:" + responseData.token);
+				response = responseData.token;
+			}
+		}
+
+	}).fail(function(jqXHR, textStatus, errorThrown) {
+		//console.log(errorThrown);		
+		response = "error";
+	}).always(function(jqXHR, textStatus, errorThrown) {
+		//console.log(jqXHR, textStatus, errorThrown);
+	});
+
+	return response;
+}
+       
+
+function showErrorMessage() {
+	sessionStorage.setItem("chatSessionFlag","false");
+	jQuery('#cancelOverlayChat').jfpwidget('open');
+}

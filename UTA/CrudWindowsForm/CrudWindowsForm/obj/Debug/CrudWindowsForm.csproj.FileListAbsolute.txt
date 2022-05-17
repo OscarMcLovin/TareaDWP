@@ -1,0 +1,17 @@
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\CrudWF.mdf
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\CrudWF_log.ldf
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\CrudWindowsForm.exe.config
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\CrudWindowsForm.exe
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\CrudWindowsForm.pdb
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\EntityFramework.dll
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\EntityFramework.xml
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.csprojAssemblyReference.cache
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.Form1.resources
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.Properties.Resources.resources
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.csproj.GenerateResource.cache
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.csproj.CoreCompileInputs.cache
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.csproj.CopyComplete
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.exe
+C:\Users\GUILLERMO\Desktop\UTA\CrudWindowsForm\CrudWindowsForm\obj\Debug\CrudWindowsForm.pdb
